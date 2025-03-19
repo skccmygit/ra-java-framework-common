@@ -1,0 +1,36 @@
+version '1.0.0-RELEASE'
+
+bootRun {
+    enabled = false
+}
+
+bootJar {
+    enabled = false
+}
+
+dependencies {
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    // for XSS 공격 방지
+    implementation 'org.jsoup:jsoup:1.15.3'
+
+    // for kafka API 호출 로그 생성
+    implementation 'com.github.danielwegener:logback-kafka-appender:0.2.0-RC2'
+    implementation 'ch.qos.logback:logback-classic:1.2.6'
+
+    // for 엑셀
+    implementation 'org.apache.poi:poi:5.0.0'
+    implementation 'org.apache.poi:poi-ooxml:5.0.0'
+
+    // for csv
+    implementation 'org.apache.commons:commons-text:1.9'
+    implementation 'org.apache.commons:commons-csv:1.9.0'
+
+    implementation "commons-beanutils:commons-beanutils:1.9.4"
+
+    // for java email
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    // for sqltrace
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+}

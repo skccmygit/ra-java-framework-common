@@ -1,0 +1,24 @@
+dependencies {
+    implementation("io.micrometer:micrometer-tracing-bridge-brave")
+
+    // 프로젝트에서 Spring Cloud OpenFeign의 FeignClient를 사용하고 있다면 아래 의존성도 추가
+    implementation("io.github.openfeign:feign-micrometer")
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    // for DB connector
+    implementation 'mysql:mysql-connector-java:8.0.32'
+
+    // for redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.apache.commons:commons-pool2:2.11.1'
+    // implementation 'io.lettuce:lettuce-core'
+
+    implementation "org.apache.tika:tika-core:1.22"
+    implementation 'commons-io:commons-io:2.11.0'
+
+    implementation project(':api-gateway')
+    implementation project(':common-export')
+    implementation project(":common-service")
+    testImplementation 'junit:junit:4.13.1'
+}

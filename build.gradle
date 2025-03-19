@@ -1,0 +1,96 @@
+buildscript {
+	repositories {
+		// mavenCentral()
+		maven { url "https://hn-repo.fsoft.com.vn/repository/maven/" }
+	}
+
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+		classpath "io.spring.gradle:dependency-management-plugin:${springDependencyManagementPluginVersion}"
+	}
+}
+
+allprojects {
+	group 'kr.co.skcc.oss.com'
+	version '1.0-RELEASE'
+
+	// Add WSL configuration
+	tasks.withType(Test) {
+		systemProperty "java.library.path", "/usr/lib:/usr/lib/x86_64-linux-gnu"
+	}
+
+	tasks.withType(JavaExec) {
+		systemProperty "java.library.path", "/usr/lib:/usr/lib/x86_64-linux-gnu"
+	}
+
+	// Fix WSL path handling
+	tasks.withType(AbstractArchiveTask) {
+		preserveFileTimestamps = false
+		reproducibleFileOrder = true
+	}
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'maven-publish'
+
+	compileJava {
+		sourceCompatibility "$JavaVersion.VERSION_17"
+		targetCompatibility "$JavaVersion.VERSION_17"
+	}
+
+	jar {
+		enabled = true
+		archiveClassifier = ''
+	}
+
+	repositories {
+		// mavenCentral()
+		maven { url "https://hn-repo.fsoft.com.vn/repository/maven/" }
+	}
+
+	configurations {
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+	dependencies {
+		implementation group: 'aopalliance', name: 'aopalliance', version: '1.0'
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.springframework.boot:spring-boot-starter-security'
+		implementation 'org.springframework.boot:spring-boot-starter-actuator'
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+		implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
+
+		implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+		implementation 'org.apache.commons:commons-lang3:3.12.0'
+		implementation "commons-beanutils:commons-beanutils:1.9.4"
+
+		implementation 'com.google.code.gson:gson:2.8.7'
+
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+
+		implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
+		// Test Logger 의존성 추가
+		testCompileOnly 'org.projectlombok:lombok:'
+		testAnnotationProcessor 'org.projectlombok:lombok'
+
+		// for JUnit5 + AssertK + Mockito
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testImplementation 'org.springframework.security:spring-security-test'
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		}
+	}
+
+}

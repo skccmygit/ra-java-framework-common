@@ -1,0 +1,270 @@
+spring:
+  profiles:
+    group:
+      local: common-env, local-env
+      dev: common-env, dev-env
+      stg: common-env, stg-env
+      prd: common-env, prd-env
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: common-env
+
+  jpa:
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    generate-ddl: false
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: none
+      connection:
+        provider_class: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+      use-new-id-generator-mappings: false
+      naming:
+        strategy: org.hibernate.cfg.EJB3NamingStrategy
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  sql:
+    init:
+      platform: mysql
+      mode: never
+
+  messages:
+    basename: messages-${spring.application.name}
+    encoding: UTF-8
+    cacheSeconds: -1
+    use-code-as-default-message: true
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Seoul
+    # default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+      time: HH:mm:ss
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  servlet:
+    multipart:
+      maxFileSize: 500MB
+      maxRequestSize: 500MB
+      location: /data01
+
+  lifecycle:
+    timeout-per-shutdown-phase: 10s
+
+  cloud:
+    openfeign:
+      hystrix:
+        enabled: false
+      okhttp:
+        enabled: true
+      client:
+        config:
+          default:
+            connectTimeout: 60000
+            readTimeout: 10000
+            loggerLevel: basic
+            errorDecoder: kr.co.skcc.oss.com.common.exception.FeignErrorDecoder
+      micrometer:
+        enabled: true
+      circuitbreaker:
+        enabled: true
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true   # actuator를 통해 circuitbraker 상태를 확인
+        failureRateThreshold: 50        # 실패율 임계치(백분율)
+        permittedNumberOfCallsInHalfOpenState: 50  # CircuitBreaker가 HALF_OPEN 상태일 때 허용되는 호출 수
+        slidingWindowType: COUNT_BASED  # 수량 Base or 시간 Base 선택 가능
+        slidingWindowSize: 50           # 슬리이딩 윈도우 크기(수량 Base 면 호출 수 시간 Base면 시간(초))
+        minimumNumberOfCalls: 50        # 임계값 측정을 위한 최소 호출 수, 이 숫자만큼 호출하긴 전까진 CircuitBreaker Open되지 않음
+        waitDurationInOpenState: 60000  # CircuitBreaker가 OPEN -> HALF_OPEN 으로 전환하기 전까지 대기하는 시간
+        #        slowCallRateThreshold: 100 # 느린호출 임계치(백분율)
+        #        slowCallDurationThreshold: 3000 # 느린호출로 판단하는 호출 시간 임계치
+        #        maxWaitDurationInHalfOpenState: 0     # CircuitBreaker를 HALF_OPEN 상태로 유지할 수 있는 최대 시간(이시간 경과 후 OPEN 으로 전환, 0이면 permittedNumberOfCallsInHalfOpenState 채워질 떄까지 HALF_OPEN)
+        #        automaticTransitionFromOpenToHalfOpenEnabled: false # circuit이 OPEN에서 HALF_OPEN으로 변경시키는 트리거를 위한 모니터링 thread를 별도로 둘지 여부(false 면 thread를 두지 않고 call이 들어온 순간에 판단)
+        recordExceptions: # 실패로 기록될 Exception
+          - feign.FeignException.FeignServerException
+          - feign.RetryableException
+        ignoreExceptions: # 실패 /성공으로 기록되지 않고 무시할 Exception
+          - feign.FeignException.FeignClientException
+#  retry:
+#    configs:
+#      default:
+#        maxRetryAttempts: 3
+#        waitDuration: 500ms
+#        retryExceptions:
+#          - feign.RetryableException
+#          - feign.FeignException.FeignServerException
+#        ignoreExceptions:
+#          - feign.FeignException.FeignClientException
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health, mappings, httpexchanges
+  tracing:
+    sampling:
+      probability: 1.0
+    propagation:
+      type: b3
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  charset:
+    console: UTF-8
+    file: UTF-8
+  pattern:
+    console: "%d %-5level [%thread] [traceId:%X{traceId:-}] [spanId:%X{spanId:-}] %logger : %msg%n"
+    file: "%d %-5level [%thread] [traceId:%X{traceId:-}] [spanId:%X{spanId:-}] %logger : %msg%n"
+  level:
+    root: INFO
+    web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    kr.co.skcc.oss: DEBUG
+    jdbc: OFF
+    jdbc.sqlonly: INFO
+    jdbc.sqltiming: OFF
+    jdbc.resultsettable: OFF
+    jdbc.audit: OFF
+    jdbc.resultset: OFF
+    jdbc.connection: OFF
+  config: classpath:logback-trace.xml
+
+server:
+  servlet:
+    context-path: /api
+    encoding:
+      charset: UTF-8
+      force-response: true
+  port: 8080
+  shutdown: graceful
+
+springdoc:
+  swagger-ui:
+    tags-sorter: alpha
+
+# 추후 시크릿 주입으로 변경 예정
+app:
+  # kmskeyarn: arn:aws:kms:ap-northeast-2:140499857323:key/44f241ff-c3ba-4550-a467-352695d464f4
+  api-auth-enable: false
+  cryptoKey: 11111111110000000000222222222233
+  hashSalt: {104268329458907258984230}
+  email:
+    host: ${EMAIL_SERVER_IP}
+    port: 25
+    sendMailAddress: sender@sk.com
+  api-delay-time: 5000
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local-env
+
+  servlet:
+    multipart:
+      maxFileSize: 500MB
+      maxRequestSize: 500MB
+      location: C:\workspace\upload
+
+  datasource:
+#    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy # sqlTrace 적용을 위해
+#    url: jdbc:log4jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+    hikari:
+      pool-name: Hikari
+      connection-timeout: 30000
+      minimum-idle: 1
+      maximum-pool-size: 5
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      auto-commit: false
+
+# routing database 설정
+#  datasource:
+#    master: # command 쿼리
+#      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#      url: jdbc:log4jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+#      pool-name: HikariMaster
+#      connection-timeout: 30000
+#      keepaliveTime: 30000
+#      minimum-idle: 5
+#      maximum-pool-size: 5
+#      idle-timeout: 0
+#      max-lifetime: 0
+#      auto-commit: false
+#    slave: # select 쿼리
+#      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#      url: jdbc:log4jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+#      pool-name: HikariSlave
+#      connection-timeout: 30000
+#      keepaliveTime: 30000
+#      minimum-idle: 5
+#      maximum-pool-size: 5
+#      idle-timeout: 0
+#      max-lifetime: 0
+#      auto-commit: false
+#      read-only: true
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+
+
+app:
+  filePath:
+    tempFile: C:\workspace\excelTemp\
+    tempBigFile: C:\workspace\excelAsyncTemp\
+    uploadTemp: C:\workspace\excelUploadTemp\
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev-env
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: stg-env
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prd-env
+
