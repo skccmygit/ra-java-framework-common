@@ -1,4 +1,3 @@
 rootProject.name = 'common'
 include 'common-export'
 include 'common-service'
-include 'api-gateway'
