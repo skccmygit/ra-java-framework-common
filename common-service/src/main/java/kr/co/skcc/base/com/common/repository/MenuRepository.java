@@ -1,9 +1,9 @@
-package kr.co.skcc.oss.com.common.repository;
+package kr.co.skcc.base.com.common.repository;
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.MenuExelDownloadIDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.MenuIDto;
-import kr.co.skcc.oss.com.common.domain.menu.Menu;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.MenuExelDownloadIDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.MenuIDto;
+import kr.co.skcc.base.com.common.domain.menu.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;

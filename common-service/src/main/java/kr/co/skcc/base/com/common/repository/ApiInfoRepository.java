@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.repository;
+package kr.co.skcc.base.com.common.repository;
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ApiInfoDto;
-import kr.co.skcc.oss.com.common.domain.apiInfo.ApiInfo;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ApiInfoDto;
+import kr.co.skcc.base.com.common.domain.apiInfo.ApiInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
@@ -16,7 +16,7 @@ import static org.hibernate.jpa.QueryHints.HINT_COMMENT;
 public interface ApiInfoRepository extends JpaRepository<ApiInfo, Integer> {
 
     @QueryHints(@QueryHint(name = HINT_COMMENT, value = "ONM ApiInfoRepository.queryApiInfoSearch 이제현"))
-    @Query(value = "SELECT new kr.co.skcc.oss.com.common.api.dto.domainDto.ApiInfoDto(" +
+    @Query(value = "SELECT new kr.co.skcc.base.com.common.api.dto.domainDto.ApiInfoDto(" +
                 "ai.apiId, " +
                 "ai.aproGroupId, " +
                 "ai.apiNm, " +
@@ -34,7 +34,7 @@ public interface ApiInfoRepository extends JpaRepository<ApiInfo, Integer> {
     List<ApiInfoDto> queryApiInfoSearch(Integer aproGroupId);
 
     @QueryHints(@QueryHint(name = HINT_COMMENT, value = "ONM ApiInfoRepository.excelApiInfoSearch 이제현"))
-    @Query(value = "SELECT new kr.co.skcc.oss.com.common.api.dto.domainDto.ApiInfoDto(" +
+    @Query(value = "SELECT new kr.co.skcc.base.com.common.api.dto.domainDto.ApiInfoDto(" +
             "ai.apiId, " +
             "ai.aproGroupId, " +
             "ag.aproTaskClCd, " +
@@ -49,7 +49,7 @@ public interface ApiInfoRepository extends JpaRepository<ApiInfo, Integer> {
     List<ApiInfoDto> excelApiInfoSearch();
 
     @QueryHints(@QueryHint(name = HINT_COMMENT, value = "ONM ApiInfoRepository.queryApiInfoByCondition 이제현"))
-    @Query(value = "SELECT new kr.co.skcc.oss.com.common.api.dto.domainDto.ApiInfoDto(" +
+    @Query(value = "SELECT new kr.co.skcc.base.com.common.api.dto.domainDto.ApiInfoDto(" +
                 "ai.apiId, " +
                 "ai.aproGroupId, " +
                 "ai.apiNm, " +

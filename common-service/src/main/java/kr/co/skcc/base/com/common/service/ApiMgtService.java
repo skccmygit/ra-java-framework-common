@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ApiInfoDto;
-import kr.co.skcc.oss.com.common.api.dto.excelDto.ExcelDto;
-import kr.co.skcc.oss.com.common.api.dto.requestDto.ApiDocsReqDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ApiInfoDto;
+import kr.co.skcc.base.com.common.api.dto.excelDto.ExcelDto;
+import kr.co.skcc.base.com.common.api.dto.requestDto.ApiDocsReqDto;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;

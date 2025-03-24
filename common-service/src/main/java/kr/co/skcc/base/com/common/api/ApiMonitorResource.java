@@ -1,15 +1,11 @@
-package kr.co.skcc.oss.com.common.api;
-
+package kr.co.skcc.base.com.common.api;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ApiMonitorDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiMonitorDtlDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
-import kr.co.skcc.oss.com.common.domain.apiInfo.ApiMonitor;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
-import kr.co.skcc.oss.com.common.service.ApiMonitorService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ApiMonitorDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiMonitorDtlDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
+import kr.co.skcc.base.com.common.service.ApiMonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Tag(name = "[API관리] API 모니터링(ApiMonitorResource)", description = "API 사용에 대한 모니터링")
 @RestController

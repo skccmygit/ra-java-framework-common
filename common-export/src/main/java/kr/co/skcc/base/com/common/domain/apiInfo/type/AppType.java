@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.domain.apiInfo.type;
+package kr.co.skcc.base.com.common.domain.apiInfo.type;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

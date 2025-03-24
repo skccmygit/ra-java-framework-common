@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
 import java.io.UnsupportedEncodingException;
 

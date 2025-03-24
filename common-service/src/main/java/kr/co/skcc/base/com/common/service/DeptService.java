@@ -1,7 +1,7 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
-import kr.co.skcc.oss.com.common.api.dto.domainDto.DeptDto;
-import kr.co.skcc.oss.com.common.domain.dept.Bssmacd;
+import kr.co.skcc.base.com.common.api.dto.domainDto.DeptDto;
+import kr.co.skcc.base.com.common.domain.dept.Bssmacd;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

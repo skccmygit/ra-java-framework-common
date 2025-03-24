@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.domain.userBasic;
+package kr.co.skcc.base.com.common.domain.userBasic;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api;
+package kr.co.skcc.base.com.common.api;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.MenuDto;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.MenuStatisticsDto;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ScrenDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.MenuIDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ScrenIDto;
-import kr.co.skcc.oss.com.common.service.MenuService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.MenuDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.MenuStatisticsDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ScrenDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.MenuIDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ScrenIDto;
+import kr.co.skcc.base.com.common.service.MenuService;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name = "[메뉴관리] 메뉴 관리 API(MenuResource)", description = "메뉴 / 화면 / 버튼 관리를 위한 API")

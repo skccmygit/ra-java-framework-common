@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api;
+package kr.co.skcc.base.com.common.api;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ApiInfoDto;
-import kr.co.skcc.oss.com.common.api.dto.requestDto.ApiDocsReqDto;
-import kr.co.skcc.oss.com.common.service.ApiMgtService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ApiInfoDto;
+import kr.co.skcc.base.com.common.api.dto.requestDto.ApiDocsReqDto;
+import kr.co.skcc.base.com.common.service.ApiMgtService;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name = "[API관리] API 기본정보 관리(ApiMgtResource)", description = "시스템에서 사용하는 API 기본정보에 대한 관리")

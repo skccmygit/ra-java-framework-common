@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common;
+package kr.co.skcc.base.com.common;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,10 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EntityScan(basePackages = {"kr.co.skcc.oss.com.**.domain"})
-@EnableJpaRepositories("kr.co.skcc.oss.com.common.repository")
+@EntityScan(basePackages = {"kr.co.skcc.base.com.**.domain"})
+@EnableJpaRepositories("kr.co.skcc.base.com.common.repository")
 @SpringBootApplication
-@ComponentScan(basePackages = {"kr.co.skcc.oss.com.common"})
+@ComponentScan(basePackages = {"kr.co.skcc.base.com.common"})
 @EnableJpaAuditing
 public class CommonMainApp {
     public static void main(String[] args) {

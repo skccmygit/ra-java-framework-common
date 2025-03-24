@@ -1,10 +1,10 @@
-package kr.co.skcc.oss.com.common.repository;
+package kr.co.skcc.base.com.common.repository;
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiUseTrendDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiUseHist2Dto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiUseTaskStatsDto;
-import kr.co.skcc.oss.com.common.domain.apiInfo.ApiMonitor;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseTrendDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiUseHist2Dto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiUseTaskStatsDto;
+import kr.co.skcc.base.com.common.domain.apiInfo.ApiMonitor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -48,7 +48,7 @@ public interface ApiUseRepository extends JpaRepository<ApiMonitor, Long> {
 
     @QueryHints(@QueryHint(name = HINT_COMMENT, value = "ONM ApiUseRepository.queryApiUseTrendsdDaily 이제현"))
     @Query(value =
-            "SELECT new kr.co.skcc.oss.com.common.api.dto.responseDto.ApiUseTrendDto(ag.aproGroupId, ag.aproGroupClNm, " +
+            "SELECT new kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseTrendDto(ag.aproGroupId, ag.aproGroupClNm, " +
                     "am.apiExectDt, " +
                     "SUM(am.apiExectCcnt)) " +
                     "FROM ApiStat am " +

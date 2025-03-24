@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Size;
 import kr.co.skcc.base.com.common.domain.apiInfo.ApiInfo;
 import kr.co.skcc.base.com.common.domain.apiInfo.type.BizTask;
-import kr.co.skcc.base.com.common.jpa.Entitiable;
 import kr.co.skcc.base.com.common.util.RequestUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;

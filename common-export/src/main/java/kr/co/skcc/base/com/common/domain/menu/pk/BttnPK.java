@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.domain.menu.pk;
+package kr.co.skcc.base.com.common.domain.menu.pk;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

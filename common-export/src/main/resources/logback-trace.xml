@@ -52,7 +52,7 @@
         <appender-ref ref="TRACE"/>
     </appender>
 
-    <logger name="kr.co.skcc.oss.com.common.trace.RequestTraceFilter" level="INFO" additivity="false">
+    <logger name="kr.co.skcc.base.com.common.trace.RequestTraceFilter" level="INFO" additivity="false">
         <appender-ref ref="ASYNC"/>
     </logger>
 
@@ -70,7 +70,7 @@
             <onMismatch>ACCEPT</onMismatch>
         </filter>
         <encoder name="enc" class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="kr.co.skcc.oss.com.common.trace.PatternLayoutWithUserContext">
+            <layout class="kr.co.skcc.base.com.common.trace.PatternLayoutWithUserContext">
                 <param name="Pattern" value="%d{yyyy-MM-dd HH:mm:ss};%loginID;%clientIP;%replace(%msg){'\n|\r', ' '}%n"/>
             </layout>
             <charset>${FILE_LOG_CHARSET}</charset>

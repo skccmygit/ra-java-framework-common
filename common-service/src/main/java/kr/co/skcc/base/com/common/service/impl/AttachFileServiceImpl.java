@@ -1,17 +1,17 @@
-package kr.co.skcc.oss.com.common.service.impl;
+package kr.co.skcc.base.com.common.service.impl;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.transaction.annotation.Transactional;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.AttachFileDto;
-import kr.co.skcc.oss.com.common.domain.attachFile.AttachFile;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.CmmnCdDtl;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
-import kr.co.skcc.oss.com.common.repository.AttachFileRepository;
-import kr.co.skcc.oss.com.common.repository.CmmnCdDtlRepository;
-import kr.co.skcc.oss.com.common.service.AttachFileService;
-import kr.co.skcc.oss.com.common.util.RequestUtil;
-import kr.co.skcc.oss.com.common.util.ResponseUtil;
+import kr.co.skcc.base.com.common.api.dto.domainDto.AttachFileDto;
+import kr.co.skcc.base.com.common.domain.attachFile.AttachFile;
+import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCdDtl;
+import kr.co.skcc.base.com.common.exception.ServiceException;
+import kr.co.skcc.base.com.common.repository.AttachFileRepository;
+import kr.co.skcc.base.com.common.repository.CmmnCdDtlRepository;
+import kr.co.skcc.base.com.common.service.AttachFileService;
+import kr.co.skcc.base.com.common.util.RequestUtil;
+import kr.co.skcc.base.com.common.util.ResponseUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.tika.Tika;

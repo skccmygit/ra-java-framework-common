@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api;
+package kr.co.skcc.base.com.common.api;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.DeptDto;
-import kr.co.skcc.oss.com.common.domain.dept.Bssmacd;
-import kr.co.skcc.oss.com.common.service.DeptService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.DeptDto;
+import kr.co.skcc.base.com.common.domain.dept.Bssmacd;
+import kr.co.skcc.base.com.common.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name = "[기타] 부서 조회(DeptResource)", description = "외부에서 연동받은 부서 정보 조회를 위한 API")

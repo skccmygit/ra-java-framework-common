@@ -1,10 +1,10 @@
-package kr.co.skcc.oss.com.common.repository;
+package kr.co.skcc.base.com.common.repository;
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.UserBasicDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.InnerCallInfoIDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.UserBasicScrenIDto;
-import kr.co.skcc.oss.com.common.domain.userBasic.UserBasic;
+import kr.co.skcc.base.com.common.api.dto.domainDto.UserBasicDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.InnerCallInfoIDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.UserBasicScrenIDto;
+import kr.co.skcc.base.com.common.domain.userBasic.UserBasic;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -81,7 +81,7 @@ public interface UserBasicRepository extends JpaRepository<UserBasic, String> {
     Optional<UserBasic> findByEmpno(String empno);
 
     @QueryHints(@QueryHint(name=COMMENT, value="공통, common, 나태관"))
-    @Query(value= "SELECT new kr.co.skcc.oss.com.common.api.dto.domainDto.UserBasicDto(t, k.deptNm,l.bssHqNm) \n" +
+    @Query(value= "SELECT new kr.co.skcc.base.com.common.api.dto.domainDto.UserBasicDto(t, k.deptNm,l.bssHqNm) \n" +
                 "FROM UserBasic t \n" +
                 "LEFT OUTER JOIN Dept k ON t.deptcd = k.deptcd \n" +
                 "LEFT OUTER JOIN Bssmacd l ON k.bssmacd = l.bssmacd \n" +

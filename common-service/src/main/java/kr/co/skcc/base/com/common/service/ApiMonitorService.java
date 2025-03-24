@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ApiMonitorDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiMonitorDtlDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ApiMonitorDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiMonitorDtlDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

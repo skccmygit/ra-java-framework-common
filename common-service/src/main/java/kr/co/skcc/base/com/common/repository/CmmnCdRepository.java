@@ -1,9 +1,9 @@
-package kr.co.skcc.oss.com.common.repository;
+package kr.co.skcc.base.com.common.repository;
 
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.CmmnCdIDto;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.CmmnCd;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.CmmnCdIDto;
+import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCd;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

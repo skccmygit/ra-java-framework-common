@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api;
+package kr.co.skcc.base.com.common.api;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.UserBasicDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.InnerCallInfoDto;
-import kr.co.skcc.oss.com.common.service.UserBasicService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.UserBasicDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.InnerCallInfoDto;
+import kr.co.skcc.base.com.common.service.UserBasicService;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name = "[기타] 사원 조회 (UserBasicResource)", description = "외부에서 연동받은 사원 정보 조회를 위한 API")

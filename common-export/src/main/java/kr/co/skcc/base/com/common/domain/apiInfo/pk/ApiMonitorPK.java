@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.domain.apiInfo.pk;
+package kr.co.skcc.base.com.common.domain.apiInfo.pk;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

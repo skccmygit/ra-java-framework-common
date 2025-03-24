@@ -1,5 +1,4 @@
-package kr.co.skcc.oss.com.common.repository;
-
+package kr.co.skcc.base.com.common.repository;
 
 import static org.hibernate.annotations.QueryHints.COMMENT;
 
@@ -14,16 +13,16 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDtlDto;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.CmmnCdDtl;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.pk.CmmnCdDtlPK;
+import kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDtlDto;
+import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCdDtl;
+import kr.co.skcc.base.com.common.domain.cmmnCd.pk.CmmnCdDtlPK;
 
 
 @Repository
 public interface CmmnCdDtlRepository extends JpaRepository<CmmnCdDtl, CmmnCdDtlPK> {
 
     @QueryHints(@QueryHint(name=COMMENT, value="공통, common, 나태관"))
-    @Query(value= "SELECT new kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDtlDto(t, m.cmmnCdNm, k.cmmnCdNm, l.cmmnCdValNm) " +
+    @Query(value= "SELECT new kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDtlDto(t, m.cmmnCdNm, k.cmmnCdNm, l.cmmnCdValNm) " +
             "FROM CmmnCdDtl t " +
             "INNER JOIN CmmnCd m ON t.cmmnCd = m.cmmnCd " +
             "LEFT OUTER JOIN CmmnCd k ON t.superCmmnCd = k.cmmnCd " +
@@ -77,7 +76,7 @@ public interface CmmnCdDtlRepository extends JpaRepository<CmmnCdDtl, CmmnCdDtlP
 
     @QueryHints(@QueryHint(name=COMMENT, value="공통, common, 나태관"))
     @Query(value= "SELECT " +
-                "new kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDtlDto(k,t.cmmnCdNm) " +
+                "new kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDtlDto(k,t.cmmnCdNm) " +
                 "FROM CmmnCd t INNER JOIN CmmnCdDtl k " +
                 "ON (t.cmmnCd = k.cmmnCd) " +
                 "WHERE ('' = :systmClCd OR t.systmClCd = :systmClCd) " +

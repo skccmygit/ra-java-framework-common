@@ -1,13 +1,13 @@
-package kr.co.skcc.oss.com.common.service.impl;
+package kr.co.skcc.base.com.common.service.impl;
 
 import org.springframework.transaction.annotation.Transactional;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiUseHistDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiUseTrendDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiUseHist2Dto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiUseTaskStatsDto;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
-import kr.co.skcc.oss.com.common.repository.ApiUseRepository;
-import kr.co.skcc.oss.com.common.service.ApiUseService;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseHistDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseTrendDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiUseHist2Dto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiUseTaskStatsDto;
+import kr.co.skcc.base.com.common.exception.ServiceException;
+import kr.co.skcc.base.com.common.repository.ApiUseRepository;
+import kr.co.skcc.base.com.common.service.ApiUseService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

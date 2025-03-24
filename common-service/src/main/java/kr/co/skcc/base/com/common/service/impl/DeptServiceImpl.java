@@ -1,13 +1,13 @@
-package kr.co.skcc.oss.com.common.service.impl;
+package kr.co.skcc.base.com.common.service.impl;
 
 import org.springframework.transaction.annotation.Transactional;
-import kr.co.skcc.oss.com.common.api.dto.constant.CommonConstant;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.DeptDto;
-import kr.co.skcc.oss.com.common.domain.dept.Bssmacd;
-import kr.co.skcc.oss.com.common.domain.dept.Dept;
-import kr.co.skcc.oss.com.common.repository.BssmacdRepository;
-import kr.co.skcc.oss.com.common.repository.DeptRepository;
-import kr.co.skcc.oss.com.common.service.DeptService;
+import kr.co.skcc.base.com.common.api.dto.constant.CommonConstant;
+import kr.co.skcc.base.com.common.api.dto.domainDto.DeptDto;
+import kr.co.skcc.base.com.common.domain.dept.Bssmacd;
+import kr.co.skcc.base.com.common.domain.dept.Dept;
+import kr.co.skcc.base.com.common.repository.BssmacdRepository;
+import kr.co.skcc.base.com.common.repository.DeptRepository;
+import kr.co.skcc.base.com.common.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

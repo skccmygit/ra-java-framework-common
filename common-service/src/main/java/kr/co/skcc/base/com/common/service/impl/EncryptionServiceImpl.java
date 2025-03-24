@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.service.impl;
+package kr.co.skcc.base.com.common.service.impl;
 
 import org.springframework.transaction.annotation.Transactional;
-import kr.co.skcc.oss.com.common.service.EncryptionService;
-import kr.co.skcc.oss.com.common.util.CryptoUtil;
+import kr.co.skcc.base.com.common.service.EncryptionService;
+import kr.co.skcc.base.com.common.util.CryptoUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

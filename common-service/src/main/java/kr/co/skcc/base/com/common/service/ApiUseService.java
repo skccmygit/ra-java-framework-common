@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiUseHistDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiUseTrendDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiUseTaskStatsDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseHistDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseTrendDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiUseTaskStatsDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
