@@ -1,9 +1,9 @@
-package kr.co.skcc.oss.com.common.interceptor;
+package kr.co.skcc.base.com.common.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kr.co.skcc.oss.com.common.adaptor.client.AuthorizationClient;
-import kr.co.skcc.oss.com.common.exception.UnauthorizedException;
+import kr.co.skcc.base.com.common.adaptor.client.AuthorizationClient;
+import kr.co.skcc.base.com.common.exception.UnauthorizedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

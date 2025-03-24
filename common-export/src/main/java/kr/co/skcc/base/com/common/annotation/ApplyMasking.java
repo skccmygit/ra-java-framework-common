@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.annotation;
+package kr.co.skcc.base.com.common.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,12 +1,12 @@
-package kr.co.skcc.oss.com.common.api.dto.domainDto;
+package kr.co.skcc.base.com.common.api.dto.domainDto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import kr.co.skcc.oss.com.common.domain.apiInfo.AppGroup;
-import kr.co.skcc.oss.com.common.domain.apiInfo.type.BizTask;
-import kr.co.skcc.oss.com.common.jpa.Entitiable;
-import kr.co.skcc.oss.com.common.util.RequestUtil;
+import kr.co.skcc.base.com.common.domain.apiInfo.AppGroup;
+import kr.co.skcc.base.com.common.domain.apiInfo.type.BizTask;
+import kr.co.skcc.base.com.common.jpa.Entitiable;
+import kr.co.skcc.base.com.common.util.RequestUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

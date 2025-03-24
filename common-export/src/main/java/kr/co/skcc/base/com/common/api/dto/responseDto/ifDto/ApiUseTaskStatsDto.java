@@ -1,7 +1,7 @@
-package kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto;
+package kr.co.skcc.base.com.common.api.dto.responseDto.ifDto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import kr.co.skcc.oss.com.common.domain.apiInfo.type.BizTask;
+import kr.co.skcc.base.com.common.domain.apiInfo.type.BizTask;
 
 @Schema(name = "ApiUseTaskStatsDto", description = "사용 업무별 통계")
 public interface ApiUseTaskStatsDto {

@@ -1,11 +1,11 @@
-package kr.co.skcc.oss.com.common.api.dto.domainDto;
+package kr.co.skcc.base.com.common.api.dto.domainDto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.CmmnCd;
-import kr.co.skcc.oss.com.common.jpa.Entitiable;
+import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCd;
+import kr.co.skcc.base.com.common.jpa.Entitiable;
 import lombok.*;
 import org.springframework.beans.BeanUtils;
 

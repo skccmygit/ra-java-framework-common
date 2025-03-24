@@ -1,7 +1,7 @@
-package kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto;
+package kr.co.skcc.base.com.common.api.dto.responseDto.ifDto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import kr.co.skcc.oss.com.common.domain.apiInfo.type.BizTask;
+import kr.co.skcc.base.com.common.domain.apiInfo.type.BizTask;
 
 import java.time.LocalDateTime;
 

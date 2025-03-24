@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.jpa;
+package kr.co.skcc.base.com.common.jpa;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;

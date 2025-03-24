@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto;
+package kr.co.skcc.base.com.common.api.dto.responseDto.ifDto;
 
 public interface MenuIDto {
 

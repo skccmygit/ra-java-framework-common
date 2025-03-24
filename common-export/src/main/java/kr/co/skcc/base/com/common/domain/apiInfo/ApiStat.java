@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.domain.apiInfo;
+package kr.co.skcc.base.com.common.domain.apiInfo;
 
 import jakarta.persistence.*;
-import kr.co.skcc.oss.com.common.domain.apiInfo.pk.ApiStatPK;
-import kr.co.skcc.oss.com.common.jpa.BaseEntity;
+import kr.co.skcc.base.com.common.domain.apiInfo.pk.ApiStatPK;
+import kr.co.skcc.base.com.common.jpa.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

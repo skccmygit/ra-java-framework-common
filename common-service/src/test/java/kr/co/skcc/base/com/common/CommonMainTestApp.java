@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common;
+package kr.co.skcc.base.com.common;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

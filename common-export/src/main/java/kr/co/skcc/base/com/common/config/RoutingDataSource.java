@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.config;
+package kr.co.skcc.base.com.common.config;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import org.springframework.transaction.support.TransactionSynchronizationManager;

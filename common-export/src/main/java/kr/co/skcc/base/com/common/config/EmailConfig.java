@@ -1,6 +1,6 @@
-package kr.co.skcc.oss.com.common.config;
+package kr.co.skcc.base.com.common.config;
 
-import kr.co.skcc.oss.com.common.api.dto.emailDto.EmailSender;
+import kr.co.skcc.base.com.common.api.dto.emailDto.EmailSender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

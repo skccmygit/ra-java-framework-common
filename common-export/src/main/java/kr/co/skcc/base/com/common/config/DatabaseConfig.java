@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.config;
+package kr.co.skcc.base.com.common.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

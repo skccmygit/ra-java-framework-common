@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.trace;
+package kr.co.skcc.base.com.common.trace;
 
 import ch.qos.logback.classic.pattern.ClassicConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import kr.co.skcc.oss.com.common.util.RequestUtil;
+import kr.co.skcc.base.com.common.util.RequestUtil;
 
 import java.net.UnknownHostException;
 

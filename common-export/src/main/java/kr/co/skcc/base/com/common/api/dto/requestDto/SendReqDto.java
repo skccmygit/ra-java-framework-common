@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api.dto.requestDto;
+package kr.co.skcc.base.com.common.api.dto.requestDto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Size;

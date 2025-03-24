@@ -1,6 +1,6 @@
-package kr.co.skcc.oss.com.common.config;
+package kr.co.skcc.base.com.common.config;
 
-import kr.co.skcc.oss.com.common.interceptor.APIAuthorizationInterceptor;
+import kr.co.skcc.base.com.common.interceptor.APIAuthorizationInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

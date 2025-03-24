@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.aspect;
+package kr.co.skcc.base.com.common.aspect;
 
-import kr.co.skcc.oss.com.common.annotation.ApplyMasking;
-import kr.co.skcc.oss.com.common.annotation.MaskRequired;
-import kr.co.skcc.oss.com.common.util.MaskingUtil;
+import kr.co.skcc.base.com.common.annotation.ApplyMasking;
+import kr.co.skcc.base.com.common.annotation.MaskRequired;
+import kr.co.skcc.base.com.common.util.MaskingUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

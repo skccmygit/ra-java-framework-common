@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api.dto;
+package kr.co.skcc.base.com.common.api.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

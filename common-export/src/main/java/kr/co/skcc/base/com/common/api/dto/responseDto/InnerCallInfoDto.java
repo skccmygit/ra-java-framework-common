@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.api.dto.responseDto;
+package kr.co.skcc.base.com.common.api.dto.responseDto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.InnerCallInfoIDto;
-import kr.co.skcc.oss.com.common.util.MaskingUtil;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.InnerCallInfoIDto;
+import kr.co.skcc.base.com.common.util.MaskingUtil;
 import lombok.*;
 import org.springframework.beans.BeanUtils;
 
