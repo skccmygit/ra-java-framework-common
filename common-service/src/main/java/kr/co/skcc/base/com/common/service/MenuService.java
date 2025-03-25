@@ -1,10 +1,10 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
-import kr.co.skcc.oss.com.common.api.dto.domainDto.MenuDto;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.MenuStatisticsDto;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ScrenDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.MenuIDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ScrenIDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.MenuDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.MenuStatisticsDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ScrenDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.MenuIDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ScrenIDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

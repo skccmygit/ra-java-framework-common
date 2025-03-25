@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.trace;
+package kr.co.skcc.base.com.common.trace;
 
 import ch.qos.logback.classic.PatternLayout;
 

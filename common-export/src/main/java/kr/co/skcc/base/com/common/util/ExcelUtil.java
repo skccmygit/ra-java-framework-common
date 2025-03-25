@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.util;
+package kr.co.skcc.base.com.common.util;
 
 import jakarta.servlet.http.HttpServletResponse;
-import kr.co.skcc.oss.com.common.api.dto.excelDto.*;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
+import kr.co.skcc.base.com.common.api.dto.excelDto.*;
+import kr.co.skcc.base.com.common.exception.ServiceException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.csv.CSVFormat;

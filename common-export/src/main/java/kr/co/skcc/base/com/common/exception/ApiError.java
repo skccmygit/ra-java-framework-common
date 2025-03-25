@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.exception;
+package kr.co.skcc.base.com.common.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

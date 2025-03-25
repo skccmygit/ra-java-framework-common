@@ -1,13 +1,13 @@
-package kr.co.skcc.oss.com.common.service.impl;
+package kr.co.skcc.base.com.common.service.impl;
 
 import org.springframework.transaction.annotation.Transactional;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.ApiMonitorDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiMonitorDtlDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
-import kr.co.skcc.oss.com.common.domain.apiInfo.ApiMonitor;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
-import kr.co.skcc.oss.com.common.repository.ApiMonitorRepository;
-import kr.co.skcc.oss.com.common.service.ApiMonitorService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.ApiMonitorDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiMonitorDtlDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
+import kr.co.skcc.base.com.common.domain.apiInfo.ApiMonitor;
+import kr.co.skcc.base.com.common.exception.ServiceException;
+import kr.co.skcc.base.com.common.repository.ApiMonitorRepository;
+import kr.co.skcc.base.com.common.service.ApiMonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;

@@ -1,7 +1,7 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
-import kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDtlDto;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDtlDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDto;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +14,7 @@ public interface CmmnCdService {
     CmmnCdDto update(CmmnCdDto cmmnCdDto);
 
     List<CmmnCdDto> findCmmnCdList(String systmClCd, String chrgTaskGroupCd, String cmmnCdNm);
-    void excelDownloadCmmnCd(String systmClCd, String chrgTaskGroupCd, String cmmnCdNm) throws IOException, InvocationTargetException, IllegalAccessException, NoSuchMethodException;
+    void excelDownloadCmmnCd(String chrgTaskGroupCd, String cmmnCdNm) throws IOException, InvocationTargetException, IllegalAccessException, NoSuchMethodException;
 
     CmmnCdDtlDto createDtl(CmmnCdDtlDto cmmnCdDtlDto);
 

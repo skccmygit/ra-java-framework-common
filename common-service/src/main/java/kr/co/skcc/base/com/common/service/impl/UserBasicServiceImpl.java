@@ -1,14 +1,14 @@
-package kr.co.skcc.oss.com.common.service.impl;
+package kr.co.skcc.base.com.common.service.impl;
 
 import org.springframework.transaction.annotation.Transactional;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.UserBasicDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.InnerCallInfoDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.InnerCallInfoIDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.UserBasicScrenIDto;
-import kr.co.skcc.oss.com.common.domain.userBasic.UserBasic;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
-import kr.co.skcc.oss.com.common.repository.UserBasicRepository;
-import kr.co.skcc.oss.com.common.service.UserBasicService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.UserBasicDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.InnerCallInfoDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.InnerCallInfoIDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.UserBasicScrenIDto;
+import kr.co.skcc.base.com.common.domain.userBasic.UserBasic;
+import kr.co.skcc.base.com.common.exception.ServiceException;
+import kr.co.skcc.base.com.common.repository.UserBasicRepository;
+import kr.co.skcc.base.com.common.service.UserBasicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

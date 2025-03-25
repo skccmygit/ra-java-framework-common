@@ -1,8 +1,8 @@
-package kr.co.skcc.oss.com.common.repository;
+package kr.co.skcc.base.com.common.repository;
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ScrenIDto;
-import kr.co.skcc.oss.com.common.domain.menu.Scren;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ScrenIDto;
+import kr.co.skcc.base.com.common.domain.menu.Scren;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

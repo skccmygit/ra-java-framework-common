@@ -1,9 +1,9 @@
-package kr.co.skcc.oss.com.common.domain.attachFile;
+package kr.co.skcc.base.com.common.domain.attachFile;
 
 import jakarta.persistence.*;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.AttachFileDto;
-import kr.co.skcc.oss.com.common.jpa.Apiable;
-import kr.co.skcc.oss.com.common.jpa.BaseEntity;
+import kr.co.skcc.base.com.common.api.dto.domainDto.AttachFileDto;
+import kr.co.skcc.base.com.common.jpa.Apiable;
+import kr.co.skcc.base.com.common.jpa.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

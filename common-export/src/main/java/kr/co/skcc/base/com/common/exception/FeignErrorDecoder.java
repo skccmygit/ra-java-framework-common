@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.exception;
+package kr.co.skcc.base.com.common.exception;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

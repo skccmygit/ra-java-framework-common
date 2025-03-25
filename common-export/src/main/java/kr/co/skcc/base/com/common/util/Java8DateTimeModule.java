@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.util;
+package kr.co.skcc.base.com.common.util;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;

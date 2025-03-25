@@ -1,12 +1,12 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import kr.co.skcc.oss.com.common.api.dto.domainDto.UserBasicDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.InnerCallInfoDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.UserBasicDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.InnerCallInfoDto;
 
 public interface UserBasicService {
 

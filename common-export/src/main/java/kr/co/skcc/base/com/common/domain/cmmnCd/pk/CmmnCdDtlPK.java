@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.domain.cmmnCd.pk;
+package kr.co.skcc.base.com.common.domain.cmmnCd.pk;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

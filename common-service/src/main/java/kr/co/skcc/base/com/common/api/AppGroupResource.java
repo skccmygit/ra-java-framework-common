@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api;
+package kr.co.skcc.base.com.common.api;
 
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -6,9 +6,9 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;
 import jakarta.validation.Valid;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.AppGroupDto;
-import kr.co.skcc.oss.com.common.domain.apiInfo.AppGroup;
-import kr.co.skcc.oss.com.common.service.AppGroupService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.AppGroupDto;
+import kr.co.skcc.base.com.common.domain.apiInfo.AppGroup;
+import kr.co.skcc.base.com.common.service.AppGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

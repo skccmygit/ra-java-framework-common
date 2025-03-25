@@ -1,6 +1,6 @@
-package kr.co.skcc.oss.com.common.jpa;
+package kr.co.skcc.base.com.common.jpa;
 
-import kr.co.skcc.oss.com.common.util.RequestUtil;
+import kr.co.skcc.base.com.common.util.RequestUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Service;

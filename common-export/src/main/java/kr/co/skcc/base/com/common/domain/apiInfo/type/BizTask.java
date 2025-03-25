@@ -1,6 +1,6 @@
-package kr.co.skcc.oss.com.common.domain.apiInfo.type;
+package kr.co.skcc.base.com.common.domain.apiInfo.type;
 
-import kr.co.skcc.oss.com.common.api.dto.CdDto;
+import kr.co.skcc.base.com.common.api.dto.CdDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.beans.BeanUtils;

@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.jpa;
+package kr.co.skcc.base.com.common.jpa;
 
 public interface Entitiable<T> {
 

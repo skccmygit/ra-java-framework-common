@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api;
+package kr.co.skcc.base.com.common.api;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,8 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.AttachFileDto;
-import kr.co.skcc.oss.com.common.service.AttachFileService;
+import kr.co.skcc.base.com.common.api.dto.domainDto.AttachFileDto;
+import kr.co.skcc.base.com.common.service.AttachFileService;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name = "[기타] 파일 관리(AttachFileResource)", description = "첨부 파일 관리를 위한 API")

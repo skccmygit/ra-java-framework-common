@@ -1,12 +1,12 @@
-package kr.co.skcc.oss.com.common.domain.dept;
+package kr.co.skcc.base.com.common.domain.dept;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.BssmacdDto;
-import kr.co.skcc.oss.com.common.jpa.Apiable;
-import kr.co.skcc.oss.com.common.jpa.BaseEntity;
+import kr.co.skcc.base.com.common.api.dto.domainDto.BssmacdDto;
+import kr.co.skcc.base.com.common.jpa.Apiable;
+import kr.co.skcc.base.com.common.jpa.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

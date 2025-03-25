@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.util;
+package kr.co.skcc.base.com.common.util;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

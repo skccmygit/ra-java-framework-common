@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.api;
+package kr.co.skcc.base.com.common.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.co.skcc.oss.com.common.service.EncryptionService;
+import kr.co.skcc.base.com.common.service.EncryptionService;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name = "[기타] 암/복호화 API(EncryptionResource)", description = "암/복호화를 위한 API(테스트용..실제로는 CryptoUtil 직접 사용) ")

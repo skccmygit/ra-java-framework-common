@@ -1,18 +1,18 @@
-package kr.co.skcc.oss.com.common.service.impl;
+package kr.co.skcc.base.com.common.service.impl;
 
 import org.springframework.transaction.annotation.Transactional;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDtlDto;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.CmmnCdIDto;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.CmmnCd;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.CmmnCdDtl;
-import kr.co.skcc.oss.com.common.domain.cmmnCd.pk.CmmnCdDtlPK;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
-import kr.co.skcc.oss.com.common.repository.CmmnCdDtlRepository;
-import kr.co.skcc.oss.com.common.repository.CmmnCdRepository;
-import kr.co.skcc.oss.com.common.service.CmmnCdService;
-import kr.co.skcc.oss.com.common.util.ExcelStream;
-import kr.co.skcc.oss.com.common.util.ObjectUtil;
+import kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDtlDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.CmmnCdIDto;
+import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCd;
+import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCdDtl;
+import kr.co.skcc.base.com.common.domain.cmmnCd.pk.CmmnCdDtlPK;
+import kr.co.skcc.base.com.common.exception.ServiceException;
+import kr.co.skcc.base.com.common.repository.CmmnCdDtlRepository;
+import kr.co.skcc.base.com.common.repository.CmmnCdRepository;
+import kr.co.skcc.base.com.common.service.CmmnCdService;
+import kr.co.skcc.base.com.common.util.ExcelStream;
+import kr.co.skcc.base.com.common.util.ObjectUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -75,8 +75,7 @@ public class CmmnCdServiceImpl implements CmmnCdService {
     }
 
     @Override
-    public void excelDownloadCmmnCd(String systmClCd, String chrgTaskGroupCd, String cmmnCdNm) throws IOException {
-        systmClCd = systmClCd == null ? "" : systmClCd;
+    public void excelDownloadCmmnCd(String chrgTaskGroupCd, String cmmnCdNm) throws IOException {
         chrgTaskGroupCd = chrgTaskGroupCd == null ? "" : chrgTaskGroupCd;
         cmmnCdNm = cmmnCdNm == null ? "" : cmmnCdNm;
 
@@ -84,18 +83,18 @@ public class CmmnCdServiceImpl implements CmmnCdService {
         //시트명 세팅
         //String sheetName = "공통코드";
 
-        String[] arrayHeaderNm = { "시스템명","담당업무그룹","공통코드","공통코드명","BSS공통코드","공통코드설명","상세코드길이","공통코드사용여부","상세코드","상세코드명"
+        String[] arrayHeaderNm = { "시스템명","담당업무그룹","공통코드","공통코드명","공통코드설명","상세코드길이","공통코드사용여부","상세코드","상세코드명"
                 ,"상세코드설명","상세코드순번","상세코드사용여부","상위공통코드","상위공통코드명","상위상세코드","상위상세코드명","참조속성명1","참조속성명2","참조속성명3"
                 ,"참조속성명4","참조속성명5","참조속성명6","참조속성명7","참조속성명8","참조속성명9","참조속성명10","참조속성값1","참조속성값2","참조속성값3"
                 ,"참조속성값4","참조속성값5","참조속성값6","참조속성값7","참조속성값8","참조속성값9","참조속성값10" };
 
-        String[] arrayBodyColNm = {"systmClNm","chrgTaskGroupNm","cmmnCd","cmmnCdNm","bssCmmnCd","cmmnCdDesc","cmmnCdValLenth","useYn","cmmnCdVal","cmmnCdValNm"
+        String[] arrayBodyColNm = {"systmClNm","chrgTaskGroupNm","cmmnCd","cmmnCdNm","cmmnCdDesc","cmmnCdValLenth","useYn","cmmnCdVal","cmmnCdValNm"
                 ,"cmmnCdValDesc","sortSeqn","dtlUseYn","superCmmnCd","superCmmnCdNm","superCmmnCdVal","superCmmnCdValNm","refrnAttrNm1","refrnAttrNm2","refrnAttrNm3"
                 ,"refrnAttrNm4","refrnAttrNm5","refrnAttrNm6","refrnAttrNm7","refrnAttrNm8","refrnAttrNm9","refrnAttrNm10","refrnAttrVal1","refrnAttrVal2","refrnAttrVal3"
                 ,"refrnAttrVal4","refrnAttrVal5","refrnAttrVal6","refrnAttrVal7","refrnAttrVal8","refrnAttrVal9","refrnAttrVal10"};
 
         ExcelStream e = new ExcelStream(arrayHeaderNm, arrayBodyColNm);
-        int allCount = cmmnCdRepository.excelDataCount(systmClCd, chrgTaskGroupCd, cmmnCdNm);
+        int allCount = cmmnCdRepository.excelDataCount(chrgTaskGroupCd, cmmnCdNm);
         int size = 5000;
         int maxExcelSize = 200000;
 
@@ -109,7 +108,7 @@ public class CmmnCdServiceImpl implements CmmnCdService {
         for(int i = 0; i < pageSize; i++){
             int offset = (i * size);
             log.info("allCount : {}, pageSize : {}, size : {}, i : {}, offset = {} ", allCount, pageSize, size, i, offset);
-            cmmnCdExcelIDto = cmmnCdRepository.findCmmnCdAndCmmnCdDtl(systmClCd, chrgTaskGroupCd, cmmnCdNm, offset, size);
+            cmmnCdExcelIDto = cmmnCdRepository.findCmmnCdAndCmmnCdDtl(chrgTaskGroupCd, cmmnCdNm, offset, size);
             e.start(cmmnCdExcelIDto);
         }
         e.download(fileName);

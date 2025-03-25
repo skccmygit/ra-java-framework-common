@@ -1,10 +1,10 @@
-package kr.co.skcc.oss.com.common.api.dto.domainDto;
+package kr.co.skcc.base.com.common.api.dto.domainDto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.UserBasicScrenIDto;
-import kr.co.skcc.oss.com.common.domain.userBasic.UserBasic;
-import kr.co.skcc.oss.com.common.jpa.Entitiable;
-import kr.co.skcc.oss.com.common.util.MaskingUtil;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.UserBasicScrenIDto;
+import kr.co.skcc.base.com.common.domain.userBasic.UserBasic;
+import kr.co.skcc.base.com.common.jpa.Entitiable;
+import kr.co.skcc.base.com.common.util.MaskingUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

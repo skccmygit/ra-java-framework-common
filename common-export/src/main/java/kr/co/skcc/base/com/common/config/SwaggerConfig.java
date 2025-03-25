@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.config;
+package kr.co.skcc.base.com.common.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

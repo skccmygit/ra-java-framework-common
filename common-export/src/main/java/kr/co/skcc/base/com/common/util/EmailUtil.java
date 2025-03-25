@@ -1,10 +1,10 @@
-package kr.co.skcc.oss.com.common.util;
+package kr.co.skcc.base.com.common.util;
 
 import jakarta.mail.internet.MimeMessage;
-import kr.co.skcc.oss.com.common.api.dto.emailDto.EmailContent;
-import kr.co.skcc.oss.com.common.api.dto.emailDto.EmailSender;
-import kr.co.skcc.oss.com.common.api.dto.emailDto.EmailUser;
-import kr.co.skcc.oss.com.common.exception.ServiceException;
+import kr.co.skcc.base.com.common.api.dto.emailDto.EmailContent;
+import kr.co.skcc.base.com.common.api.dto.emailDto.EmailSender;
+import kr.co.skcc.base.com.common.api.dto.emailDto.EmailUser;
+import kr.co.skcc.base.com.common.exception.ServiceException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

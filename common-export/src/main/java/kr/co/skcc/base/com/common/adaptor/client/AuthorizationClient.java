@@ -1,6 +1,6 @@
-package kr.co.skcc.oss.com.common.adaptor.client;
+package kr.co.skcc.base.com.common.adaptor.client;
 
-import kr.co.skcc.oss.com.common.config.FeignConfig;
+import kr.co.skcc.base.com.common.config.FeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

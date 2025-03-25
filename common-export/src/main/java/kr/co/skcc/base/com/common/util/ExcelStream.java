@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.util;
+package kr.co.skcc.base.com.common.util;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
-package kr.co.skcc.oss.com.common.api.dto.responseDto;
+package kr.co.skcc.base.com.common.api.dto.responseDto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import kr.co.skcc.oss.com.common.domain.apiInfo.type.BizTask;
+import kr.co.skcc.base.com.common.domain.apiInfo.type.BizTask;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

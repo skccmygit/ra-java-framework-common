@@ -1,12 +1,12 @@
-package kr.co.skcc.oss.com.common.domain.cmmnCd;
+package kr.co.skcc.base.com.common.domain.cmmnCd;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import kr.co.skcc.oss.com.common.api.dto.domainDto.CmmnCdDto;
-import kr.co.skcc.oss.com.common.jpa.Apiable;
-import kr.co.skcc.oss.com.common.jpa.BaseEntity;
+import kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDto;
+import kr.co.skcc.base.com.common.jpa.Apiable;
+import kr.co.skcc.base.com.common.jpa.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,14 +24,8 @@ public class CmmnCd extends BaseEntity implements Apiable<CmmnCdDto> {
     @Column(name="CMMN_CD", length = 30, nullable = false)
     private String cmmnCd;
 
-    @Column(name="SKSH_SYSTM_CD", length = 3, nullable = false)
-    private String systmClCd;
-
     @Column(name="CHRG_TASK_GROUP_CD", length = 3)
     private String chrgTaskGroupCd;
-
-    @Column(name="BSS_CMMN_CD", length = 6)
-    private String bssCmmnCd;
 
     @Column(name="CMMN_CD_NM", length = 50, nullable = false)
     private String cmmnCdNm;

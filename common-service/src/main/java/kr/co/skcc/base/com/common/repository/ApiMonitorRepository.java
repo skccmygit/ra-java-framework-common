@@ -1,9 +1,9 @@
-package kr.co.skcc.oss.com.common.repository;
+package kr.co.skcc.base.com.common.repository;
 
 import jakarta.persistence.QueryHint;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ApiMonitorDtlDto;
-import kr.co.skcc.oss.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
-import kr.co.skcc.oss.com.common.domain.apiInfo.ApiMonitor;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ApiMonitorDtlDto;
+import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
+import kr.co.skcc.base.com.common.domain.apiInfo.ApiMonitor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -83,7 +83,7 @@ public interface ApiMonitorRepository extends JpaRepository<ApiMonitor, Long> {
 
     @QueryHints(@QueryHint(name = HINT_COMMENT, value = "ONM ApiMonitorRepository.queryApiMonitorInfoByCondition 이제현"))
     @Query(value =
-            "SELECT new kr.co.skcc.oss.com.common.api.dto.responseDto.ApiMonitorDtlDto(" +
+            "SELECT new kr.co.skcc.base.com.common.api.dto.responseDto.ApiMonitorDtlDto(" +
                     "am.apiExectDtlSeq, " +
                     "ag.aproTaskClCd, " +
                     "ag.aproGroupId, " +

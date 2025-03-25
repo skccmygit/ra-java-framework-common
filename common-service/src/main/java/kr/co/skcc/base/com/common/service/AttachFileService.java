@@ -1,6 +1,6 @@
-package kr.co.skcc.oss.com.common.service;
+package kr.co.skcc.base.com.common.service;
 
-import kr.co.skcc.oss.com.common.api.dto.domainDto.AttachFileDto;
+import kr.co.skcc.base.com.common.api.dto.domainDto.AttachFileDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

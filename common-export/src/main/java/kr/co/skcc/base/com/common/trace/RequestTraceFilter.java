@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.trace;
+package kr.co.skcc.base.com.common.trace;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

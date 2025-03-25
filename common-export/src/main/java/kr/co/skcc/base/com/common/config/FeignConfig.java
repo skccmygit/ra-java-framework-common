@@ -1,4 +1,4 @@
-package kr.co.skcc.oss.com.common.config;
+package kr.co.skcc.base.com.common.config;
 
 import feign.Logger;
 import feign.RequestInterceptor;
@@ -6,8 +6,8 @@ import feign.Retryer;
 import feign.codec.Encoder;
 import feign.codec.ErrorDecoder;
 import feign.form.spring.SpringFormEncoder;
-import kr.co.skcc.oss.com.common.exception.FeignErrorDecoder;
-import kr.co.skcc.oss.com.common.util.RequestUtil;
+import kr.co.skcc.base.com.common.exception.FeignErrorDecoder;
+import kr.co.skcc.base.com.common.util.RequestUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.ObjectFactory;
@@ -24,7 +24,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 
 @Slf4j
 @Configuration
-@EnableFeignClients({"kr.co.skcc.oss.com.**.adaptor.client"})
+@EnableFeignClients({"kr.co.skcc.base.com.**.adaptor.client"})
 @Import(FeignClientsConfiguration.class)
 public class FeignConfig {
 
