@@ -13,25 +13,21 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static org.hibernate.annotations.QueryHints.COMMENT;
+import static org.hibernate.jpa.HibernateHints.HINT_COMMENT;
 
 @Repository
 public interface CmmnCdRepository extends JpaRepository<CmmnCd, String> {
 
-    @QueryHints(@QueryHint(name = COMMENT, value = "공통, common, 나태관"))
+    @QueryHints(@QueryHint(name = HINT_COMMENT, value = "공통, common, 나태관"))
     @Query(value = "SELECT t " +
             "FROM CmmnCd t " +
             "WHERE 1=1  " +
-            "AND ('' = :systmClCd OR t.systmClCd = :systmClCd) " +
             "AND ('' = :chrgTaskGroupCd OR t.chrgTaskGroupCd = :chrgTaskGroupCd) " +
             "AND (t.cmmnCdNm LIKE CONCAT('%',:cmmnCdNm,'%') OR t.cmmnCd LIKE CONCAT('%',:cmmnCdNm,'%')) ")
-    List<CmmnCd> findCmmnCdNm(@Param("systmClCd") String systmClCd,
-                              @Param("chrgTaskGroupCd") String chrgTaskGroupCd,
+    List<CmmnCd> findCmmnCdNm(@Param("chrgTaskGroupCd") String chrgTaskGroupCd,
                               @Param("cmmnCdNm") String cmmnCdNm, Sort sort);
 
-    List<CmmnCd> findBySystmClCdAndBssCmmnCd(String systmClCd, String bssCmmnCd);
-
-    @QueryHints(@QueryHint(name = COMMENT, value = "공통, common, 나태관"))
+    @QueryHints(@QueryHint(name = HINT_COMMENT, value = "공통, common, 나태관"))
     @Query(value = "SELECT C.CMMN_CD_VAL_NM AS systmClNm         \n" +
             "     , D.CMMN_CD_VAL_NM AS chrgTaskGroupNm   \n" +
             "     , A.CMMN_CD AS cmmnCd                   \n" +
@@ -83,7 +79,7 @@ public interface CmmnCdRepository extends JpaRepository<CmmnCd, String> {
                                             @Param("offset") int offset,
                                             @Param("size") int size);
 
-    @QueryHints(@QueryHint(name = COMMENT, value = "공통, common, 나태관"))
+    @QueryHints(@QueryHint(name = HINT_COMMENT, value = "공통, common, 나태관"))
     @Query(value = "SELECT COUNT(*)    \n" +
             "  FROM OCO.OCO20100 A    \n" +
             "  LEFT OUTER JOIN OCO.OCO20101 B ON (A.CMMN_CD = B.CMMN_CD)      \n" +

@@ -79,11 +79,10 @@ public interface CmmnCdDtlRepository extends JpaRepository<CmmnCdDtl, CmmnCdDtlP
                 "new kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDtlDto(k,t.cmmnCdNm) " +
                 "FROM CmmnCd t INNER JOIN CmmnCdDtl k " +
                 "ON (t.cmmnCd = k.cmmnCd) " +
-                "WHERE ('' = :systmClCd OR t.systmClCd = :systmClCd) " +
-                "AND ('' = :chrgTaskGroupCd OR t.chrgTaskGroupCd = :chrgTaskGroupCd) " +
+                "WHERE ('' = :chrgTaskGroupCd OR t.chrgTaskGroupCd = :chrgTaskGroupCd) " +
                 "AND t.cmmnCdNm LIKE CONCAT('%',:cmmnCdNm,'%') " +
                 "ORDER BY t.chrgTaskGroupCd, k.cmmnCd, k.sortSeqn")
-    List<CmmnCdDtlDto> findCmmnCdDtl(@Param("systmClCd") String systmClCd, @Param("chrgTaskGroupCd") String chrgTaskGroupCd, @Param("cmmnCdNm") String cmmnCdNm);
+    List<CmmnCdDtlDto> findCmmnCdDtl(@Param("chrgTaskGroupCd") String chrgTaskGroupCd, @Param("cmmnCdNm") String cmmnCdNm);
 
     @QueryHints(@QueryHint(name=COMMENT, value="공통, common, 나태관"))
     CmmnCdDtl findByCmmnCdAndCmmnCdVal(String cmmnCd, String cmmnCdVal);

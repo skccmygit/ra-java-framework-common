@@ -56,14 +56,13 @@ public class CmmnCdServiceImpl implements CmmnCdService {
     }
 
     @Override
-    public List<CmmnCdDto> findCmmnCdList(String systmClCd, String chrgTaskGroupCd, String cmmnCdNm){
+    public List<CmmnCdDto> findCmmnCdList(String chrgTaskGroupCd, String cmmnCdNm){
 
-        systmClCd = systmClCd == null ? "" : systmClCd;
         chrgTaskGroupCd = chrgTaskGroupCd == null ? "" : chrgTaskGroupCd;
         cmmnCdNm = cmmnCdNm == null ? "" : cmmnCdNm;
 
-        List<CmmnCd> list = cmmnCdRepository.findCmmnCdNm(systmClCd, chrgTaskGroupCd,cmmnCdNm,
-                                             Sort.by("systmClCd").and(Sort.by("chrgTaskGroupCd").and(Sort.by("cmmnCd").ascending())));
+        List<CmmnCd> list = cmmnCdRepository.findCmmnCdNm(chrgTaskGroupCd, cmmnCdNm,
+                Sort.by("chrgTaskGroupCd").and(Sort.by("cmmnCd").ascending()));
 
         List<CmmnCdDtlDto> cmmnCdDtlDtoList = ObjectUtil.toDtoList(cmmnCdDtlRepository.findByCmmnCd("CHRG_TASK_GROUP_CD", ""), CmmnCdDtlDto.class);
 
@@ -177,13 +176,12 @@ public class CmmnCdServiceImpl implements CmmnCdService {
     }
 
     @Override
-    public List<CmmnCdDtlDto> findCmmnCdDtlByCondition(String systmClCd, String chrgTaskGroupCd, String cmmnCdNm){
+    public List<CmmnCdDtlDto> findCmmnCdDtlByCondition(String chrgTaskGroupCd, String cmmnCdNm){
 
-        systmClCd = systmClCd == null ? "" : systmClCd;
         chrgTaskGroupCd = chrgTaskGroupCd == null ? "" : chrgTaskGroupCd;
         cmmnCdNm = cmmnCdNm == null ? "" : cmmnCdNm;
 
-        return cmmnCdDtlRepository.findCmmnCdDtl(systmClCd, chrgTaskGroupCd, cmmnCdNm);
+        return cmmnCdDtlRepository.findCmmnCdDtl(chrgTaskGroupCd, cmmnCdNm);
     }
 
     @Override

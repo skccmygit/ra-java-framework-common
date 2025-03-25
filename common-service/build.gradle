@@ -18,6 +18,10 @@ dependencies {
     implementation 'commons-io:commons-io:2.11.0'
 
     implementation project(':common-export')
-    implementation project(":common-service")
+//    implementation project(":common-service")
     testImplementation 'junit:junit:4.13.1'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation"
 }

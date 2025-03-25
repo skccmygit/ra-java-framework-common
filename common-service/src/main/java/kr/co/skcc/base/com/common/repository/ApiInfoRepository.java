@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static org.hibernate.jpa.QueryHints.HINT_COMMENT;
+import static org.hibernate.jpa.HibernateHints.HINT_COMMENT;
 
 @Repository
 public interface ApiInfoRepository extends JpaRepository<ApiInfo, Integer> {

@@ -41,10 +41,9 @@ public class CmmnCdResource {
 
     @Operation(summary = "코드 마스터 조회 - 조건별")
     @GetMapping("/condition")
-    public ResponseEntity<List<CmmnCdDto>> findByCmmnCdNm(@RequestParam(required = false) String systmClCd,
-                                                          @RequestParam(required = false) String chrgTaskGroupCd,
+    public ResponseEntity<List<CmmnCdDto>> findByCmmnCdNm(@RequestParam(required = false) String chrgTaskGroupCd,
                                                           @RequestParam(required = false) String cmmnCdNm) {
-        return new ResponseEntity<>(cmmnCdService.findCmmnCdList(systmClCd, chrgTaskGroupCd, cmmnCdNm), HttpStatus.OK);
+        return new ResponseEntity<>(cmmnCdService.findCmmnCdList(chrgTaskGroupCd, cmmnCdNm), HttpStatus.OK);
     }
 
 
@@ -95,10 +94,10 @@ public class CmmnCdResource {
 
     @Operation(summary = "코드 상세 조회 - 조건별")
     @GetMapping("/dtl/condition")
-    public ResponseEntity<List<CmmnCdDtlDto>> searchCmmnCdDtlByCondition(@RequestParam(required = false) String systmClCd,
-                                                                         @RequestParam(required = false) String chrgTaskGroupCd,
-                                                                         @RequestParam(required = false) String cmmnCdNm) {
-        return new ResponseEntity<>(cmmnCdService.findCmmnCdDtlByCondition(systmClCd, chrgTaskGroupCd, cmmnCdNm), HttpStatus.OK);
+    public ResponseEntity<List<CmmnCdDtlDto>> searchCmmnCdDtlByCondition(
+            @RequestParam(required = false) String chrgTaskGroupCd,
+            @RequestParam(required = false) String cmmnCdNm) {
+        return new ResponseEntity<>(cmmnCdService.findCmmnCdDtlByCondition(chrgTaskGroupCd, cmmnCdNm), HttpStatus.OK);
     }
 
 

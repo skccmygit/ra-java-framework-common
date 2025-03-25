@@ -13,7 +13,7 @@ public interface CmmnCdService {
     CmmnCdDto create(CmmnCdDto cmmnCdDto);
     CmmnCdDto update(CmmnCdDto cmmnCdDto);
 
-    List<CmmnCdDto> findCmmnCdList(String systmClCd, String chrgTaskGroupCd, String cmmnCdNm);
+    List<CmmnCdDto> findCmmnCdList(String chrgTaskGroupCd, String cmmnCdNm);
     void excelDownloadCmmnCd(String chrgTaskGroupCd, String cmmnCdNm) throws IOException, InvocationTargetException, IllegalAccessException, NoSuchMethodException;
 
     CmmnCdDtlDto createDtl(CmmnCdDtlDto cmmnCdDtlDto);
@@ -24,6 +24,6 @@ public interface CmmnCdService {
     HashMap<String, Object> findByCmmnCdDtlList(List<String> cmmnCd);
     void updateDtlList(List<CmmnCdDtlDto> cmmnCdDtlDtoList);
 
-    List<CmmnCdDtlDto> findCmmnCdDtlByCondition(String systmClCd, String chrgTaskGroupCd, String cmmnCdNm);
+    List<CmmnCdDtlDto> findCmmnCdDtlByCondition(String chrgTaskGroupCd, String cmmnCdNm);
     List<CmmnCdDtlDto> searchCmmnCdDtlBySuperfindByCmmnCd(String cmmnCd, String superCmmnCd, String superCmmnCdVal);
 }
