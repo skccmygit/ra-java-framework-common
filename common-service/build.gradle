@@ -21,7 +21,3 @@ dependencies {
 //    implementation project(":common-service")
     testImplementation 'junit:junit:4.13.1'
 }
-
-tasks.withType(JavaCompile) {
-    options.compilerArgs << "-Xlint:deprecation"
-}
