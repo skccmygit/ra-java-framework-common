@@ -22,16 +22,9 @@ public class CmmnCdDto implements Entitiable<CmmnCd> {
     @NotEmpty(message="공통코드는 필수값 입니다.")
     private String cmmnCd;
 
-    @Schema(description = "시스템구분코드", example = "BSS")
-    @NotNull
-    private String systmClCd;
-
     @Schema(description = "업무구분코드", example = "00")
     @NotNull
     private String chrgTaskGroupCd;
-
-    @Schema(description = "BSS공통코드", example = "BC01")
-    private String bssCmmnCd;
 
     @Schema(description = "공통코드명", example = "테스트코드")
     private String cmmnCdNm;
