@@ -17,7 +17,6 @@ dependencies {
     implementation "org.apache.tika:tika-core:1.22"
     implementation 'commons-io:commons-io:2.11.0'
 
-    implementation project(':api-gateway')
     implementation project(':common-export')
     implementation project(":common-service")
     testImplementation 'junit:junit:4.13.1'
