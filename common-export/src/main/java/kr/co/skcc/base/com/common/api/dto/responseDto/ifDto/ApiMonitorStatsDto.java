@@ -11,7 +11,7 @@ public interface ApiMonitorStatsDto {
      int getApiId();
      int getApiRespTime();
      default String getApiREspTimeUnit() {
-          return Integer.toString(getApiRespTime()) + "ms";
+          return getApiRespTime() + "ms";
      }
      @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
      LocalDateTime getApiExctStartDtmt();

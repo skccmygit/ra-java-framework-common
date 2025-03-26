@@ -36,7 +36,6 @@ public class AttachFileResource {
         return new ResponseEntity<>(attachFileService.findFileNoList(fileNoList), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "파일 업로드")
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<List<AttachFileDto>> fileUpload(@RequestPart List<MultipartFile> files,
@@ -44,7 +43,6 @@ public class AttachFileResource {
         return new ResponseEntity<>(attachFileService.fileUpload(files, taskGroup), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "파일 다운로드")
     @GetMapping("/download")
     public ResponseEntity<HttpStatus> fileDownload(@RequestParam Long fileNo) throws IOException {
@@ -52,14 +50,12 @@ public class AttachFileResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    
     @Operation(summary = "파일 삭제 - DB flag만 변경")
     @PutMapping("/remove/soft")
     public ResponseEntity<List<Long>> removeFileSoft(@RequestParam List<Long> fileNoList){
         return new ResponseEntity<>(attachFileService.removeFileSoft(fileNoList), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "파일 삭제 - 물리 파일까지 삭제")
     @PutMapping("/remove/hard")
     public ResponseEntity<List<Long>> removeFileHard(@RequestParam List<Long> fileNoList) {

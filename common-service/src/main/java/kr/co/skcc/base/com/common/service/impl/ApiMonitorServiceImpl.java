@@ -32,28 +32,28 @@ public class ApiMonitorServiceImpl implements ApiMonitorService {
     @Override
     public Page<ApiMonitorStatsDto> queryApiMonitorStatsSearch(String taskClCd, String aproGroupClNm, String apiNmUrladdr, Integer apiRespTime, LocalDateTime exectDtmtFrom, LocalDateTime exectDtmtTo, Boolean nomalSts, Boolean delaySts, Boolean errSts, Pageable pageable) {
 
-        if (exectDtmtFrom == null || "".equals(exectDtmtFrom.toString().trim()))    throw new ServiceException("ONM.I0006");
-        if (exectDtmtTo == null || "".equals(exectDtmtTo.toString().trim()))        throw new ServiceException("ONM.I0007");
+        if (exectDtmtFrom == null || exectDtmtFrom.toString().trim().isEmpty())    throw new ServiceException("ONM.I0006");
+        if (exectDtmtTo == null || exectDtmtTo.toString().trim().isEmpty())        throw new ServiceException("ONM.I0007");
 
-        if (exectDtmtTo != null) exectDtmtTo = exectDtmtTo.withSecond(59);
+        exectDtmtTo = exectDtmtTo.withSecond(59);
 
         String nomalStsVal = "0000";
         String delayStsVal = "0000";
         String errStsVal = "0000";
 
-        if(taskClCd == null) taskClCd = "";
-        if(aproGroupClNm == null) aproGroupClNm = "";
-        if(apiNmUrladdr == null) apiNmUrladdr = "";
-        if(apiRespTime == null) apiRespTime = -1;
-        if(nomalSts == null) nomalSts = false;
-        if(delaySts == null) delaySts = false;
-        if(errSts == null) errSts = false;
+        if (taskClCd == null) taskClCd = "";
+        if (aproGroupClNm == null) aproGroupClNm = "";
+        if (apiNmUrladdr == null) apiNmUrladdr = "";
+        if (apiRespTime == null) apiRespTime = -1;
+        if (nomalSts == null) nomalSts = false;
+        if (delaySts == null) delaySts = false;
+        if (errSts == null) errSts = false;
 
-        if(nomalSts) nomalStsVal = "2";
-        if(delaySts) delayStsVal = "4";
-        if(errSts) errStsVal = "5";
+        if (nomalSts) nomalStsVal = "2";
+        if (delaySts) delayStsVal = "4";
+        if (errSts) errStsVal = "5";
 
-        if(!nomalSts && !delaySts && !errSts){
+        if (!nomalSts && !delaySts && !errSts) {
             nomalStsVal = "";
             delayStsVal = "";
             errStsVal = "";
@@ -74,7 +74,7 @@ public class ApiMonitorServiceImpl implements ApiMonitorService {
         LocalDateTime exectDtmtFrom = null;
         LocalDateTime exectDtmtTo = null;
 
-        if(exectDtmt != null) {
+        if (exectDtmt != null) {
             exectDtmtFrom = exectDtmt.atStartOfDay();
             exectDtmtTo = exectDtmt.atTime(23,59,59);
         }

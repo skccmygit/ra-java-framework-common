@@ -34,7 +34,6 @@ import java.util.*;
 @Slf4j
 public class ApiMgtServiceImpl implements ApiMgtService {
 
-
     @Value("${server.servlet.context-path}")
     private String contextPath;
 
@@ -66,7 +65,7 @@ public class ApiMgtServiceImpl implements ApiMgtService {
         String[] arrayHeaderNm1 = {"업무구분", "자원그룹", "API명", "설명", "HTTP 메소드", "API URL"};
 
         // 헤더 List 생성
-        List<String[]> headerList = new ArrayList();
+        List<String[]> headerList = new ArrayList<>();
         headerList.add(arrayHeaderNm1);
 
         // 헤더 길이
@@ -98,10 +97,10 @@ public class ApiMgtServiceImpl implements ApiMgtService {
     @Override
     public ApiInfoDto getApiInfo(Integer apiId) {
         Optional<ApiInfo> optional = apiInfoRepository.findById(apiId);
-        if(optional.isPresent()){
+        if (optional.isPresent()) {
             ApiInfo apiInfo = optional.get();
             return apiInfo.toApi();
-        }else {
+        } else {
             throw new ServiceException("ONM.I0009");
         }
     }
@@ -110,7 +109,7 @@ public class ApiMgtServiceImpl implements ApiMgtService {
     public ApiInfoDto create(ApiInfoDto apiInfoDto) {
 
         ApiInfo apiInfo = apiInfoDto.toEntity();
-        if(apiInfoRepository.existsByApiLocUrladdrAndHttMethodVal(apiInfo.getApiLocUrladdr(), apiInfo.getHttMethodVal())) throw new ServiceException("ONM.I0010");
+        if (apiInfoRepository.existsByApiLocUrladdrAndHttMethodVal(apiInfo.getApiLocUrladdr(), apiInfo.getHttMethodVal())) throw new ServiceException("ONM.I0010");
 
         apiInfo.setApiId(0);
         apiInfo.setLastChngrId(RequestUtil.getLoginUserid());
@@ -123,10 +122,10 @@ public class ApiMgtServiceImpl implements ApiMgtService {
     @Override
     public ApiInfoDto update(ApiInfoDto apiInfoDto) {
         ApiInfo apiInfo = apiInfoDto.toEntity();
-        if(!apiInfoRepository.existsById(apiInfo.getApiId())) throw new ServiceException("ONM.I0002");
+        if (!apiInfoRepository.existsById(apiInfo.getApiId())) throw new ServiceException("ONM.I0002");
 
         ApiInfo checkApiInfo = apiInfoRepository.findByApiLocUrladdrAndHttMethodVal(apiInfo.getApiLocUrladdr(), apiInfo.getHttMethodVal());
-        if(checkApiInfo != null && checkApiInfo.getApiId() != apiInfo.getApiId()) throw new ServiceException("ONM.I0010");
+        if (checkApiInfo != null && checkApiInfo.getApiId() != apiInfo.getApiId()) throw new ServiceException("ONM.I0010");
 
         apiInfo.setLastChngrId(RequestUtil.getLoginUserid());
         apiInfo.setLastChngDtmd(LocalDateTime.now());
@@ -143,9 +142,9 @@ public class ApiMgtServiceImpl implements ApiMgtService {
 
     @Override
     public List<ApiInfoDto> queryApiInfoByCondition(String taskClCd, String appType, String apiNmUrladdrDesc) {
-        if(taskClCd == null) taskClCd = "";
-        if(appType == null) appType = "";
-        if(apiNmUrladdrDesc == null) apiNmUrladdrDesc = "";
+        if (taskClCd == null) taskClCd = "";
+        if (appType == null) appType = "";
+        if (apiNmUrladdrDesc == null) apiNmUrladdrDesc = "";
 
         return apiInfoRepository.queryApiInfoByCondition(taskClCd, appType, apiNmUrladdrDesc);
     }
@@ -155,9 +154,9 @@ public class ApiMgtServiceImpl implements ApiMgtService {
         String apiDocsUri = apiDocsReqDto.getApiDocsUri();
         int aproGroupId = apiDocsReqDto.getAproGroupId();
 
-        if(!appGroupRepository.existsById(aproGroupId)) throw new ServiceException("ONM.I0001");
+        if (!appGroupRepository.existsById(aproGroupId)) throw new ServiceException("ONM.I0001");
 
-        try{
+        try {
             URI uri = new URI(apiDocsUri);
             String response = apiDocsClient.getApiDocs(uri);
 
@@ -170,11 +169,11 @@ public class ApiMgtServiceImpl implements ApiMgtService {
             JsonObject pathsObject = apiDocsObject.get("paths").getAsJsonObject();
             Iterator<String> paths = pathsObject.keySet().iterator();
 
-            while(paths.hasNext()){
+            while (paths.hasNext()) {
                 String path = paths.next();
                 JsonObject pathInfo = pathsObject.get(path).getAsJsonObject();
                 Iterator<String> methods = pathInfo.keySet().iterator();
-                while(methods.hasNext()) {
+                while (methods.hasNext()) {
                     String method = methods.next();
                     log.info("method : " + method);
                     JsonObject methodInfo = pathInfo.get(method).getAsJsonObject();
@@ -184,21 +183,21 @@ public class ApiMgtServiceImpl implements ApiMgtService {
 
                     String apiReqCntnt = null;
                     String apiRespCntnt = null;
-                    if("get".equals(method)){
+                    if ("get".equals(method)) {
                         apiReqCntnt = methodInfo.get("parameters") != null ? methodInfo.get("parameters").toString() : null;
                         apiRespCntnt = methodInfo.get("responses") != null ? methodInfo.get("responses").toString() : null;
-                    }else if("put".equals(method)) {
+                    } else if ("put".equals(method)) {
                         apiReqCntnt = methodInfo.get("requestBody") != null ? methodInfo.get("requestBody").toString() : null;
                         apiRespCntnt = methodInfo.get("responses") != null ? methodInfo.get("responses").toString() : null;
-                    }else if("post".equals(method)) {
+                    } else if ("post".equals(method)) {
                         apiReqCntnt = methodInfo.get("requestBody") != null ? methodInfo.get("requestBody").toString() : null;
                         apiRespCntnt = methodInfo.get("responses") != null ? methodInfo.get("responses").toString() : null;
-                    }else if("delete".equals(method)) {
+                    } else if ("delete".equals(method)) {
                         apiReqCntnt = methodInfo.get("requestBody") != null ? methodInfo.get("requestBody").toString() : null;
                         apiRespCntnt = methodInfo.get("responses") != null ? methodInfo.get("responses").toString() : null;
                     }
 
-                    if(!apiInfoRepository.existsByApiLocUrladdrAndHttMethodVal(path, method.toUpperCase())){
+                    if (!apiInfoRepository.existsByApiLocUrladdrAndHttMethodVal(path, method.toUpperCase())) {
                         ApiInfo apiInfo = new ApiInfo();
                         apiInfo.setApiLocUrladdr(contextPath+path);
                         apiInfo.setApiNm(operationId);
@@ -211,7 +210,7 @@ public class ApiMgtServiceImpl implements ApiMgtService {
                         apiInfo.setLastChngDtmd(LocalDateTime.now());
 
                         apiInfoRepository.save(apiInfo);
-                    }else {
+                    } else {
                         ApiInfo apiInfo = apiInfoRepository.findByApiLocUrladdrAndHttMethodVal(path, method.toUpperCase());
                         apiInfo.setApiLocUrladdr(path);
                         apiInfo.setApiNm(operationId.substring(0,operationId.lastIndexOf("Using")));
@@ -227,7 +226,7 @@ public class ApiMgtServiceImpl implements ApiMgtService {
                     }
                 }
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("saveApiDocs error", e);
             throw new ServiceException("ONM.I0008");
         }

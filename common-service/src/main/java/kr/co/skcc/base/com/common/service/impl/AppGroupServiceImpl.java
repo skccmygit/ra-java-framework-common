@@ -25,7 +25,7 @@ public class AppGroupServiceImpl implements AppGroupService {
     @Override
     public List<AppGroupDto> queryAppGroupSearch(String aproTaskClCd, String aproTypeClCd) {
 
-        if(aproTaskClCd == null) aproTaskClCd = "";
+        if (aproTaskClCd == null) aproTaskClCd = "";
 
         List<AppGroup> list = appGroupRepository.queryAppGroupSearch(aproTaskClCd, aproTypeClCd);
         return list.stream().map(AppGroup::toApi).collect(Collectors.toList());
@@ -52,7 +52,7 @@ public class AppGroupServiceImpl implements AppGroupService {
 
         appGroupDtos.forEach(appGroupDto -> {
             AppGroup entity = appGroupDto.toEntity();
-            if(!appGroupRepository.existsById(entity.getAproGroupId())) throw new ServiceException("ONM.I0001");
+            if (!appGroupRepository.existsById(entity.getAproGroupId())) throw new ServiceException("ONM.I0001");
             entity.setLastChngrId(RequestUtil.getLoginUserid());
             entity.setLastChngDtmd(LocalDateTime.now());
             appGroups.add(entity);
@@ -67,7 +67,7 @@ public class AppGroupServiceImpl implements AppGroupService {
 
         appGroupDtos.forEach(appGroupDto -> {
             AppGroup entity = appGroupDto.toEntity();
-            if(entity.getAproGroupId() != 0 && !appGroupRepository.existsById(entity.getAproGroupId())) throw new ServiceException("ONM.I0001");
+            if (entity.getAproGroupId() != 0 && !appGroupRepository.existsById(entity.getAproGroupId())) throw new ServiceException("ONM.I0001");
             entity.setLastChngrId(RequestUtil.getLoginUserid());
             entity.setLastChngDtmd(LocalDateTime.now());
             appGroups.add(entity);

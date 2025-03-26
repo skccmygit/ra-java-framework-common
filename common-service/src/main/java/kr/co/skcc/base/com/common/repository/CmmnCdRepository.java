@@ -1,6 +1,5 @@
 package kr.co.skcc.base.com.common.repository;
 
-
 import jakarta.persistence.QueryHint;
 import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.CmmnCdIDto;
 import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCd;

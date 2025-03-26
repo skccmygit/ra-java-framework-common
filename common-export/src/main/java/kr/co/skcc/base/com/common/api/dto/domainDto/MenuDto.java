@@ -126,16 +126,19 @@ public class MenuDto implements Entitiable<Menu> {
         this(t, k) ;
         this.chrgTaskGroupNm = chrgTaskGroupNm;
     }
+
     /* 전체메뉴 리스트 */
     public MenuDto(Menu t, Scren k, String chrgTaskGroupNm, String superMenuNm) {
         this(t, k, chrgTaskGroupNm) ;
         this.superMenuNm = superMenuNm;
     }
+
     /* 바로가기 메뉴 리스트 */
     public MenuDto(Menu t, Scren k,  String chrgTaskGroupNm, String superMenuNm, int shortcutSortSeqn) {
         this(t, k, chrgTaskGroupNm, superMenuNm) ;
         this.shortcutSortSeqn = shortcutSortSeqn;
     }
+
     /* 전체메뉴 리스트 */
     public MenuDto(Menu t, Scren k, String chrgTaskGroupNm, String superMenuNm, String value, String gbn) {
         this(t, k, chrgTaskGroupNm, superMenuNm) ;
@@ -150,7 +153,6 @@ public class MenuDto implements Entitiable<Menu> {
         this(t) ;
         this.chrgTaskGroupNm = chrgTaskGroupNm;
         this.superMenuNm = superMenuNm;
-
     }
 
     /* 전체메뉴 리스트 */

@@ -1,12 +1,10 @@
 package kr.co.skcc.base.com.common.api;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseHistDto;
 import kr.co.skcc.base.com.common.api.dto.responseDto.ApiUseTrendDto;
 import kr.co.skcc.base.com.common.api.dto.responseDto.ifDto.ApiUseTaskStatsDto;
-import kr.co.skcc.base.com.common.exception.ServiceException;
 import kr.co.skcc.base.com.common.service.ApiUseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

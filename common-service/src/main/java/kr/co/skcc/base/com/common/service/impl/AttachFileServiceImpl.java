@@ -78,20 +78,20 @@ public class AttachFileServiceImpl implements AttachFileService {
     @Override
     public List<AttachFileDto> findFileNoList(List<Long> fileNoList){
         List<AttachFile> attachFiles = new ArrayList<>();
-        for(Long fileNo : fileNoList){
-            if(attachFileRepository.existsById(fileNo)) {
+        for (Long fileNo : fileNoList) {
+            if (attachFileRepository.existsById(fileNo)) {
                 attachFiles.add(findFile(fileNo));
             }
         }
 
-        if(attachFiles.isEmpty()) throw new ServiceException("COM.I0013");
+        if (attachFiles.isEmpty()) throw new ServiceException("COM.I0013");
 
         return attachFiles.stream().map(AttachFile::toApi).collect(Collectors.toList());
     }
 
     public AttachFile findFile(Long fileNo) {
         Optional<AttachFile> optional = attachFileRepository.findById(fileNo);
-        if(optional.isPresent()) return optional.get();
+        if (optional.isPresent()) return optional.get();
         else return null;
     }
 
@@ -101,19 +101,19 @@ public class AttachFileServiceImpl implements AttachFileService {
 
         CmmnCdDtl cmmnCdDtl = cmmnCdDtlRepository.findByCmmnCdAndCmmnCdVal("ATAC_FILE_TASK_CL_CD", taskGroup);
         String saveFilePath = savePath + "/ATACFILE/ETC";
-        if(!(cmmnCdDtl == null || "".equals(cmmnCdDtl.getRefrnAttrVal1()))) {
+        if (!(cmmnCdDtl == null || "".equals(cmmnCdDtl.getRefrnAttrVal1()))) {
             saveFilePath = savePath + cmmnCdDtl.getRefrnAttrVal1();
         }
 
         // saveFilePath = /절대경로/업무구분/업로드년월
         String saveDir = "yyyyMM";
-        if(cmmnCdDtl != null && !"".equals(cmmnCdDtl.getRefrnAttrVal2())){
+        if (cmmnCdDtl != null && !"".equals(cmmnCdDtl.getRefrnAttrVal2())) {
             saveDir = cmmnCdDtl.getRefrnAttrVal2();
         }
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern(saveDir));
         saveFilePath += "/" + today;
 
-        for(MultipartFile file : files){
+        for (MultipartFile file : files) {
             fileList.add(upload(file, taskGroup, saveFilePath));
         }
         return fileList;
@@ -138,7 +138,7 @@ public class AttachFileServiceImpl implements AttachFileService {
             String fileType = "1";
             //파일타입
             String mimeType = new Tika().detect(file.getInputStream());
-            if("image".equals(mimeType)){
+            if ("image".equals(mimeType)) {
                 fileType = "2";
             } else if ("png".equals(extension) || "jpg".equals(extension) || "jpeg".equals(extension)
                     || "gif".equals(extension) || "bmp".equals(extension) ){
@@ -158,9 +158,9 @@ public class AttachFileServiceImpl implements AttachFileService {
 
             //MIME Type + Extension 체크  - WFM 은 예외처리
             boolean chkFileType = chkFileType(mimeType, extension);
-            if(!chkFileType && !"WFM".equals(taskGroup)) {
+            if (!chkFileType && !"WFM".equals(taskGroup)) {
                 throw new ServiceException("COM.I0014");
-            }else{
+            } else {
                 if (!new File(saveFilePath).exists()){
                     new File(saveFilePath).mkdir();
                 }
@@ -182,13 +182,13 @@ public class AttachFileServiceImpl implements AttachFileService {
                     throw new ServiceException("COM.I0017");
                 }
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
             throw new ServiceException("COM.I0017");
         }
     }
 
-    public boolean chkFileType(String mimeType, String fileType){
+    public boolean chkFileType(String mimeType, String fileType) {
         if (mimeType == null || mimeType.equals("")) return false;
 
         int extensionCnt = 0;
@@ -212,7 +212,7 @@ public class AttachFileServiceImpl implements AttachFileService {
                 break;
             }
         }
-        if(extensionCnt > 0 && mimeCnt > 0) return true;
+        if (extensionCnt > 0 && mimeCnt > 0) return true;
         return false;
     }
 
@@ -232,13 +232,13 @@ public class AttachFileServiceImpl implements AttachFileService {
         String path = downFile.getAtacFilePathNm();
 
         file = new File(path);
-        if(!file.exists()) throw new ServiceException("COM.I0013");
+        if (!file.exists()) throw new ServiceException("COM.I0013");
         String downfileName =URLEncoder.encode(downFile.getAtacFileNm(),"UTF-8").replaceAll("\\+", " ");
 
-        try(InputStream in = new FileInputStream(file)) {
+        try (InputStream in = new FileInputStream(file)) {
             ServletContext context = RequestUtil.getHttpServletRequest().getServletContext();
             mimeType = context.getMimeType(path);
-            if(mimeType == null){
+            if (mimeType == null) {
                 mimeType = "application/octet-stream";
             }
             HttpServletResponse res = ResponseUtil.getHttpServletResponse();
@@ -254,7 +254,7 @@ public class AttachFileServiceImpl implements AttachFileService {
             byte[] buf = new byte[1024];
             int len = 0;
 
-            while((len = in.read(buf)) != -1){
+            while ((len = in.read(buf)) != -1) {
                 out.write(buf, 0, len);
             }
         } catch (Exception e) {
@@ -267,7 +267,7 @@ public class AttachFileServiceImpl implements AttachFileService {
         List<AttachFile> deleteFileList = attachFileRepository.findFileList(fileNoList);
         List<Long> deleteFileNo = new ArrayList<>();
 
-        if(!(deleteFileList.isEmpty() || deleteFileList == null)) {
+        if(!(deleteFileList == null  || deleteFileList.isEmpty())) {
             deleteFileNo = deleteFileList.stream().map(AttachFile::getAtacFileNo).collect(Collectors.toList());
             attachFileRepository.updateAtacFileStsCd(deleteFileNo, "2");
         }
@@ -280,19 +280,19 @@ public class AttachFileServiceImpl implements AttachFileService {
 
         List<AttachFile> deleteFileList = attachFileRepository.findFileList(fileNoList);
         List<Long> deleteFileNo = new ArrayList<>();
-        if(!(deleteFileList.isEmpty() || deleteFileList == null)){
+        if (!(deleteFileList == null || deleteFileList.isEmpty())) {
             File file;
-            for(AttachFile item : deleteFileList) {
+            for (AttachFile item : deleteFileList) {
                 file = new File(item.getAtacFilePathNm());
-                if (file.exists()){
-                    if(!file.delete()){
+                if (file.exists()) {
+                    if (!file.delete()) {
                         throw new ServiceException("COM.I0003");
                     }
                     deleteFileNo.add(item.getAtacFileNo());
                 }
             }
         }
-        if(!(deleteFileNo.isEmpty() || deleteFileNo == null)) {
+        if(!(deleteFileNo == null || deleteFileNo.isEmpty())) {
             attachFileRepository.updateAtacFileStsCd(deleteFileNo, "X");
         }
 

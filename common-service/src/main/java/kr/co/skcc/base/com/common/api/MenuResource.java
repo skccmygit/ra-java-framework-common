@@ -112,7 +112,6 @@ public class MenuResource {
         return new ResponseEntity<>(menuService.searchMenuStatistics(chrgTaskGroupCd, sumrDtFrom, sumrDtTo, pageable), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "메뉴접속통계 엑셀다운로드")
     @GetMapping("/statistics/excel")
     public ResponseEntity<HttpStatus> downloadMenuStatistics(@RequestParam(required = false) String chrgTaskGroupCd,
@@ -122,7 +121,6 @@ public class MenuResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    
     @Operation(summary = "연동 시스템 절체여부 체크 - 메뉴 ID 기준")
     @GetMapping("/systmConn")
     public ResponseEntity<String> findsystmConnPsbty(@RequestParam String menuId) {

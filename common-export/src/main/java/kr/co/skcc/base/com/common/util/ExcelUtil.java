@@ -70,6 +70,7 @@ public class ExcelUtil {
     public static String excelDownload(HttpServletResponse response, List<ExcelDto> excelDto, String fileName) throws IOException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         return excelDownload(excelDto, fileName,  true );
     }
+
     public static String excelDownload(List<ExcelDto> excelDto, String fileName) throws IOException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
 
         return excelDownload(excelDto, fileName, true );
@@ -87,7 +88,7 @@ public class ExcelUtil {
             }
 
             // 다운로드만 할 경우
-            if(isDownload) {
+            if (isDownload) {
                 // fileDownload 함수가 encFile 에 값이 있으면 그 파일을 다운로드하고 없으면 메모리에 wb를 write 하는 방식
                 // 여기선 메모리에 있는거 바로 다운로드 하려고 일부러 공백을 넣어줌
                 fileDownload(encFile, fileName);
@@ -97,10 +98,10 @@ public class ExcelUtil {
             // 임시파일로 생성할 경우
             return createFile();
 
-        } catch(Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
             return null;
-        } finally{
+        } finally {
             if(wb != null) {
                 wb.close();
                 wb.dispose();
@@ -122,7 +123,7 @@ public class ExcelUtil {
         log.info("*** create header start");
         int rowNum = excelHeaderDto.getStRownum();
         // 타이틀이 있을 경우 타이틀 세팅 -  Text / img 두가지 버전 존재
-        if(!(excelHeaderDto.getTitle() == null || "".equals(excelHeaderDto.getTitle())) || excelHeaderDto.isImgTitle()) {
+        if (!(excelHeaderDto.getTitle() == null || "".equals(excelHeaderDto.getTitle())) || excelHeaderDto.isImgTitle()) {
             rowNum = createTitle(excelHeaderDto);
         }
 
@@ -133,12 +134,12 @@ public class ExcelUtil {
         CellStyle hCellStyle2 = createHeaderCellStyle2();
 
         //헤더값 & 스타일 세팅
-        for(Object header : excelHeaderDto.getHeaderNm()){
+        for (Object header : excelHeaderDto.getHeaderNm()) {
             String[] h = (String[])header;
             row = sheet.createRow(rowNum);
-            for(int i = 0; i < excelHeaderDto.getHLength(); i++){
+            for (int i = 0; i < excelHeaderDto.getHLength(); i++) {
                 cell = row.createCell(i);
-                if(!"".equals(String.valueOf(h[i])))    cell.setCellValue(String.valueOf(h[i]));
+                if (!"".equals(String.valueOf(h[i])))    cell.setCellValue(String.valueOf(h[i]));
                 //헤더 스타일 세팅
                 if (cellType != null) {
                     // 지정된 row/col 에 맞는 스타일 세팅
@@ -153,7 +154,7 @@ public class ExcelUtil {
                         }
                         cell.setCellStyle(hCellStyle1);
                     }
-                }else{
+                } else {
                     cell.setCellStyle(hCellStyle1);
                 }
             }
@@ -161,7 +162,7 @@ public class ExcelUtil {
         }
 
         // 헤더 cell 병합
-        if(excelHeaderDto.getHeaderMerge() != null && !excelHeaderDto.getHeaderMerge().isEmpty()) {
+        if (excelHeaderDto.getHeaderMerge() != null && !excelHeaderDto.getHeaderMerge().isEmpty()) {
             for (Object mergeItem : excelHeaderDto.getHeaderMerge()) {
                 ExcelMergeDto dto = (ExcelMergeDto) mergeItem;
                 // 관제에서 cell 이 1칸일 경우에도 merge 데이터를 넣어 문제가 되어 예외처리
@@ -179,7 +180,7 @@ public class ExcelUtil {
         int rownum = 0;
 
         // 타이틀이 이미지일 경우
-        if(excelHeaderDto.isImgTitle()){
+        if (excelHeaderDto.isImgTitle()) {
             row = sheet.createRow(excelHeaderDto.getImgStartRow());
             cell = row.createCell(excelHeaderDto.getImgStartCol());
 
@@ -234,13 +235,13 @@ public class ExcelUtil {
         // body 세팅
         Map<String, String> dataMap;
         List<ExcelCellType> excelCellTypeList = excelBodyDto.getCellType();
-        for(Object body : excelBodyDto.getBody()){
-            if(body instanceof Map){
-                dataMap = (Map<String, String>)body;
-            }else {
+        for (Object body : excelBodyDto.getBody()) {
+            if (body instanceof Map) {
+                dataMap = (Map<String, String>) body;
+            } else {
                 dataMap = BeanUtils.describe(body);
             }
-            if(dataMap != null) {
+            if (dataMap != null) {
                 row = sheet.createRow(rowNum);
                 int i = 0;
                 for (Object colNmObj : excelBodyDto.getBodyColNm()) {
@@ -249,7 +250,7 @@ public class ExcelUtil {
                 }
             }
             rowNum++;
-            if(rowNum % 1000 == 0){
+            if (rowNum % 1000 == 0) {
                 sheet.setRandomAccessWindowSize(1000);
             }
         }
@@ -257,7 +258,7 @@ public class ExcelUtil {
         // 가로 사이즈 설정
         int i = 0;
         for (Object colNm : excelBodyDto.getBodyColNm()) {
-            if(excelCellTypeList != null) {
+            if (excelCellTypeList != null) {
                 Optional<ExcelCellType> excelCellTye = excelCellTypeList.stream().filter(c -> c.getColNm().equals(String.valueOf(colNm))).findFirst();
                 if (excelCellTye.isPresent()) {
                     if (excelCellTye.get().getColWidth() != 0) {
@@ -271,7 +272,7 @@ public class ExcelUtil {
             i++;
         }
     }
-    private static void setCellValueAndType(Map<String, String> dataMap, List<ExcelCellType> excelCellTypeList, String colNm, CellStyle bCellStyle){
+    private static void setCellValueAndType(Map<String, String> dataMap, List<ExcelCellType> excelCellTypeList, String colNm, CellStyle bCellStyle) {
         // default
         cell.setCellType(CellType.STRING);
         cell.setCellValue(dataMap.get(colNm));
@@ -285,9 +286,9 @@ public class ExcelUtil {
                 if ("NUMERIC".equals(excelCellType.get().getColCellType())) {
                     bCellStyle.setDataFormat(HSSFDataFormat.getBuiltinFormat("#,##0"));
                     cell.setCellType(CellType.NUMERIC);
-                    cell.setCellValue(Double.valueOf(dataMap.get(colNm)));
+                    cell.setCellValue(Double.parseDouble(dataMap.get(colNm)));
                 } else if ("DATE".equals(excelCellType.get().getColCellType())) {
-                    if (NumberUtils.isNumber(dataMap.get(colNm))) {
+                    if (NumberUtils.isCreatable(dataMap.get(colNm))) {
                         cell.setCellValue(setDateType(dataMap.get(colNm)));
                     }
                 }
@@ -344,15 +345,15 @@ public class ExcelUtil {
         HttpServletResponse response;
         fileName = fileName + LocalDateTime.now().format(DATE_TIME_FORMATTER);
 
-        if(filePath == null || filePath.isEmpty()) {
-            if(wb.getNumberOfSheets() != 0) {
+        if (filePath == null || filePath.isEmpty()) {
+            if (wb.getNumberOfSheets() != 0) {
                 contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 response = ResponseUtil.setResponseHeader(contentType, charset, URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20"));
                 wb.write(response.getOutputStream());
-            }else{
+            } else {
                 throw new ServiceException("COM.I0003");
             }
-        }else{
+        } else {
             File file;
             OutputStream out;
             String fileType = filePath.substring(filePath.lastIndexOf(".") + 1);
@@ -397,6 +398,7 @@ public class ExcelUtil {
 
         return font;
     }
+
     private static CellStyle setCellStyle(HorizontalAlignment hAlign, VerticalAlignment vAlign, Font font, String lineYn, String bgColorYn){
         CellStyle cellStyle = wb.createCellStyle();
 
@@ -404,36 +406,40 @@ public class ExcelUtil {
         cellStyle.setVerticalAlignment(vAlign);
         cellStyle.setFont(font);
 
-        if("Y".equals(lineYn)){
+        if ("Y".equals(lineYn)) {
             cellStyle.setBorderBottom(BorderStyle.THIN);
             cellStyle.setBorderTop(BorderStyle.THIN);
             cellStyle.setBorderLeft(BorderStyle.THIN);
             cellStyle.setBorderRight(BorderStyle.THIN);
-        }else{
+        } else {
             cellStyle.setBorderBottom(BorderStyle.NONE);
             cellStyle.setBorderTop(BorderStyle.NONE);
             cellStyle.setBorderLeft(BorderStyle.NONE);
             cellStyle.setBorderRight(BorderStyle.NONE);
         }
 
-        if("Y".equals(bgColorYn)) {
+        if ("Y".equals(bgColorYn)) {
             cellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
             cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        }else{
+        } else {
             cellStyle.setFillPattern(FillPatternType.NO_FILL);
         }
 
         return cellStyle;
     }
+
     public static CellStyle createTitleCellStyle(){
         return setCellStyle(HorizontalAlignment.CENTER, VerticalAlignment.CENTER, createFont(true, 16), "N","N");
     }
+
     public static CellStyle createHeaderCellStyle1(){
         return setCellStyle(HorizontalAlignment.CENTER, VerticalAlignment.CENTER, createFont(false, 10), "Y","Y");
     }
+
     public static CellStyle createHeaderCellStyle2(){
         return setCellStyle(HorizontalAlignment.LEFT, VerticalAlignment.CENTER, createFont(true, 10), "N","N");
     }
+
     public static CellStyle createBodyCellStyle(){
         return setCellStyle(HorizontalAlignment.CENTER, VerticalAlignment.CENTER, createFont(false, 10), "Y","N");
     }
@@ -446,7 +452,7 @@ public class ExcelUtil {
     public static String excelFormDownload(InputStream in, String fileName, List<List<ExcelFormDto>> excelFormDtoList, String secuFlag) throws IOException {
 
         String newFilePath = tempFileSavePath + UUID.randomUUID() + ".xlsx";
-        try(FileOutputStream outFile = new FileOutputStream(newFilePath)) {
+        try (FileOutputStream outFile = new FileOutputStream(newFilePath)) {
 
             // 3. 복사한 파일 열기
             XSSFWorkbook workbook = new XSSFWorkbook(in);
@@ -457,7 +463,7 @@ public class ExcelUtil {
             XSSFRow row;
             XSSFCell cell;
 
-            if(!(excelFormDtoList == null || excelFormDtoList.isEmpty())) {
+            if (!(excelFormDtoList == null || excelFormDtoList.isEmpty())) {
                 for (List<ExcelFormDto> item : excelFormDtoList) {
                     sheet = workbook.getSheetAt(sheetNo++);
                     for (ExcelFormDto data : item) {
@@ -473,7 +479,7 @@ public class ExcelUtil {
             fileDownload(newFilePath, fileName);
 
             return newFilePath;
-        }catch(Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
             return null;
         }
@@ -496,10 +502,10 @@ public class ExcelUtil {
             listData = createCsvListData(excelHeaderDto, excelBodyDto);
             typeList = createTypeList(cellType, excelBodyDto.getBodyColNm());
             String tempFile = createCsvFile(listData, typeList);
-            if(isDownload) fileDownload(tempFile, fileName);
+            if (isDownload) fileDownload(tempFile, fileName);
             return tempFile;
 
-        }catch(Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
             return null;
         }
@@ -516,11 +522,11 @@ public class ExcelUtil {
 
         Map<String, String> dataMap;
         for (Object body : excelBodyDto.getBody()) {
-            if(body instanceof Map) dataMap = (Map<String, String>)body;
+            if (body instanceof Map) dataMap = (Map<String, String>) body;
             else                    dataMap = BeanUtils.describe(body);
 
             List<String> temp = new ArrayList<>();
-            for(Object colNmObj : excelBodyDto.getBodyColNm()){
+            for (Object colNmObj : excelBodyDto.getBodyColNm()) {
                 String colNm = String.valueOf(colNmObj);
                 temp.add(dataMap.get(colNm) == null ? "" : dataMap.get(colNm));
 
@@ -530,18 +536,18 @@ public class ExcelUtil {
 
         return listData;
     }
-    private static List<Integer> createTypeList(List<ExcelCellType> cellType, List<String> colNmObj){
+    private static List<Integer> createTypeList(List<ExcelCellType> cellType, List<String> colNmObj) {
         List<Integer> typeList = new ArrayList<>();
 
-        if(cellType == null) {
+        if (cellType == null) {
             return null;
         }
 
-        for(int typeChk = 0; typeChk < colNmObj.size(); typeChk++){
+        for (int typeChk = 0; typeChk < colNmObj.size(); typeChk++) {
             Object obj = colNmObj.get(typeChk);
             Optional<ExcelCellType> excelCellType = cellType.stream().filter(c -> c.getColNm().equals(String.valueOf(obj))).findFirst();
             if (excelCellType.isPresent()) {
-                if("NUMERIC".equals(excelCellType.get().getColCellType()) ||
+                if ("NUMERIC".equals(excelCellType.get().getColCellType()) ||
                         "LONGTEXT".equals(excelCellType.get().getColCellType())) {
                     typeList.add(typeChk);
                 }
@@ -549,12 +555,13 @@ public class ExcelUtil {
         }
         return typeList;
     }
+
     private static String createCsvFile(List<List<String>> listData, List<Integer> typeList) {
 
         String charset = "MS949";
         String saveFilePath = tempFileSavePath + UUID.randomUUID() + ".csv";
 
-        if (!new File(tempFileSavePath).exists()){
+        if (!new File(tempFileSavePath).exists()) {
             new File(tempFileSavePath).mkdir();
         }
 
@@ -566,14 +573,14 @@ public class ExcelUtil {
             osw = new OutputStreamWriter(new FileOutputStream(csvFile), charset);
             bufWriter = new BufferedWriter(osw);
             csvPrinter = new CSVPrinter(bufWriter, CSVFormat.DEFAULT);
-            for(List<String> line : listData){
+            for (List<String> line : listData) {
                 List<String> writeLine = new ArrayList<>();
-                if(typeList == null || typeList.isEmpty()) {
+                if (typeList == null || typeList.isEmpty()) {
                     for (String str : line) {
                         writeLine.add("=\"" + str.replace("\"", "\"\"") + "\"");
                     }
-                }else{
-                    for(int typeChk = 0; typeChk < line.size();  typeChk++ ) {
+                } else {
+                    for (int typeChk = 0; typeChk < line.size();  typeChk++ ) {
                         String str = line.get(typeChk);
                         if (!typeList.contains(typeChk)) {
                             writeLine.add("=\"" + str.replace("\"", "\"\"") + "\"");
@@ -587,13 +594,13 @@ public class ExcelUtil {
             csvPrinter.flush();
 
             return saveFilePath;
-        } catch(IOException e){
+        } catch(IOException e) {
             log.error(e.getMessage(), e);
             return null;
         } finally {
             try {
-                if(bufWriter != null) bufWriter.close();
-            } catch(IOException e){
+                if (bufWriter != null) bufWriter.close();
+            } catch(IOException e) {
                 log.error(e.getMessage(), e);
             }
         }
@@ -603,7 +610,7 @@ public class ExcelUtil {
 
         String filePath = uploadTempFileSavePath + UUID.randomUUID() + "." + FilenameUtils.getExtension(m.getOriginalFilename());
 
-        if (!new File(uploadTempFileSavePath).exists()){
+        if (!new File(uploadTempFileSavePath).exists()) {
             new File(uploadTempFileSavePath).mkdir();
         }
         m.transferTo(new File(filePath));
@@ -613,11 +620,11 @@ public class ExcelUtil {
         Workbook wb;
 
         String originalFileName = m.getOriginalFilename();
-        if(originalFileName == null) {
+        if (originalFileName == null) {
             return null;
         }
 
-        try( InputStream fi = new FileInputStream(dm)) {
+        try (InputStream fi = new FileInputStream(dm)) {
             if ("xlsx".equals(FilenameUtils.getExtension(m.getOriginalFilename()))) {
                 wb = new XSSFWorkbook(fi);
             } else if ("xls".equals(FilenameUtils.getExtension(m.getOriginalFilename()))) {
@@ -632,12 +639,12 @@ public class ExcelUtil {
             }
             return excelDtoList;
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new ServiceException("COM.I0031");
         }
     }
 
-    private static ExcelDto readSheet(Sheet sheet){
+    private static ExcelDto readSheet(Sheet sheet) {
         ExcelHeaderDto headerDto = new ExcelHeaderDto();
         ExcelBodyDto   bodyDto = new ExcelBodyDto();
 
@@ -655,12 +662,11 @@ public class ExcelUtil {
             bodyDto.setBody(bList);
 
             return new ExcelDto(sheet.getSheetName(), headerDto, bodyDto);
-        }catch(Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
     private static String[] readHeader(Sheet sheet) {
-
         Row row;
         Cell cell;
 
@@ -677,7 +683,7 @@ public class ExcelUtil {
                 }
             }
             return hArray;
-        }catch(Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
@@ -689,14 +695,14 @@ public class ExcelUtil {
         List<String> rList = new ArrayList<>();
         try {
             row = sheet.getRow(rowIndex);
-            if(row != null){
-                for(int cellIndex = 0; cellIndex < row.getLastCellNum(); cellIndex++) {
+            if (row != null) {
+                for (int cellIndex = 0; cellIndex < row.getLastCellNum(); cellIndex++) {
                     cell = row.getCell(cellIndex);
                     rList.add(getValue(cell));
                 }
             }
             return rList;
-        }catch(Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
@@ -704,20 +710,20 @@ public class ExcelUtil {
     private static String getValue(Cell cell) {
         String value = "";
 
-        if(cell == null) value = "";
+        if (cell == null) value = "";
         else {
-            if( cell.getCellType() == CellType.FORMULA ){
-                if(CellType.NUMERIC.equals(cell.getCachedFormulaResultType())){
+            if( cell.getCellType() == CellType.FORMULA ) {
+                if (CellType.NUMERIC.equals(cell.getCachedFormulaResultType())) {
                     value = String.valueOf(Double.valueOf(cell.getNumericCellValue()).intValue());
-                }else{
+                } else {
                     cell.getStringCellValue();
                 }
             }
-            else if( cell.getCellType() == CellType.NUMERIC ) value = String.valueOf(Double.valueOf(cell.getNumericCellValue()).intValue());
-            else if( cell.getCellType() == CellType.STRING ) value = cell.getStringCellValue();
-            else if( cell.getCellType() == CellType.BOOLEAN ) value = String.valueOf(cell.getBooleanCellValue());
-            else if( cell.getCellType() == CellType.ERROR )  value = String.valueOf(cell.getErrorCellValue());
-            else if( cell.getCellType() == CellType.BLANK ) value = "";
+            else if ( cell.getCellType() == CellType.NUMERIC ) value = String.valueOf(Double.valueOf(cell.getNumericCellValue()).intValue());
+            else if ( cell.getCellType() == CellType.STRING ) value = cell.getStringCellValue();
+            else if ( cell.getCellType() == CellType.BOOLEAN ) value = String.valueOf(cell.getBooleanCellValue());
+            else if ( cell.getCellType() == CellType.ERROR )  value = String.valueOf(cell.getErrorCellValue());
+            else if ( cell.getCellType() == CellType.BLANK ) value = "";
             else value = cell.getStringCellValue();
         }
         return value;

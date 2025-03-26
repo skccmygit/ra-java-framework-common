@@ -1,6 +1,5 @@
 package kr.co.skcc.base.com.common.domain.apiInfo;
 
-
 import jakarta.persistence.*;
 import kr.co.skcc.base.com.common.api.dto.domainDto.ApiInfoDto;
 import kr.co.skcc.base.com.common.jpa.Apiable;
@@ -13,7 +12,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-
 
 @Data
 @EqualsAndHashCode(callSuper = false)

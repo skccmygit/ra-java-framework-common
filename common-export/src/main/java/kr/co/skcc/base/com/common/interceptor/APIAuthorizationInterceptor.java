@@ -31,7 +31,7 @@ public class APIAuthorizationInterceptor implements HandlerInterceptor {
             로컬 개발 환경에서는 disable 처리 해서 개발 편의성 확보
          */
         log.debug("app.api-auth-enable : {} ", apiAuthEnabled);
-        if(!apiAuthEnabled){
+        if (!apiAuthEnabled) {
             log.trace("[API AUTH CHECK is disabled]" );
             return true;
             //return HandlerInterceptor.super.preHandle(request, response, handler);
@@ -79,13 +79,13 @@ public class APIAuthorizationInterceptor implements HandlerInterceptor {
             /*
                 WHITELIST Role 처리
              */
-            if ("WHITELIST_IP".equals(rolesString)){
+            if ("WHITELIST_IP".equals(rolesString)) {
                 log.debug("[API AUTH CHECK] RESULT:{} // METHOD:{} / API:{} / ACCOUNT_ID:{} / ROLES_STR:{}  ", true, requestMethod, apiPath, accountId, rolesString);
                 return true;
             }
 
             List<String> roles = null;
-            if(rolesString != null && !"".equals(rolesString)){
+            if (rolesString != null && !rolesString.isEmpty()) {
                 roles = Arrays.asList(rolesString.split("\\|"));
             }
             boolean isAuthorized = authorizationClient.getApiAuthorization(accountId, roles, apiPath, requestMethod);

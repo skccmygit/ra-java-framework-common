@@ -63,7 +63,7 @@ public class ApiUseHistDto {
     }
 
     public void setUseRate(Long totalCnt) {
-        double result = (this.apiCallCnt/(double)totalCnt) * 100.0 ;
+        double result = (this.apiCallCnt / (double) totalCnt) * 100.0 ;
         this.useRate = String.format("%.2f", result) + "%";
     }
 }

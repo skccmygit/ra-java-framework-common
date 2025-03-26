@@ -17,7 +17,6 @@ import kr.co.skcc.base.com.common.api.dto.domainDto.CmmnCdDtlDto;
 import kr.co.skcc.base.com.common.domain.cmmnCd.CmmnCdDtl;
 import kr.co.skcc.base.com.common.domain.cmmnCd.pk.CmmnCdDtlPK;
 
-
 @Repository
 public interface CmmnCdDtlRepository extends JpaRepository<CmmnCdDtl, CmmnCdDtlPK> {
 

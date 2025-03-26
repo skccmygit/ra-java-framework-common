@@ -31,13 +31,11 @@ public class CmmnCdResource {
         return new ResponseEntity<>(cmmnCdService.create(cmmnCdDto), HttpStatus.OK);
     }
 
-
     @Operation(summary = "코드 마스터 수정")
     @PutMapping
     public ResponseEntity<CmmnCdDto> update(@RequestBody CmmnCdDto cmmnCdDto) {
         return new ResponseEntity<>(cmmnCdService.update(cmmnCdDto), HttpStatus.OK);
     }
-
 
     @Operation(summary = "코드 마스터 조회 - 조건별")
     @GetMapping("/condition")
@@ -45,7 +43,6 @@ public class CmmnCdResource {
                                                           @RequestParam(required = false) String cmmnCdNm) {
         return new ResponseEntity<>(cmmnCdService.findCmmnCdList(chrgTaskGroupCd, cmmnCdNm), HttpStatus.OK);
     }
-
 
     @Operation(summary = "코드 마스터 + 상세 엑셀 다운로드")
     @GetMapping("/excel")
@@ -55,20 +52,17 @@ public class CmmnCdResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
     @Operation(summary = "코드 상세 등록")
     @PostMapping("/dtl")
     public ResponseEntity<CmmnCdDtlDto> createDtl(@RequestBody CmmnCdDtlDto cmmnCdDtlDto) {
         return new ResponseEntity<>(cmmnCdService.createDtl(cmmnCdDtlDto), HttpStatus.OK);
     }
 
-
     @Operation(summary = "코드 상세 수정 - 단건")
     @PutMapping("/dtl")
     public ResponseEntity<CmmnCdDtlDto> updateDtl(@RequestBody CmmnCdDtlDto cmmnCdDtlDto) {
         return new ResponseEntity<>(cmmnCdService.updateDtl(cmmnCdDtlDto), HttpStatus.OK);
     }
-
 
     @Operation(summary = "코드 상세 수정 - 다건")
     @PutMapping("/dtl/multi")
@@ -77,20 +71,17 @@ public class CmmnCdResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
     @Operation(summary = "코드 상세 조회 - 단건")
     @GetMapping("/dtl")
     public ResponseEntity<List<CmmnCdDtlDto>> findByCmmnCd(@RequestParam String cmmnCd) {
         return new ResponseEntity<>(cmmnCdService.findByCmmnCd(cmmnCd), HttpStatus.OK);
     }
 
-
     @Operation(summary = "코드 상세 조회 - 다건")
     @GetMapping("/dtl/multi")
     public ResponseEntity<HashMap<String, Object>> findByCmmnCdList(@RequestParam List<String> cmmnCdList) {
         return new ResponseEntity<>(cmmnCdService.findByCmmnCdDtlList(cmmnCdList), HttpStatus.OK);
     }
-
 
     @Operation(summary = "코드 상세 조회 - 조건별")
     @GetMapping("/dtl/condition")
@@ -99,7 +90,6 @@ public class CmmnCdResource {
             @RequestParam(required = false) String cmmnCdNm) {
         return new ResponseEntity<>(cmmnCdService.findCmmnCdDtlByCondition(chrgTaskGroupCd, cmmnCdNm), HttpStatus.OK);
     }
-
 
     @Operation(summary = "코드 상세 조회 - 상위코드 기준")
     @GetMapping("/dtl/superCd")

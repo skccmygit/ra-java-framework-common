@@ -53,7 +53,6 @@ public class UserBasicResource {
         return new ResponseEntity<>(userBasicService.searchUserList(empnoList, empNmList, deptcdList, empNm, deptNm), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "사원 조회 - 사번, 사원명 기준 다건(개인정보 마스킹 해제)")
     @GetMapping("/list/noMasking")
     public ResponseEntity<List<UserBasicDto>> searchUserListNoMasking(@RequestParam(required = false) List<String> empnoList,
@@ -64,21 +63,18 @@ public class UserBasicResource {
         return new ResponseEntity<>(userBasicService.searchUserListNoMasking(empnoList, empNmList, deptcdList, empNm, deptNm), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "사원 전화번호 조회 - 단건")
     @GetMapping("/mphno")
     public ResponseEntity<String> searchUserPhone(@RequestParam String empno) {
         return new ResponseEntity<>(userBasicService.searchUserPhone(empno), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "사원 조회 - 전화번호 기준")
     @GetMapping("/telno")
     public ResponseEntity<List<InnerCallInfoDto>> searchUserByTelno(@RequestParam String telno) {
         return new ResponseEntity<>(userBasicService.searchUserByTelno(telno), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "사원 조회 - 사번, 부서코드, 사원명 기준")
     @GetMapping
     public ResponseEntity<List<UserBasicDto>> searchUserBasic(@RequestParam(required = false) String userNm,
@@ -87,7 +83,6 @@ public class UserBasicResource {
         return new ResponseEntity<>(userBasicService.searchUserBasic(userNm, deptcdList, empno), HttpStatus.OK);
     }
 
-    
     @Operation(summary = "부서장 조회 - 부서코드, 사번 기준")
     @GetMapping("/teamLeader")
     public ResponseEntity<UserBasicDto> searchTeamLeader(@RequestParam(required = false) String deptcd,

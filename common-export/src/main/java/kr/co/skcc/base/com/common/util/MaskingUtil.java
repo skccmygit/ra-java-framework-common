@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 @Slf4j
 public class MaskingUtil {
 
@@ -28,7 +27,7 @@ public class MaskingUtil {
      */
     public static String getMaskedId(String value, String gbn) {
         String rtn = value;
-        switch (gbn){
+        switch (gbn) {
             case "name":
                 rtn = getMaskedName(value);
                 break;
@@ -104,20 +103,20 @@ public class MaskingUtil {
         String lastName = ""; //이름 끝
         int lastNameStartPoint; // 이름 시작 포인터
 
-        if(!(name == null || "".equals(name))){
+        if (!(name == null || name.isEmpty())) {
             name = name.trim();
 
-            if(name.length() > 1){
+            if (name.length() > 1) {
                 firstName = name.substring(0, 1);
                 lastNameStartPoint = name.indexOf(firstName);
-                if(name.length() > 2){
-                    middleName = name.substring(lastNameStartPoint + 1, name.length()-1);
+                if (name.length() > 2) {
+                    middleName = name.substring(lastNameStartPoint + 1, name.length() - 1);
                     lastName = name.substring(lastNameStartPoint + (name.length() - 1), name.length());
-                }else{
+                } else {
                     middleName = name.substring(lastNameStartPoint + 1, name.length());
                 }
                 String makers = "";
-                for(int i = 0; i < middleName.length(); i++){
+                for (int i = 0; i < middleName.length(); i++) {
                     makers += "*";
                 }
                 lastName = middleName.replace(middleName, makers) + lastName;
@@ -132,7 +131,7 @@ public class MaskingUtil {
         String maskedPhoneNum = phoneNum;
 
         Matcher matcher = Pattern.compile(PHONE_NUM_PATTERN).matcher(phoneNum);
-        if(matcher.find()){
+        if (matcher.find()) {
             String target = matcher.group(2);
             char[] c = new char[target.length()];
             Arrays.fill(c, '*');
@@ -169,7 +168,7 @@ public class MaskingUtil {
                 char[] c = new char[length];
                 Arrays.fill(c, '*');
                 String asta = "";
-                for(int i = 0; i  < length; i++) {
+                for (int i = 0; i < length; i++) {
                     asta = asta + "[^@]";
                 }
                 maskedEmail = email.replaceAll("\\b(\\S+)"+asta+"+@(\\S+)", "$1"+ String.valueOf(c) +"@$2");
@@ -181,8 +180,8 @@ public class MaskingUtil {
     public static String getMaskedCardNum(String cardNum){
         String maskedCardNum = cardNum;
         Matcher matcher = Pattern.compile(CARD_NUM_PATTERN).matcher(cardNum);
-        if(matcher.find()) {
-            for(int i = 3; i < 5; i++) {
+        if (matcher.find()) {
+            for (int i = 3; i < 5; i++) {
                 String target = matcher.group(i);
                 log.debug("target ::" + target);
                 int length = target.length();
@@ -199,18 +198,18 @@ public class MaskingUtil {
         String maskedAccountNum = accountNum.replaceAll("-","");
 
         int length = maskedAccountNum.length();
-        if(length <= 8){
+        if (length <= 8) {
             char[] c = new char[length];
             Arrays.fill(c, '*');
             maskedAccountNum = String.valueOf(c);
-        }else{
+        } else {
             length = 8;
             char[] c = new char[length];
             Arrays.fill(c, '*');
             String asta = "";
-            for(int i = 0; i  < length; i++) {
+            for (int i = 0; i < length; i++) {
                 asta = asta + "[^@]";
-                maskedAccountNum = accountNum.replaceAll("\\b(\\S+)"+asta, "$1"+ String.valueOf(c));
+                maskedAccountNum = accountNum.replaceAll("\\b(\\S+)" + asta, "$1"+ String.valueOf(c));
             }
         }
         return maskedAccountNum;
@@ -230,58 +229,58 @@ public class MaskingUtil {
         Matcher matcher4 = Pattern.compile(addReg4).matcher(address);
         Matcher matcher5 = Pattern.compile(addReg5).matcher(address);
 
-        while (matcher1.find()){
+        while (matcher1.find()) {
             String replaceAddress = null;
-            if(matcher1.group().endsWith("동")) {
+            if (matcher1.group().endsWith("동")) {
                 replaceAddress = matcher1.group().replaceAll("[가-힣A-Za-z\\d]+(동)", "**동");
             }
-            if(matcher1.group().endsWith("로")) {
+            if (matcher1.group().endsWith("로")) {
                 replaceAddress = matcher1.group().replaceAll("[가-힣A-Za-z\\d]+(로)", "**로");
             }
-            if(matcher1.group().endsWith("길")) {
+            if (matcher1.group().endsWith("길")) {
                 replaceAddress = matcher1.group().replaceAll("[가-힣A-Za-z\\d]+(길)", "**길");
             }
-            if(replaceAddress != null) {
+            if (replaceAddress != null) {
                 address = address.replace(matcher1.group(), replaceAddress);
             }
         }
 
         while (matcher2.find()){
             String replaceAddress = null;
-            if(matcher2.group().contains("아파트")){
-                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(아파트)","**아파트");
+            if (matcher2.group().contains("아파트")) {
+                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(아파트)", "**아파트");
             }
-            if(matcher2.group().contains("빌라")){
-                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(빌라)","**빌라");
+            if (matcher2.group().contains("빌라")) {
+                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(빌라)", "**빌라");
             }
-            if(matcher2.group().contains("빌딩")){
-                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(빌딩)","**빌딩");
+            if (matcher2.group().contains("빌딩")) {
+                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(빌딩)", "**빌딩");
             }
-            if(matcher2.group().contains("마을")){
-                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(마을)","**마을");
+            if (matcher2.group().contains("마을")) {
+                replaceAddress = matcher2.group().replaceAll("[가-힣a-zA-Z\\d]+(마을)", "**마을");
             }
-            if(replaceAddress != null) {
+            if (replaceAddress != null) {
                 address = address.replace(matcher2.group(), replaceAddress);
             }
         }
 
-        while (matcher3.find()){
+        while (matcher3.find()) {
             String replaceAddress = null;
-            if(matcher3.group().contains("읍")){
-                replaceAddress = matcher3.group().replaceAll("[가-힣A-Za-z·\\d~\\-\\.]+(읍)","**읍");
+            if (matcher3.group().contains("읍")) {
+                replaceAddress = matcher3.group().replaceAll("[가-힣A-Za-z·\\d~\\-\\.]+(읍)", "**읍");
             }
-            if(matcher3.group().contains("번지")){
-                replaceAddress = matcher3.group().replaceAll("[가-힣A-Za-z·\\d~\\-\\.]+(번지)","**번지");
+            if (matcher3.group().contains("번지")) {
+                replaceAddress = matcher3.group().replaceAll("[가-힣A-Za-z·\\d~\\-\\.]+(번지)", "**번지");
             }
-            if(replaceAddress != null) {
+            if (replaceAddress != null) {
                 address = address.replace(matcher3.group(), replaceAddress);
             }
         }
 
-        while (matcher4.find()){
+        while (matcher4.find()) {
             String replaceAddress;
             replaceAddress = matcher4.group().replaceAll("[\\d]+(호)","**호");
-            if(replaceAddress != null) {
+            if (replaceAddress != null) {
                 address = address.replace(matcher4.group(), replaceAddress);
             }
         }
@@ -289,21 +288,21 @@ public class MaskingUtil {
         while (matcher5.find()){
             String replaceAddress;
             replaceAddress = matcher5.group().replaceAll("[\\d]","*");
-            if(replaceAddress != null) {
+            if (replaceAddress != null) {
                 address = address.replace(matcher5.group(), replaceAddress);
             }
         }
         return address;
     }
 
-    public static String getFormatPhoneNum(String phoneNum){
+    public static String getFormatPhoneNum(String phoneNum) {
         if(phoneNum == null || "".equals(phoneNum)) return "";
 
         String formatPhoneNum = phoneNum;
 
         Matcher matcher = Pattern.compile("(\\d{2,3})-?(\\d{3,4})-?(\\d{4})$").matcher(phoneNum);
-        if(matcher.find()){
-            formatPhoneNum = matcher.group(1) + "-" + matcher.group(2) + "-" +  matcher.group(3);
+        if (matcher.find()) {
+            formatPhoneNum = matcher.group(1) + "-" + matcher.group(2) + "-" + matcher.group(3);
         }
 
         return formatPhoneNum;

@@ -144,6 +144,7 @@ public class DeptDto implements Entitiable<Dept> {
         this.bzno = dept.getBzno().replaceAll("(\\d{3})(\\d{2})(\\d{5})", "$1-$2-$3");
         this.extsnNo = StringUtils.isEmpty(dept.getExtsnNo()) ? "" : "7" + dept.getExtsnNo();
     }
+
     public DeptDto(Dept dept, String bssmacdNm){
         this(dept);
         this.bssmacdNm = bssmacdNm;

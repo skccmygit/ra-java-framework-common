@@ -69,7 +69,6 @@ public class RedisConfig {
                 .build();
 
         return new LettuceConnectionFactory(redisStandaloneConfiguration(), lettucePoolingClientConfiguration);
-
     }
 
     @Bean

@@ -70,10 +70,11 @@ public class ExcelStream {
 
         return cellStyle;
     }
+
     void setHeader(SXSSFRow row){
         // if new sheet create then make header
         int cellNum = 0;
-        for(String hData : this.headerData){
+        for (String hData : this.headerData) {
             Cell cell = row.createCell(cellNum++);
             cell.setCellValue(hData);
             cell.setCellStyle(this.headerStyle);
@@ -116,7 +117,7 @@ public class ExcelStream {
                     this.setCell(row, dataMap);
                 }
             }
-        } catch(Exception e){
+        } catch(Exception e) {
             log.error(e.getMessage(), e);
         }
     }
@@ -124,7 +125,7 @@ public class ExcelStream {
     void setCell(SXSSFRow row, Map<String, String> item){
         int cellNum = 0;
 
-        for(String colNm : this.bodyColNm){
+        for (String colNm : this.bodyColNm) {
             Cell cell = row.createCell(cellNum++);
             cell.setCellValue(item.get(colNm));
         }
@@ -145,7 +146,7 @@ public class ExcelStream {
 
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } finally{
+        } finally {
             if(this.workbook != null) {
                 this.workbook.dispose();
                 this.workbook.close();

@@ -46,15 +46,15 @@ public class EmailUtil {
             String subject;
             String strContent;
 
-            if(recivedEmail == null || "".equals(recivedEmail)){
+            if (recivedEmail == null || "".equals(recivedEmail)) {
                 throw new ServiceException("COM.I0020");
             }
             tempStr = recivedEmail;
             emailAddress = tempStr.split(";");
 
-            if(reciveCemail == null || "".equals(reciveCemail)){
+            if (reciveCemail == null || "".equals(reciveCemail)) {
 
-            }else{
+            } else {
                 tempStr = reciveCemail;
                 cemailAddress = tempStr.split(";");
             }
@@ -74,7 +74,7 @@ public class EmailUtil {
             //content.setAttFilePath(attFilePath);
             result = sendJavaMail(content, user);
 
-        }catch(Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
             return result;
         }
@@ -89,15 +89,15 @@ public class EmailUtil {
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
 
             // 보내는이
-            if(user.getFromEmailAddress() != "" )       helper.setFrom(sendMailAddress);
+            if (user.getFromEmailAddress() != "")       helper.setFrom(sendMailAddress);
             // 이메일
-            if(user.getEmailAddress().length != 0)      helper.setTo(user.getEmailAddress());
+            if (user.getEmailAddress().length != 0)      helper.setTo(user.getEmailAddress());
             // 제목
             helper.setSubject(content.getSubject());
             // 참조
-            if(user.getCemailAddress().length > 0 && user.getCemailAddress()[0] != "")      helper.setBcc(user.getCemailAddress());
+            if (user.getCemailAddress().length > 0 && user.getCemailAddress()[0] != "")      helper.setBcc(user.getCemailAddress());
             // 내용
-            if(content.getContent() != "")              helper.setText(content.getContent());
+            if (content.getContent() != "")              helper.setText(content.getContent());
 
             // 첨부
             //let's attach the infamous windows Sample file (this time copied to c:/)

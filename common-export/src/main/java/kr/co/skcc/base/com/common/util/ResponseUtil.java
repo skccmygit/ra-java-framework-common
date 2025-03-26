@@ -5,7 +5,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class ResponseUtil {
-    public static HttpServletResponse setResponseHeader(String contentType, String charset, String fileName){
+    public static HttpServletResponse setResponseHeader(String contentType, String charset, String fileName) {
         return setResponseHeader(contentType, charset, fileName, "", 0);
     }
 
@@ -34,10 +34,10 @@ public class ResponseUtil {
         response.setContentType(contentType);
         response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
 
-        if(!"".equals(contentTransferEncoding)){
+        if (!"".equals(contentTransferEncoding)) {
             response.setHeader("Content-Transfer-Encoding", contentTransferEncoding);
         }
-        if(contentLength != 0){
+        if (contentLength != 0) {
             response.setContentLength(contentLength);
         }
 

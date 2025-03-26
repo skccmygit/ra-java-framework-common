@@ -62,8 +62,8 @@ public class MenuServiceImpl implements MenuService {
         boolean isExist = menuRepository.existsById(menuDto.getMenuId());
         boolean isNew = StringUtils.equals(menuDto.getNewYn(),"Y");
 
-        if(isExist && isNew) throw new ServiceException("COM.I0008");
-        if(!isExist && !isNew) throw new ServiceException("COM.I0007");
+        if (isExist && isNew) throw new ServiceException("COM.I0008");
+        if (!isExist && !isNew) throw new ServiceException("COM.I0007");
 
         return menuRepository.save(menuDto.toEntity()).toApi();
     }
@@ -79,11 +79,11 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public MenuDto findByMenuId(String menuId){
-        if(menuId == null) throw new ServiceException("COM.I0003");
-        if(menuRepository.existsById(menuId)){
+    public MenuDto findByMenuId(String menuId) {
+        if (menuId == null) throw new ServiceException("COM.I0003");
+        if (menuRepository.existsById(menuId)) {
             return new MenuDto(menuRepository.findMenuDtl(menuId));
-        }else{
+        } else {
             throw new ServiceException("COM.I0007");
         }
     }
@@ -117,7 +117,7 @@ public class MenuServiceImpl implements MenuService {
 
         // 헤더
         ExcelHeaderDto header = new ExcelHeaderDto();
-        List<String[]> headerList = new ArrayList();
+        List<String[]> headerList = new ArrayList<>();
         headerList.add(arrayHeaderNm);
         header.setHLength(arrayHeaderNm.length);
         header.setHeaderNm(headerList);
@@ -136,28 +136,27 @@ public class MenuServiceImpl implements MenuService {
         ExcelUtil.excelDownload(excelDto, fileName);
     }
 
-
     @Override
-    public ScrenDto findByScrenId(String screnId){
-        if("".equals(screnId) || screnId == null) throw new ServiceException("COM.I0003");
+    public ScrenDto findByScrenId(String screnId) {
+        if ("".equals(screnId) || screnId == null) throw new ServiceException("COM.I0003");
 
         Optional<Scren> oScren = screnRepository.findById(screnId);
 
-        if(oScren.isPresent()){
+        if (oScren.isPresent()) {
             Scren scren = oScren.get();
             List<BttnDto> bttnDtoList = bttnRepository.findByScrenId(screnId);
 
-            for(BttnDto bttnDto : bttnDtoList){
+            for (BttnDto bttnDto : bttnDtoList) {
                 // API명 가져오기
-                if(bttnDto.getApiId() != null && !(0 == bttnDto.getApiId())) {
+                if (bttnDto.getApiId() != null && !(0 == bttnDto.getApiId())) {
                     try {
                         String apiNm = "";
                         Optional<ApiInfo> oApiInfo = apiInfoRepository.findById(bttnDto.getApiId());
-                        if(oApiInfo.isPresent()) {
+                        if (oApiInfo.isPresent()) {
                             apiNm = oApiInfo.get().getApiNm();
                         }
                         bttnDto.setApiNm(apiNm);
-                    }catch(Exception e){
+                    } catch(Exception e) {
                         log.error(e.getMessage(), e);
                     }
                 }
@@ -165,29 +164,28 @@ public class MenuServiceImpl implements MenuService {
             ScrenDto screnDto = new ScrenDto(scren);
             screnDto.setBttnList(bttnDtoList);
             return screnDto;
-
-        }else{
+        } else {
             throw new ServiceException("COM.I0009");
         }
     }
 
     @Override
     public ScrenDto makeScren(ScrenDto screnDto) {
-        if(!screnRepository.existsById(screnDto.getScrenId())){ return createScren(screnDto); }
-        else{ return updateScren(screnDto); }
+        if (!screnRepository.existsById(screnDto.getScrenId())) { return createScren(screnDto); }
+        else { return updateScren(screnDto); }
     }
     @Override
-    public ScrenDto createScren(ScrenDto screnDto){
+    public ScrenDto createScren(ScrenDto screnDto) {
 
         List<BttnDto> tmpBttnList;
-        if(!screnRepository.existsById(screnDto.getScrenId())){
+        if (!screnRepository.existsById(screnDto.getScrenId())) {
             tmpBttnList = screnDto.getBttnList();
-            for(BttnDto b : tmpBttnList){
+            for (BttnDto b : tmpBttnList) {
                 this.createBttn(b.toEntity());
             }
             Scren entity = screnRepository.save(screnDto.toEntity());
             return entity.toApi();
-        }else{
+        } else {
             throw new ServiceException("COM.I0010");
         }
     }
@@ -197,26 +195,26 @@ public class MenuServiceImpl implements MenuService {
 
         List<BttnDto> tmpBttnList;
 
-        if(screnRepository.existsById(screnDto.getScrenId())){
+        if (screnRepository.existsById(screnDto.getScrenId())) {
             tmpBttnList = screnDto.getBttnList();
-            if(!tmpBttnList.isEmpty()) {
+            if (!tmpBttnList.isEmpty()) {
                 for (BttnDto b : tmpBttnList) {
                     this.updateBttn(b.toEntity());
                 }
             }
             Scren entity = screnRepository.save(screnDto.toEntity());
             return entity.toApi();
-        }else{
+        } else {
             throw new ServiceException("COM.I0009");
         }
     }
 
-    public void createBttn(Bttn bttn){
+    public void createBttn(Bttn bttn) {
 
-        if(!bttnRepository.existsById(new BttnPK(bttn.getScrenId(),bttn.getBttnId()))){
+        if (!bttnRepository.existsById(new BttnPK(bttn.getScrenId(),bttn.getBttnId()))) {
             bttnRepository.save(bttn);
         }
-        else{
+        else {
             throw new ServiceException("COM.I0012");
         }
     }
@@ -226,12 +224,12 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public Page<ScrenIDto> findUseScren(String chrgTaskGroupCd, String screnClCd, String screnNm, String isUnpaged, Pageable pageable){
+    public Page<ScrenIDto> findUseScren(String chrgTaskGroupCd, String screnClCd, String screnNm, String isUnpaged, Pageable pageable) {
 
-        if(chrgTaskGroupCd == null) chrgTaskGroupCd = "";
-        if(screnClCd == null) screnClCd = "";
-        if(screnNm == null) screnNm = "";
-        if("Y".equals(isUnpaged))   pageable = Pageable.unpaged();
+        if (chrgTaskGroupCd == null) chrgTaskGroupCd = "";
+        if (screnClCd == null) screnClCd = "";
+        if (screnNm == null) screnNm = "";
+        if ("Y".equals(isUnpaged))   pageable = Pageable.unpaged();
 
         return  screnRepository.findAllScren(chrgTaskGroupCd, screnClCd, screnNm,"Y", pageable);
     }
@@ -239,19 +237,19 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public Page<ScrenIDto> findAllScren(String chrgTaskGroupCd, String screnClCd, String screnNm, Pageable pageable){
 
-        if(chrgTaskGroupCd == null) chrgTaskGroupCd = "";
-        if(screnClCd == null) screnClCd = "";
-        if(screnNm == null) screnNm = "";
+        if (chrgTaskGroupCd == null) chrgTaskGroupCd = "";
+        if (screnClCd == null) screnClCd = "";
+        if (screnNm == null) screnNm = "";
 
         return screnRepository.findAllScren(chrgTaskGroupCd, screnClCd, screnNm,"", pageable);
     }
 
     @Override
     public Page<MenuStatisticsDto> searchMenuStatistics(String chrgTaskGroupCd, String sumrDtFrom, String sumrDtTo, Pageable pageable) {
-        if(chrgTaskGroupCd == null) chrgTaskGroupCd = "";
+        if (chrgTaskGroupCd == null) chrgTaskGroupCd = "";
         //조회 시작 날짜와 종료 날짜에 대한 기본 세팅 값 필요
-        if(sumrDtFrom == null || "".equals(sumrDtFrom)) sumrDtFrom = "00010101";
-        if(sumrDtTo == null || "".equals(sumrDtTo)) sumrDtTo = "99991231";
+        if (sumrDtFrom == null || sumrDtFrom.isEmpty()) sumrDtFrom = "00010101";
+        if (sumrDtTo == null || sumrDtTo.isEmpty()) sumrDtTo = "99991231";
 
         return menuStatisticsRepository.searchMenuStatistics(chrgTaskGroupCd, sumrDtFrom, sumrDtTo, pageable);
     }
@@ -300,10 +298,10 @@ public class MenuServiceImpl implements MenuService {
         body.setBody(menuStatisticsDtoList);
 
         List<ExcelCellType> excelCellTypeList = new ArrayList<>();
-        for(String colNm : bodyColNm){
-            if("connQty".equals(colNm)){
+        for (String colNm : bodyColNm) {
+            if ("connQty".equals(colNm)) {
                 excelCellTypeList.add(new ExcelCellType(colNm, "NUMERIC",0));
-            }else{
+            } else {
                 excelCellTypeList.add(new ExcelCellType(colNm, "STRING",0));
             }
         }
@@ -311,35 +309,34 @@ public class MenuServiceImpl implements MenuService {
         excelDto.add(new ExcelDto(sheetName, header, body));
 
         ExcelUtil.excelDownload(excelDto, fileName);
-
     }
 
     @Override
     public String findsystmConnPsbty(String menuId) {
 
-        if("".equals(menuId) || menuId == null) throw new ServiceException("COM.I0003");
+        if ("".equals(menuId) || menuId == null) throw new ServiceException("COM.I0003");
 
         // 절체 시스템 없으면 + 연관 메뉴 아니면  공백 리턴, 맞으면 절체중인 시스템명 전체 리턴
         String result = "";
 
         //  1. 현재 절체중인 시스템이 있는지 체크
         List<SystmConnPsbty> systmConnPsbty = systmConnPsbtyRepository.findByConnPsbtyYn("N");
-        if(systmConnPsbty == null || systmConnPsbty.isEmpty())  return result;
+        if (systmConnPsbty == null || systmConnPsbty.isEmpty())  return result;
 
         // 2. 절체 시스템이 있을 경우 -- 메뉴ID로 시스템 태그 조회
         Optional<Menu> oMenu = menuRepository.findById(menuId);
 
-        if(oMenu.isEmpty()) return result;
+        if (oMenu.isEmpty()) return result;
 
         Menu menu = oMenu.get();
-        if(StringUtils.isBlank(menu.getLinkaSystmTagCntnt()))   return result;
+        if (StringUtils.isBlank(menu.getLinkaSystmTagCntnt()))   return result;
 
         // 포함되어 있으면 false 리턴
-        for(SystmConnPsbty item : systmConnPsbty) {
-            if(menu.getLinkaSystmTagCntnt().contains(item.getLinkaSystmNm())){
-                if("".equals(result)){
+        for (SystmConnPsbty item : systmConnPsbty) {
+            if (menu.getLinkaSystmTagCntnt().contains(item.getLinkaSystmNm())){
+                if (result.isEmpty()){
                     result = item.getLinkaSystmNm();
-                }else{
+                } else {
                     result = result + "," + item.getLinkaSystmNm();
                 }
             }

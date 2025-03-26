@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @Service
 @Transactional
 @Slf4j
@@ -42,7 +41,7 @@ public class DeptServiceImpl implements DeptService {
 
         List<DeptDto> hList = new ArrayList<>();
 
-        if(!allList.isEmpty()) {
+        if (!allList.isEmpty()) {
             hList = allList.stream()
                     .filter(m -> deptcd.equals(m.getSuperDeptcd()))
                     .collect(Collectors.toList()).stream()
@@ -50,7 +49,7 @@ public class DeptServiceImpl implements DeptService {
                     .collect(Collectors.toList());
         }
 
-        for(DeptDto deptDto : hList){
+        for (DeptDto deptDto : hList) {
             deptDto.setDepts(this.setSubDepts(allList, deptDto));
         }
 
@@ -67,7 +66,7 @@ public class DeptServiceImpl implements DeptService {
                                 .collect(Collectors.toList()));
 
         deptDto.setDepts(subList);
-        for(DeptDto superDeptDto : subList){
+        for (DeptDto superDeptDto : subList) {
            this.setSubDepts(allList, superDeptDto);
         }
 
@@ -93,9 +92,9 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public Page<DeptDto> searchDeptPage(String bssmacd, String deptNm, String useYn, Pageable pageable) {
 
-        if(bssmacd == null) bssmacd = "";
-        if(deptNm == null) deptNm = "";
-        if(useYn == null) useYn = "";
+        if (bssmacd == null) bssmacd = "";
+        if (deptNm == null) deptNm = "";
+        if (useYn == null) useYn = "";
 
         Page<Dept> list = deptRepository.searchDeptPage(bssmacd, deptNm, useYn, pageable);
         List<Bssmacd> bssList = bssmacdRepository.findByUseYn("Y");

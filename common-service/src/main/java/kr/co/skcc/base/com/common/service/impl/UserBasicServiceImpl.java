@@ -28,7 +28,6 @@ public class UserBasicServiceImpl implements UserBasicService {
     @Autowired
     UserBasicRepository userBasicRepository;
 
-
     @Override
     public Page<UserBasicDto> searchUserBasicPage(String bssmacd, String deptcd, String reofoCd, String clofpNm, String vctnNm, String empno, String deptNm, List<String> deptcdList, Pageable pageable) {
 
@@ -70,7 +69,7 @@ public class UserBasicServiceImpl implements UserBasicService {
         }
 
         UserBasic userBasic = userBasicRepository.searchTeamLeader(deptcd);
-        if(userBasic == null) {
+        if (userBasic == null) {
             userBasic = userBasicRepository.searchSuperTeamLeader(deptcd);
         }
         return userBasic.toApi();
@@ -82,11 +81,11 @@ public class UserBasicServiceImpl implements UserBasicService {
         String empnmListYn = "Y";
         String deptcdListYn = "Y";
 
-        if(empnoList == null || empnoList.isEmpty())    empnoListYn = "N";
-        if(empnmList == null || empnmList.isEmpty())    empnmListYn = "N";
-        if(deptcdList == null || deptcdList.isEmpty())    deptcdListYn = "N";
-        if(empNm == null) empNm = "";
-        if(deptNm == null) deptNm = "";
+        if (empnoList == null || empnoList.isEmpty())    empnoListYn = "N";
+        if (empnmList == null || empnmList.isEmpty())    empnmListYn = "N";
+        if (deptcdList == null || deptcdList.isEmpty())    deptcdListYn = "N";
+        if (empNm == null) empNm = "";
+        if (deptNm == null) deptNm = "";
 
         List<UserBasicScrenIDto> userBasicScrenIDtoList = userBasicRepository.searchUserList(empnoListYn, empnoList, empnmListYn, empnmList, deptcdListYn, deptcdList, empNm, deptNm);
 
@@ -99,11 +98,11 @@ public class UserBasicServiceImpl implements UserBasicService {
         String empnmListYn = "Y";
         String deptcdListYn = "Y";
 
-        if(empnoList == null || empnoList.isEmpty())    empnoListYn = "N";
-        if(empnmList == null || empnmList.isEmpty())    empnmListYn = "N";
-        if(deptcdList == null || deptcdList.isEmpty())    deptcdListYn = "N";
-        if(empNm == null) empNm = "";
-        if(deptNm == null) deptNm = "";
+        if (empnoList == null || empnoList.isEmpty())    empnoListYn = "N";
+        if (empnmList == null || empnmList.isEmpty())    empnmListYn = "N";
+        if (deptcdList == null || deptcdList.isEmpty())    deptcdListYn = "N";
+        if (empNm == null) empNm = "";
+        if (deptNm == null) deptNm = "";
 
         List<UserBasicScrenIDto> userBasicScrenIDtoList = userBasicRepository.searchUserList(empnoListYn, empnoList, empnmListYn, empnmList, deptcdListYn, deptcdList, empNm, deptNm);
 
@@ -112,10 +111,10 @@ public class UserBasicServiceImpl implements UserBasicService {
 
     @Override
     public List<InnerCallInfoDto> searchUserByTelno(String telno) {
-        if("".equals(telno)) return null;
+        if ("".equals(telno)) return null;
 
         List<InnerCallInfoIDto> innerCallInfoIDto = userBasicRepository.searchUserByTelno(telno);
-        if(innerCallInfoIDto == null || innerCallInfoIDto.isEmpty()){
+        if (innerCallInfoIDto == null || innerCallInfoIDto.isEmpty()) {
             return null;
         }
 
@@ -123,7 +122,7 @@ public class UserBasicServiceImpl implements UserBasicService {
     }
 
     @Override
-    public List<UserBasicDto> searchUserBasic(String userNm, List<String> deptcdList, String empno){
+    public List<UserBasicDto> searchUserBasic(String userNm, List<String> deptcdList, String empno) {
         String deptcdListYn = "Y";
         if (empno == null) empno = "";
         if (userNm == null) userNm = "";

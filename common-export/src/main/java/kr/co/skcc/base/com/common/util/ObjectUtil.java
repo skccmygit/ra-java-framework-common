@@ -47,6 +47,7 @@ public class ObjectUtil {
             return seen.putIfAbsent(keys, Boolean.TRUE) == null;
         };
     }
+
     public static <T> T toDto(Map<String, Object> map, Class<T> dto){
         try {
             return map == null || map.isEmpty() ? dto.getDeclaredConstructor().newInstance() : OBJECT_MAPPER.convertValue(map, dto);

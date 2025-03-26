@@ -1,13 +1,9 @@
 package kr.co.skcc.base.com.common.api;
 
-
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;
-import jakarta.validation.Valid;
 import kr.co.skcc.base.com.common.api.dto.domainDto.AppGroupDto;
-import kr.co.skcc.base.com.common.domain.apiInfo.AppGroup;
 import kr.co.skcc.base.com.common.service.AppGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Tag(name = "[API관리] App 그룹 기본 정보 관리(AppGroupResource)", description = "Application 업무 그룹에 대한 기본 정보를 관리")
 @RestController
@@ -35,7 +30,7 @@ public class AppGroupResource {
     
     @Operation(summary = "Application 그룹 기본 정보 생성")
     @PostMapping
-    public ResponseEntity createAppGroups(@RequestBody List<AppGroupDto> appGroupDtos) {
+    public ResponseEntity<HttpStatus> createAppGroups(@RequestBody List<AppGroupDto> appGroupDtos) {
         appGroupService.createAppGroups(appGroupDtos);
         return new ResponseEntity<>(HttpStatus.OK);
     }

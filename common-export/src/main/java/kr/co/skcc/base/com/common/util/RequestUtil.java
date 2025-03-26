@@ -35,7 +35,7 @@ public class RequestUtil {
     }
 
     public static String getLoginUserid() {
-        if("local".equals(env)){
+        if ("local".equals(env)) {
             return "Admin";
         }
         String loginUserid = null;
@@ -94,7 +94,7 @@ public class RequestUtil {
             return null;
         }
 
-        if (loginUserRoleList == null || loginUserRoleList.isEmpty()) {
+        if (loginUserRoleList.isEmpty()) {
             return null;
         } else {
             return loginUserRoleList;

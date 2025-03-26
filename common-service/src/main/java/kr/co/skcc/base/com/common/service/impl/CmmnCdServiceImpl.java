@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
 @Service
 @Transactional
 @Slf4j
@@ -70,7 +69,6 @@ public class CmmnCdServiceImpl implements CmmnCdService {
                                                                         .filter(i->i.getCmmnCdVal().equals(m.getChrgTaskGroupCd()))
                                                                         .findFirst().get().getCmmnCdValNm())
                                 ).collect(Collectors.toList());
-
     }
 
     @Override
@@ -98,13 +96,13 @@ public class CmmnCdServiceImpl implements CmmnCdService {
         int maxExcelSize = 200000;
 
 
-        if(allCount == 0) throw new ServiceException("COM.I0033");
-        if(allCount > maxExcelSize) throw new ServiceException("COM.I0032");
+        if (allCount == 0) throw new ServiceException("COM.I0033");
+        if (allCount > maxExcelSize) throw new ServiceException("COM.I0032");
 
         int pageSize = allCount % size == 0 ? allCount/size : allCount/size + 1;
 
         List<CmmnCdIDto> cmmnCdExcelIDto;
-        for(int i = 0; i < pageSize; i++){
+        for (int i = 0; i < pageSize; i++){
             int offset = (i * size);
             log.info("allCount : {}, pageSize : {}, size : {}, i : {}, offset = {} ", allCount, pageSize, size, i, offset);
             cmmnCdExcelIDto = cmmnCdRepository.findCmmnCdAndCmmnCdDtl(chrgTaskGroupCd, cmmnCdNm, offset, size);
@@ -118,12 +116,12 @@ public class CmmnCdServiceImpl implements CmmnCdService {
     public CmmnCdDtlDto createDtl(CmmnCdDtlDto cmmnCdDtlDto) {
 
         CmmnCdDtlPK pk = new CmmnCdDtlPK(cmmnCdDtlDto.getCmmnCd(), cmmnCdDtlDto.getCmmnCdVal());
-        if(cmmnCdDtlRepository.existsById(pk))  throw new ServiceException("COM.I0006");
+        if (cmmnCdDtlRepository.existsById(pk))  throw new ServiceException("COM.I0006");
 
         Optional<CmmnCd> oCmmnCd = cmmnCdRepository.findById(cmmnCdDtlDto.getCmmnCd());
-        if(oCmmnCd.isEmpty())    throw new ServiceException("COM.I0004");
+        if (oCmmnCd.isEmpty())    throw new ServiceException("COM.I0004");
 
-        if(oCmmnCd.get().getCmmnCdValLenth() < cmmnCdDtlDto.getCmmnCdVal().length()) throw new ServiceException("COM.I0035");
+        if (oCmmnCd.get().getCmmnCdValLenth() < cmmnCdDtlDto.getCmmnCdVal().length()) throw new ServiceException("COM.I0035");
 
         CmmnCdDtl entity = cmmnCdDtlRepository.save(cmmnCdDtlDto.toEntity());
 
@@ -134,11 +132,11 @@ public class CmmnCdServiceImpl implements CmmnCdService {
     public CmmnCdDtlDto updateDtl(CmmnCdDtlDto cmmnCdDtlDto){
 
         CmmnCdDtlPK pk = new CmmnCdDtlPK(cmmnCdDtlDto.getCmmnCd(),cmmnCdDtlDto.getCmmnCdVal());
-        if(!cmmnCdDtlRepository.existsById(pk)) throw new ServiceException("COM.I0004");
+        if (!cmmnCdDtlRepository.existsById(pk)) throw new ServiceException("COM.I0004");
 
         Optional<CmmnCd> oCmmnCd = cmmnCdRepository.findById(cmmnCdDtlDto.getCmmnCd());
-        if(oCmmnCd.isEmpty())    throw new ServiceException("COM.I0004");
-        if(oCmmnCd.get().getCmmnCdValLenth() < cmmnCdDtlDto.getCmmnCdVal().length()) throw new ServiceException("COM.I0035");
+        if (oCmmnCd.isEmpty())    throw new ServiceException("COM.I0004");
+        if (oCmmnCd.get().getCmmnCdValLenth() < cmmnCdDtlDto.getCmmnCdVal().length()) throw new ServiceException("COM.I0035");
 
         CmmnCdDtl entity = cmmnCdDtlRepository.save(cmmnCdDtlDto.toEntity());
 
@@ -149,15 +147,15 @@ public class CmmnCdServiceImpl implements CmmnCdService {
     public HashMap<String, Object> findByCmmnCdDtlList(List<String> cmmnCdList) {
         HashMap<String, Object> obj = new HashMap<>();
 
-        for(String cmmnCd : cmmnCdList){
+        for (String cmmnCd : cmmnCdList) {
             List<CmmnCdDtlDto> list = findByCmmnCd(cmmnCd);
-            if(list != null) {
+            if (list != null) {
                 obj.put(cmmnCd, list.stream().filter(m -> "Y".equals(m.getUseYn())).collect(Collectors.toList()));
-            }else{
+            } else {
                 obj.put(cmmnCd, new ArrayList<>());
             }
         }
-        if(obj.isEmpty()) throw new ServiceException("COM.I0005");
+        if (obj.isEmpty()) throw new ServiceException("COM.I0005");
 
         return obj;
     }
@@ -167,10 +165,9 @@ public class CmmnCdServiceImpl implements CmmnCdService {
         return ObjectUtil.toDtoList(cmmnCdDtlRepository.findByCmmnCd(cmmnCd,"" ), CmmnCdDtlDto.class);
     }
 
-
     @Override
     public void updateDtlList(List<CmmnCdDtlDto> cmmnCdDtlDtoList){
-        for(CmmnCdDtlDto item : cmmnCdDtlDtoList) {
+        for (CmmnCdDtlDto item : cmmnCdDtlDtoList) {
             this.updateDtl(item);
         }
     }

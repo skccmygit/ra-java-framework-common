@@ -30,8 +30,8 @@ public class ApiUseServiceImpl implements ApiUseService {
 
     @Override
     public List<ApiUseTaskStatsDto> queryApiUseTaskStatsSearch(LocalDate useDtmtFrom, LocalDate useDtmtTo) {
-        if (useDtmtFrom == null || "".equals(useDtmtFrom.toString().trim())) throw new ServiceException("ONM.I0006");
-        if (useDtmtTo == null || "".equals(useDtmtTo.toString().trim())) throw new ServiceException("ONM.I0007");
+        if (useDtmtFrom == null || useDtmtFrom.toString().trim().isEmpty()) throw new ServiceException("ONM.I0006");
+        if (useDtmtTo == null || useDtmtTo.toString().trim().isEmpty()) throw new ServiceException("ONM.I0007");
 
         String useDtmtFromS = useDtmtFrom.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         String useDtmtToS = useDtmtTo.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
@@ -41,9 +41,9 @@ public class ApiUseServiceImpl implements ApiUseService {
 
     @Override
     public List<ApiUseTrendDto> queryApiUseTrendsSearch(String aproGroupIds, LocalDate useDtmtFrom, LocalDate useDtmtTo) {
-        if (aproGroupIds == null || "".equals(aproGroupIds)) throw new ServiceException("ONM.I0004");
-        if (useDtmtFrom == null || "".equals(useDtmtFrom.toString().trim())) throw new ServiceException("ONM.I0006");
-        if (useDtmtTo == null || "".equals(useDtmtTo.toString().trim())) throw new ServiceException("ONM.I0007");
+        if (aproGroupIds == null || aproGroupIds.isEmpty()) throw new ServiceException("ONM.I0004");
+        if (useDtmtFrom == null || useDtmtFrom.toString().trim().isEmpty()) throw new ServiceException("ONM.I0006");
+        if (useDtmtTo == null || useDtmtTo.toString().trim().isEmpty()) throw new ServiceException("ONM.I0007");
 
         List<Integer> idList = new ArrayList<>();
         String[] aproGroupIdList = aproGroupIds.split(",");

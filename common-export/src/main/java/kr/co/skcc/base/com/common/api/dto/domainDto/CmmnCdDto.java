@@ -17,7 +17,7 @@ import org.springframework.beans.BeanUtils;
 @Schema(name = "CmmnCdDto", description = "공통코드")
 public class CmmnCdDto implements Entitiable<CmmnCd> {
 
-    @Schema(description = "공통코드", example = "C01", required = true)
+    @Schema(description = "공통코드", example = "C01", requiredMode = Schema.RequiredMode.REQUIRED)
     @Size(min = 1, max = 30, message="공통코드는 1자~30자 입니다.")
     @NotEmpty(message="공통코드는 필수값 입니다.")
     private String cmmnCd;

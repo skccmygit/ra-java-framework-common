@@ -59,9 +59,9 @@ public class CryptoUtil {
         SecretKeySpec keySpec = new SecretKeySpec(encryptionKey.getBytes(StandardCharsets.UTF_8), "AES");
         // Initialization Vector 객체 생성, 암호화 객체 '암호화 모드'로 초기화
         IvParameterSpec ivParameterSpec;
-        if(!(IVOption == null || "".equals(IVOption))) {
+        if (!(IVOption == null || "".equals(IVOption))) {
             ivParameterSpec = new IvParameterSpec(IV.getBytes(StandardCharsets.UTF_8));
-        }else{
+        } else {
             ivParameterSpec = new IvParameterSpec(new byte[16]);
         }
         cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivParameterSpec);
@@ -102,10 +102,10 @@ public class CryptoUtil {
         // AES 알고리즘에 사용할 비밀키(SecretKey) 를 생성
         SecretKeySpec keySpec = new SecretKeySpec(encryptionKey.getBytes(StandardCharsets.UTF_8), "AES");
         IvParameterSpec ivParameterSpec;
-        if(!(IVOption == null || "".equals(IVOption))) {
+        if (!(IVOption == null || "".equals(IVOption))) {
             // Initialization Vector 객체 생성 , 암호화 객체 '복호화 모드'로 초기화
             ivParameterSpec = new IvParameterSpec(IV.getBytes(StandardCharsets.UTF_8));
-        }else{
+        } else {
             ivParameterSpec = new IvParameterSpec(new byte[16]);
         }
         cipher.init(Cipher.DECRYPT_MODE, keySpec, ivParameterSpec);
@@ -117,7 +117,6 @@ public class CryptoUtil {
     }
 
     public static String encryptSha256(String plainTxt, String saltKey) {
-
         String result = "";
 
         try {
@@ -132,7 +131,6 @@ public class CryptoUtil {
             }
 
             result = builder.toString();
-
         } catch (Exception e) {
             e.getStackTrace();
         }
