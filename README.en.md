@@ -147,9 +147,10 @@ Physic ERD
 
 ## Related Repositories
 
-- ra-java-framework-account
-- ra-java-framework-work-batch
-- ra-java-api-gateway
+- [ra-java-framework-account](https://github.com/skccmygit/ra-java-framework-account)
+- [ra-java-framework-work-batch](https://github.com/skccmygit/ra-java-framework-work-batch)
+- [ra-java-api-gateway](https://github.com/skccmygit/ra-java-api-gateway)
+
 
 ## Additional Resources
 
