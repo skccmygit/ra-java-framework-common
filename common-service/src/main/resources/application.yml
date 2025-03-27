@@ -15,14 +15,14 @@ spring:
     connection-timeout: 30000
     maximum-pool-size: 10
 
-#springdoc:
+springdoc:
   api-docs:
     path: "/com/common/docs" # 접속 path 설정
-
+    enabled: false
   swagger-ui:
     path: "/com/common/swagger-ui" # 접속 path 설정
     display-request-duration: true  # try it out 을 했을 때 request duration 을 추가로 찍어줌
-
+    enabled: false
   cache:
     disabled: true # swagger cache 설정
 
