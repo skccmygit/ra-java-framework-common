@@ -145,6 +145,12 @@ Physic ERD
 ![physic-erd.png](docs/imgs/physic-erd.png)
 
 
+## Related Repositories
+
+- ra-java-framework-account
+- ra-java-framework-work-batch
+- ra-java-api-gateway
+
 ## Additional Resources
 
 - Check the README.md file for more detailed information
