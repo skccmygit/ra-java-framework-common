@@ -44,7 +44,7 @@ docker-compose -f docker-compose.yml up -d
 3. Start KeyCloak:
 
 ```bash
-# start services: zookeeper, kafka, kafka-ui, redis, mysql
+# start keycloak
 docker-compose -f docker-compose-keycloak.yml up -d
 ```
 
@@ -87,8 +87,8 @@ The setup steps are as follows:
     - **Database**: OCO
     - **Username**: root
     - **Password**: qwer1234!
-    -
-- Test Connection**: Check the connection to ensure you can access the MySQL server.
+
+- Test Connection: Check the connection to ensure you can access the MySQL server.
   You maybe need to set 'allowPublicKeyRetrieval=true' if necessary.
 
 Once the connection is successful, you can use the graphical interface of the IDE to manage databases, perform SQL
@@ -122,7 +122,7 @@ springdoc:
 ./gradlew :common-service:bootRun
 ```
 
-2. The service will be available at `http://localhost:9100/api/com/common/swagger-ui/index.html`
+2. The Swagger api will be available at `http://localhost:9100/api/com/common/swagger-ui/index.html`
    ![swager.png](docs/imgs/swagger.png)
 
 ## Development
