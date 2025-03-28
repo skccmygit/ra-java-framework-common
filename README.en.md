@@ -7,6 +7,9 @@ This project contains the following functions for common management:
 - Menu management
   - Provides menu management and basic menu settings based on tree structure
   - Manages screen information classified as main/popup, and maps screens to buttons
+- API management
+  - System call API basic information management
+  - Usage history management for called APIs
 - Other:
   - Code Management / File Management / Encryption, Decryption / Masking
 
