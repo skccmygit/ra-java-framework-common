@@ -97,7 +97,7 @@ The setup steps are as follows:
 Once the connection is successful, you can use the graphical interface of the IDE to manage databases, perform SQL
 queries, and interact with the data more easily.
 
-Build the project:
+6. Build the project:
 
 ```bash
 ./gradlew clean build
