@@ -9,6 +9,8 @@ dependencies {
     // for DB connector
     implementation 'mysql:mysql-connector-java:8.0.32'
 
+    runtimeOnly 'com.h2database:h2'
+
     // for redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.apache.commons:commons-pool2:2.11.1'
@@ -20,4 +22,10 @@ dependencies {
     implementation project(':common-export')
 //    implementation project(":common-service")
     testImplementation 'junit:junit:4.13.1'
+}
+
+bootRun {
+    if (project.hasProperty("profile")) {
+        systemProperty "spring.profiles.active", project.getProperty("profile")
+    }
 }

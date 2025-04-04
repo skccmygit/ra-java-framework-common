@@ -13,6 +13,7 @@ public class APIInterceptorAppConfig implements WebMvcConfigurer {
         registry.addInterceptor(apiAuthorizationInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/v3/api-docs/**"
+                        , "/h2-console/**"
                         , "/swagger-ui/**"
                         , "/swagger-resources"
                         , "/swagger-ui.html"
