@@ -53,6 +53,12 @@ docker-compose -f docker-compose-keycloak.yml up -d
 
 4. Initialize the database:
 
+> [!NOTE]
+> If you prefer to use the H2 database instead of mysql, please comment out the MySQL service in the docker-compose.yml file.
+> Then, skip this step and proceed to the section titled "Running the Application with H2 Database."
+>
+> ![mysql-service.png](docs/imgs/mysql-service.png)
+
 ```bash
 # list all container
   docker ps
@@ -151,6 +157,24 @@ springdoc:
 
 2. The Swagger api will be available at `http://localhost:9100/api/com/common/swagger-ui/index.html`
    ![swager.png](docs/imgs/swagger.png)
+
+## Running the Application with H2 Database
+
+1. Start the service:
+
+```bash
+./gradlew :common-service:bootRun -Pprofile=test
+```
+
+2. H2 Console `http://localhost:9100/api/h2-console`
+- Set up config login H2 Console:
+  - **Saved Settings**: Generic H2 (Embedded)
+  - **Setting Name**: Generic H2 (Embedded)
+  - **Driver Class**: org.h2.Driver
+  - **JDBC URL**: jdbc:h2:mem:common
+  - **User Name**: sa
+  - **Password**:
+  - ![h2db.png](docs/imgs/h2db.png)
 
 ## Development
 
