@@ -57,13 +57,13 @@ docker-compose -f docker-compose-keycloak.yml up -d
 # list all container
   docker ps
 
-# run mysql container - change equivalent <container_id> value	
-  docker exec -it <container_id> bash
+# run mysql container
+  docker exec -it mysql-common bash
 
 # Login mysql
 mysql -u root -p
 
-# input MySql password
+# input MySql password in terminal (qwer1234)
 
 # Run the SQL files
 # Create Database
@@ -97,11 +97,26 @@ The setup steps are as follows:
 Once the connection is successful, you can use the graphical interface of the IDE to manage databases, perform SQL
 queries, and interact with the data more easily.
 
+After init schema and user, you must run sql script in 2 sql files (`query.sql`, `oif_query.sql`, `menu.sql` in the same folder of README).
+
+First, run the script command in the `query.sql` file to create the tables.
+
+Then, run the script command in the `oif_query.sql`
+
+Then, run the script command in the `menu.sql` file to add sample data for the menu configuration.
+
 6. Build the project:
 
 ```bash
 ./gradlew clean build
 ```
+
+> [!NOTE]
+>
+> In case you get error `./gradlew: Permission denied` you should try to run one of these command  
+>    -``sudo chmod +x ./gradlew``
+>
+>    -``git update-index --chmod=+x gradlew``
 
 7. Enable swagger:
 
@@ -125,6 +140,15 @@ springdoc:
 ./gradlew :common-service:bootRun
 ```
 
+> [!NOTE]
+>
+> You can also run project in IDE likes IntelliJ, Eclipse, ...
+> In case you get error when starting this project, you should check the project config:
+> - JDK version
+> - Gradle config
+> - Proxy prevention
+> - Try to remove '.gradle' folder inside project and rebuild gradle in step 2 (Build the project)
+
 2. The Swagger api will be available at `http://localhost:9100/api/com/common/swagger-ui/index.html`
    ![swager.png](docs/imgs/swagger.png)
 
@@ -139,6 +163,7 @@ springdoc:
 The project includes SQL scripts for initial setup:
 
 - `query.sql` - Database dump
+- `oif_query.sql` - Database dump
 - `menu.sql` - Menu-related data
 
 Logic ERD
@@ -164,4 +189,4 @@ Physic ERD
 ## Troubleshooting
 
 - If you encounter database connection issues, ensure the database container is running
-- Check debug.log for detailed error messages
+- Check error log for detailed error messages in the console of IDE or file generated in the project directory.
