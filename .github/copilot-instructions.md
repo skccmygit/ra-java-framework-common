@@ -15,54 +15,46 @@ ra-java-framework-common/
 │   ├── src/                    # Source code directory
 │       ├── main/               # Main application code
 │           ├── java/           # Java source code
-│               ├── kr/
-│                   ├── co/
-│                       ├── skcc/
-│                           ├── base/
-│                               ├── com/
-│                                   ├── common/ # Common logic
-│                                       ├── api/          # API-related classes
-│                                       ├── config/       # Configuration classes
-│                                       ├── domain/       # JPA entity classes
-│                                       ├── dto/          # Data Transfer Objects (DTOs)
-│                                       ├── repository/   # JPA repository interfaces
-│                                       ├── service/      # Service layer
-│                                       ├── util/         # Utility classes
-│                                       ├── trace/        # Tracing utilities
+│               ├── com/
+│                   ├── skcc/
+│                       ├── ra/
+│                           ├── common/ # Common logic
+│                               ├── api/          # API-related classes
+│                               ├── config/       # Configuration classes
+│                               ├── domain/       # JPA entity classes
+│                               ├── dto/          # Data Transfer Objects (DTOs)
+│                               ├── repository/   # JPA repository interfaces
+│                               ├── service/      # Service layer
+│                               ├── util/         # Utility classes
+│                               ├── trace/        # Tracing utilities
 │       ├── test/               # Test code
 │           ├── java/           # Java test code
-│               ├── kr/
-│                   ├── co/
-│                       ├── skcc/
-│                           ├── base/
-│                               ├── com/
-│                                   ├── common/ # Common logic tests
+│               ├── com/
+│                   ├── skcc/
+│                       ├── ra/
+│                           ├── common/ # Common logic tests
 ├── common-service/             # Main service implementation
 │   ├── src/                    # Source code directory
 │       ├── main/               # Main application code
 │           ├── java/           # Java source code
-│               ├── kr/
-│                   ├── co/
-│                       ├── skcc/
-│                           ├── base/
-│                               ├── com/
-│                                   ├── common/ # Common logic
-│                                       ├── api/          # API-related classes
-│                                       ├── config/       # Configuration classes
-│                                       ├── domain/       # JPA entity classes
-│                                       ├── dto/          # Data Transfer Objects (DTOs)
-│                                       ├── repository/   # JPA repository interfaces
-│                                       ├── service/      # Service layer
-│                                       ├── util/         # Utility classes
-│                                       ├── trace/        # Tracing utilities
+│               ├── com/
+│                   ├── skcc/
+│                       ├── ra/
+│                           ├── common/ # Common logic
+│                               ├── api/          # API-related classes
+│                               ├── config/       # Configuration classes
+│                               ├── domain/       # JPA entity classes
+│                               ├── dto/          # Data Transfer Objects (DTOs)
+│                               ├── repository/   # JPA repository interfaces
+│                               ├── service/      # Service layer
+│                               ├── util/         # Utility classes
+│                               ├── trace/        # Tracing utilities
 │       ├── test/               # Test code
 │           ├── java/           # Java test code
-│               ├── kr/
-│                   ├── co/
-│                       ├── skcc/
-│                           ├── base/
-│                               ├── com/
-│                                   ├── common/ # Common logic tests
+│               ├── com/
+│                   ├── skcc/
+│                       ├── ra/
+│                           ├── common/ # Common logic tests
 ├── docs/                       # Documentation directory
 │   ├── db/                     # Database-related documentation
 │   ├── imgs/                   # Image assets
