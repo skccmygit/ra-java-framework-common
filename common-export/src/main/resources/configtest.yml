@@ -94,7 +94,7 @@ spring:
             connectTimeout: 60000
             readTimeout: 10000
             loggerLevel: basic
-            errorDecoder: kr.co.skcc.base.com.common.exception.FeignErrorDecoder
+            errorDecoder: com.skcc.ra.common.exception.FeignErrorDecoder
       micrometer:
         enabled: true
       circuitbreaker:
@@ -164,7 +164,7 @@ logging:
     web: INFO
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    kr.co.skcc.base: DEBUG
+    com.skcc.ra: DEBUG
     jdbc: OFF
     jdbc.sqlonly: INFO
     jdbc.sqltiming: OFF

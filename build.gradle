@@ -10,7 +10,7 @@ buildscript {
 }
 
 allprojects {
-	group 'kr.co.skcc.base.com'
+	group 'com.skcc.ra'
 	version '1.0-RELEASE'
 
 	// Add WSL configuration
