@@ -5,8 +5,8 @@
     <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
     <springProperty scope="context" name="BOOTSTRAP_SERVERS" source="spring.kafka.producer.bootstrap-servers"/>
 
-    <property name="LOG_FILE" value="/data01/COM-ASSET/apilog/${APP_NAME}/${HOSTNAME}.log"/>
-    <property name="SQL_LOG_FILE" value="/data01/COM-ASSET/sqltrace/${APP_NAME}/${HOSTNAME}.trc"/>
+    <property name="LOG_FILE" value="./apilog/${APP_NAME}/${HOSTNAME}.log"/>
+    <property name="SQL_LOG_FILE" value="./sqltrace/${APP_NAME}/${HOSTNAME}.trc"/>
 
     <property name="TOPIC" value="ONM-T-LOG-API"/>
     <property name="PRODUCER_CONFIG" value="bootstrap.servers=${BOOTSTRAP_SERVERS}"/>
