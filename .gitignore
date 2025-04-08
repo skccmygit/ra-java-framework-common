@@ -5,6 +5,10 @@ build/
 !**/src/test/**/build/
 .DS_Store
 
+# File log & trace
+*.log
+*.trc
+
 ### STS ###
 .apt_generated
 .classpath
