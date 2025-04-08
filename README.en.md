@@ -120,6 +120,7 @@ Then, run the script command in the `menu.sql` file to add sample data for the m
 > [!NOTE]
 >
 > In case you get error `./gradlew: Permission denied` you should try to run one of these command  
+>
 >    -``sudo chmod +x ./gradlew``
 >
 >    -``git update-index --chmod=+x gradlew``
@@ -199,9 +200,9 @@ Physic ERD
 
 ## Related Repositories
 
-- [ra-java-framework-account](https://github.com/skccmygit/ra-java-framework-account)
-- [ra-java-framework-work-batch](https://github.com/skccmygit/ra-java-framework-work-batch)
-- [ra-java-api-gateway](https://github.com/skccmygit/ra-java-api-gateway)
+- [ra-java-framework-account](https://github.com/skccmygit/ra-java-framework-account) Authentication / Authorization / Account Management / History Management
+- [ra-java-framework-work-batch](https://github.com/skccmygit/ra-java-framework-work-batch) API Log / Account Permission related batch
+- [ra-java-api-gateway](https://github.com/skccmygit/ra-java-api-gateway) API Gateway
 
 
 ## Additional Resources
