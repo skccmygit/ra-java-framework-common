@@ -8,6 +8,13 @@ build/
 # File log & trace
 *.log
 *.trc
+/apilog/*
+/apilog/**/*.log
+/apilog/**/*.log.*
+
+/sqltrace/*
+/sqltrace/**/*.trc
+/sqltrace/**/*.trc.*
 
 ### STS ###
 .apt_generated
