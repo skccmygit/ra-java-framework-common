@@ -238,7 +238,6 @@ Physic ERD
 
 ## Related Repositories
 
-- [ra-java-framework-account](https://github.com/skccmygit/ra-java-framework-account) Authentication / Authorization / Account Management / History Management
 - [ra-java-framework-work-batch](https://github.com/skccmygit/ra-java-framework-work-batch) API Log / Account Permission related batch
 - [ra-java-api-gateway](https://github.com/skccmygit/ra-java-api-gateway) API Gateway
 
