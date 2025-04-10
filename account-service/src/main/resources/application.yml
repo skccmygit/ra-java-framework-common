@@ -1,0 +1,87 @@
+spring:
+  config:
+    import: classpath:config.yml
+
+  profiles:
+    active: local
+
+  application:
+    name: account
+
+  datasource:
+    username: com_dev
+    password: qwer1234!
+
+app:
+  jwtSecret: adtcapsSecretKey
+  jwtExpirationMs: 900000
+  jwtRefreshExpirationMs: 86400000
+  jwtTimeout: 36000000 # 150분
+#  jwtTimeout: 3600000 # 15분
+
+springdoc:
+  api-docs:
+    path: "/com/account/docs" # 접속 path 설정
+#    enabled: false
+
+  swagger-ui:
+    path: "/com/account/swagger-ui" # 접속 path 설정
+    display-request-duration: true  # try it out 을 했을 때 request duration 을 추가로 찍어줌
+#    enabled: false
+
+  cache:
+    disabled: true # swagger cache 설정
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local-env
+
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      password: "changeme"
+      timeout: 30000
+      lettuce:
+        pool:
+          maxTotal: 8
+          maxWaitMillis: 10000
+          maxIdle: 8
+          minIdle: 0
+
+feign:
+  common-service:
+    url: http://localhost:9100
+  messaging-service: 
+    url: http://localhost:9104
+  authorization-service:
+    url: http://localhost:9101
+  autoconfiguration:
+    jackson:
+      enabled: true
+
+server:
+  port: 9101
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev-env
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: stg-env
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prd-env

@@ -1,3 +1,5 @@
 rootProject.name = 'common'
 include 'common-export'
 include 'common-service'
+include 'account-export'
+include 'account-service'

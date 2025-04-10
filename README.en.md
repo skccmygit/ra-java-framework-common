@@ -3,7 +3,9 @@
 ## Introduction
 
 Welcome to [RA-JAVA-FRAMEWORK-COMMON]! This project document will guide you through setting up the project, so you can get started quickly.
-This project contains the following functions for common management: 
+This project contains the following functions for common management, account management: 
+
+**Common Service**
 - Menu management
   - Provides menu management and basic menu settings based on tree structure
   - Manages screen information classified as main/popup, and maps screens to buttons
@@ -12,6 +14,25 @@ This project contains the following functions for common management:
   - Usage history management for called APIs
 - Other:
   - Code Management / File Management / Encryption, Decryption / Masking
+
+**Account Service**
+- Authentication
+  - Authentication using JWT method
+  - Enhanced security with the implementation of Access Token (AT) and Refresh Token (RT), including timeout features during AT renewal
+  - Improved user experience through automatic AT renewal between Frontend, API Gateway, and Account Service
+  - Login functionality integrated with Single Sign-On (SSO)
+- Account Management
+  - Automated account creation and application process for system usage
+  - User account lifecycle management
+- Authorization (Access Control)
+  - Role-based access control
+  - Personalized access management through menu/button mappings for users outside of roles
+  - API-level permission management via button-API mappings
+- Activity Tracking
+  - History management to ensure compliance with security standards
+  - Tracking of changes in user account information and permission mappings
+  - Logging of user activities such as login/logout, screen execution, and personal data downloads
+  - Storing query history called by the backend via sqltrace
 
 ## Prerequisites
 
@@ -27,6 +48,8 @@ The project consists of the following modules:
 
 - `common-service` - Main service implementation
 - `common-export` - Common utilities and shared components
+- `account-service` - Main service implementation
+- `account-export` - Contains shared DTOs and interfaces
 
 ## Setup & Installation
 
@@ -92,7 +115,7 @@ The setup steps are as follows:
 - Open MySQL Workbench or the IDE you want to use.
 - Set up a new connection with the following information:
     - **Hostname**: 127.0.0.1 (localhost)
-    - **Port**: 3306
+    - **Port**: 3307
     - **Database**: OCO
     - **Username**: root
     - **Password**: qwer1234!
@@ -141,10 +164,16 @@ springdoc:
 
 ## Running the Application
 
-1. Start the service:
+1. Start the Common Service:
 
 ```bash
 ./gradlew :common-service:bootRun
+```
+
+2. Start the Account Service:
+
+```bash
+./gradlew :account-service:bootRun
 ```
 
 > [!NOTE]
@@ -156,18 +185,27 @@ springdoc:
 > - Proxy prevention
 > - Try to remove '.gradle' folder inside project and rebuild gradle in step 2 (Build the project)
 
-2. The Swagger api will be available at `http://localhost:9100/api/com/common/swagger-ui/index.html`
+3. The Swagger Common API will be available at `http://localhost:9100/api/com/common/swagger-ui/index.html`
    ![swager.png](docs/imgs/swagger.png)
+
+4. The Swagger Account Api will be available at `http://localhost:9101/api/com/account/swagger-ui/index.html`
+   ![swager-account.png](docs/imgs/swagger-account.png)
 
 ## Running the Application with H2 Database
 
-1. Start the service:
+1. Start the Common Service:
 
 ```bash
 ./gradlew :common-service:bootRun -Pprofile=test
 ```
 
-2. H2 Console `http://localhost:9100/api/h2-console`
+2. Start the Account Service:
+
+```bash
+./gradlew :account-service:bootRun -Pprofile=test
+```
+
+3. H2 Console `http://localhost:9100/api/h2-console`
 - Set up config login H2 Console:
   - **Saved Settings**: Generic H2 (Embedded)
   - **Setting Name**: Generic H2 (Embedded)

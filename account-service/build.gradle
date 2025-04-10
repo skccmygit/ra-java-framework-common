@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id 'java'
+}
+
+dependencies {
+    // implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+    implementation("io.micrometer:micrometer-tracing-bridge-brave")
+    // 프로젝트에서 Spring Cloud OpenFeign의 FeignClient를 사용하고 있다면 아래 의존성도 추가
+    implementation("io.github.openfeign:feign-micrometer")
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    // DB connector
+    implementation 'mysql:mysql-connector-java:8.0.32'
+
+    runtimeOnly 'com.h2database:h2'
+
+    // jwt
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+    // for redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.apache.commons:commons-pool2:2.11.1'
+    // implementation 'redis.clients:jedis'
+    // implementation 'io.lettuce:lettuce-core'
+
+    // SHA256 알고리즘
+    implementation 'commons-codec:commons-codec:1.15'
+
+    implementation project(":common-export")
+    implementation project(":account-export")
+}
+
+bootJar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.skcc.ra.account.AccountMainApp'
+        )
+    }
+}
+
+bootRun {
+    if (project.hasProperty("profile")) {
+        systemProperty "spring.profiles.active", project.getProperty("profile")
+    }
+}

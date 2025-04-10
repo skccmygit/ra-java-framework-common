@@ -1,0 +1,18 @@
+version '1.0.0-RELEASE'
+
+bootRun {
+    enabled = false
+}
+
+bootJar {
+    enabled = false
+}
+
+dependencies {
+    // for redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    runtimeOnly 'com.h2database:h2'
+
+    implementation project(":common-export")
+}

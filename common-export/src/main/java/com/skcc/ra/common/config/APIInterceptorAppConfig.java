@@ -21,6 +21,9 @@ public class APIInterceptorAppConfig implements WebMvcConfigurer {
                         , "/v3/api-docs"
                         , "/swagger-resources/**"
                         , "/v1/com/account/authorization/**"
+                        , "/**/swagger-ui/**"
+                        , "/**/v3/api-docs/**"
+                        , "/**/swagger-resources/**"
                 );
     }
 
