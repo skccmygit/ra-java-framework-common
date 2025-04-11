@@ -50,7 +50,7 @@ The project consists of the following modules:
 - `account-service` - Main service implementation
 - `account-export` - Contains shared DTOs and interfaces
 
-## Setup & Installation
+## Installation and Setup
 
 1. Clone the repository:
 
