@@ -2,7 +2,6 @@
 
 ## Introduction
 
-Welcome to [RA-JAVA-FRAMEWORK-COMMON]! This project document will guide you through setting up the project, so you can get started quickly.
 This project contains the following functions for common management, account management: 
 
 **Common Service**
