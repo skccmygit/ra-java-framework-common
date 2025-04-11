@@ -242,6 +242,23 @@ Physic ERD
 - [ra-java-framework-work-batch](https://github.com/skccmygit/ra-java-framework-work-batch) API Log / Account Permission related batch
 - [ra-java-api-gateway](https://github.com/skccmygit/ra-java-api-gateway) API Gateway
 
+## Guide for Using the erd.json File
+1. File location
+```
+    docs/
+        ├── db/
+        │   └── schema_*.erd.json
+```
+
+2. Install the `ERD Editor` Extension
+- In VS Code:
+  - Go to Extensions (left sidebar).
+  - Search for “ERD Editor”.
+  - Click Install.
+
+3. Open `schema_*.erd.json` in the ERD Editor
+- In VS Code’s Explorer, click on `schema_*.erd.json` then wait a moment for this extension rendering schema diagram.
+- Visualize or edit your diagram. The tool should display entities and relationships.
 
 ## Additional Resources
 
