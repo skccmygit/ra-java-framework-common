@@ -245,7 +245,6 @@ Physic ERD
 
 ## Additional Resources
 
-- Check the README.md file for more detailed information
 - Refer to individual module documentation for specific details
 - See docker-compose files for infrastructure setup
 
