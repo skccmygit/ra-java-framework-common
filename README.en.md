@@ -140,12 +140,14 @@ Then, run the script command in the `menu.sql` file to add sample data for the m
 ```
 
 > [!NOTE]
->
+> 
 > In case you get error `./gradlew: Permission denied` you should try to run one of these command  
 >
 >    -``sudo chmod +x ./gradlew``
->
+>    
 >    -``git update-index --chmod=+x gradlew``
+> 
+> Then retry from step 2 above.
 
 7. Enable swagger:
 
