@@ -2,36 +2,24 @@
 
 ## Introduction
 
-This project contains the following functions for common management, account management: 
+This project (RA-JAVA-FRAMEWORK-COMMON) is designed to streamline enterprise application development by offering common services and utilities across various modules. It includes the following:
 
-**Common Service**
-- Menu management
-  - Provides menu management and basic menu settings based on tree structure
-  - Manages screen information classified as main/popup, and maps screens to buttons
-- API management
-  - System call API basic information management
-  - Usage history management for called APIs
-- Other:
-  - Code Management / File Management / Encryption, Decryption / Masking
+- **Common Service**  
+  Provides menu management, code management, user activity logging, database routing, and utility APIs. Built with Spring Boot for easy integration.
 
-**Account Service**
-- Authentication
-  - Authentication using JWT method
-  - Enhanced security with the implementation of Access Token (AT) and Refresh Token (RT), including timeout features during AT renewal
-  - Improved user experience through automatic AT renewal between Frontend, API Gateway, and Account Service
-  - Login functionality integrated with Single Sign-On (SSO)
-- Account Management
-  - Automated account creation and application process for system usage
-  - User account lifecycle management
-- Authorization (Access Control)
-  - Role-based access control
-  - Personalized access management through menu/button mappings for users outside of roles
-  - API-level permission management via button-API mappings
-- Activity Tracking
-  - History management to ensure compliance with security standards
-  - Tracking of changes in user account information and permission mappings
-  - Logging of user activities such as login/logout, screen execution, and personal data downloads
-  - Storing query history called by the backend via sqltrace
+- **Account Service**  
+  Handles authentication, authorization, and management of user accounts across their entire lifecycle. Ensures security by leveraging industry-standard libraries and best practices.
+
+- **Core Utilities**  
+  Houses reusable logic and helper classes (e.g., Excel handling, data masking, tracing). Each utility is packaged as part of “common-export,” ensuring a clean separation of concerns.
+
+- **Database and Configuration**  
+  Supports both in-memory (H2) and external DB (e.g., MySQL) with seamless transitions, thanks to Gradle configurations and Docker Compose setups.
+
+- **API Documentation and Observability**  
+  Integrates with Swagger/OpenAPI for REST endpoints and fosters real-time logging/tracing with simple toggles.
+
+Overall, this codebase aims at modularity and maintainability, allowing teams to extend or customize features without reinventing the wheel.
 
 ## Prerequisites
 
