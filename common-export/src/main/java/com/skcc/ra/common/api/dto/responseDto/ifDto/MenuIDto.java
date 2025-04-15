@@ -2,7 +2,7 @@ package com.skcc.ra.common.api.dto.responseDto.ifDto;
 
 public interface MenuIDto {
 
-    Long getMenuId();
+    String getMenuId();
     String getChrgTaskGroupCd();
     String getMenuTypeCd();
     String getMenuNm();

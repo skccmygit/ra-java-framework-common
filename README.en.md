@@ -101,7 +101,7 @@ CREATE DATABASE OCO;
 CREATE USER 'com_dev'@'%' IDENTIFIED BY 'qwer1234!';
 
 # Grant permission
-GRANT ALL PRIVILEGES ON OCO.* TO 'com_dev'@'%’;
+GRANT ALL PRIVILEGES ON OCO.* TO 'com_dev'@'%';
 
 FLUSH PRIVILEGES;
 ```
@@ -259,6 +259,39 @@ Physic ERD
 3. Open `schema_*.erd.json` in the ERD Editor
 - In VS Code’s Explorer, click on `schema_*.erd.json` then wait a moment for this extension rendering schema diagram.
 - Visualize or edit your diagram. The tool should display entities and relationships.
+
+## Instructions Test API
+> [!NOTE] 
+> The project includes SQL scripts to set up sample data for testing.
+> Please import them into your database using the scripts provided in the directory described below
+```
+docs/
+    ├── test-api-instructions
+    │   └── data-sample.sql
+```
+
+### API - Account Service
+
+- API - View account information list
+```
+http://localhost:9101/api/v1/com/account/user/search?deptcdList=D001,D002&userNm=
+```
+
+```
+http://localhost:9101/api/v1/com/account/user/search?deptcdList=D003&userNm=
+```
+
+### API - Common Service
+
+- API - Menu Lookup - By Screen ID
+```
+http://localhost:9100/api/v1/com/common/menu/screnId?screnId=COM-PM0002
+```
+
+- API - Menu Details - By Menu ID
+```
+http://localhost:9100/api/v1/com/common/menu/dtl?menuId=COM-01-05-02
+```
 
 ## Additional Resources
 

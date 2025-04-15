@@ -27,7 +27,6 @@ dependencies {
 
     implementation project(':common-export')
     implementation project(":account-export")
-    implementation project(":account-service")
     testImplementation 'junit:junit:4.13.1'
 }
 
