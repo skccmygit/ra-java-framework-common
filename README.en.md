@@ -194,7 +194,17 @@ springdoc:
 ./gradlew :account-service:bootRun -Pprofile=test
 ```
 
-3. H2 Console `http://localhost:9100/api/h2-console`
+3. H2 Console for CommonService `http://localhost:9100/api/h2-console`
+- Set up config login H2 Console:
+  - **Saved Settings**: Generic H2 (Embedded)
+  - **Setting Name**: Generic H2 (Embedded)
+  - **Driver Class**: org.h2.Driver
+  - **JDBC URL**: jdbc:h2:mem:common
+  - **User Name**: sa
+  - **Password**:
+  - ![h2db.png](docs/imgs/h2db.png)
+
+4. H2 Console for AccountService `http://localhost:9101/api/h2-console`
 - Set up config login H2 Console:
   - **Saved Settings**: Generic H2 (Embedded)
   - **Setting Name**: Generic H2 (Embedded)

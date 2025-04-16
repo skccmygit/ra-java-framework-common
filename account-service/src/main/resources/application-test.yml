@@ -1,6 +1,6 @@
 spring:
   config:
-    import: classpath:configtest.yml
+    import: classpath:configaccounttest.yml
 
   application:
     name: account
