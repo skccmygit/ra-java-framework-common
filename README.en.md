@@ -1,25 +1,24 @@
-# RA-JAVA-FRAMEWORK-COMMON
+# 시스템 관리 - 공통
 
 ## Introduction
 
-This project (RA-JAVA-FRAMEWORK-COMMON) is designed to streamline enterprise application development by offering common services and utilities across various modules. It includes the following:
+This project is designed to streamline enterprise application development by offering common services and utilities across various modules.
 
+Key features identified:
 - **Common Service**  
   Provides menu management, code management, user activity logging, database routing, and utility APIs. Built with Spring Boot for easy integration.
 
 - **Account Service**  
-  Handles authentication, authorization, and management of user accounts across their entire lifecycle. Ensures security by leveraging industry-standard libraries and best practices.
+  Handles authentication, authorization, and management of user accounts across their entire lifecycle.
 
 - **Core Utilities**  
-  Houses reusable logic and helper classes (e.g., Excel handling, data masking, tracing). Each utility is packaged as part of “common-export,” ensuring a clean separation of concerns.
+  Provides utilities for Excel processing, data masking, tracing, etc.
 
 - **Database and Configuration**  
-  Supports both in-memory (H2) and external DB (e.g., MySQL) with seamless transitions, thanks to Gradle configurations and Docker Compose setups.
+  Local memory-based (H2) or external databases (MySQL, etc.) are supported, allowing flexible local development environment configuration through Gradle and Docker Compose.
 
 - **API Documentation and Observability**  
   Integrates with Swagger/OpenAPI for REST endpoints and fosters real-time logging/tracing with simple toggles.
-
-Overall, this codebase aims at modularity and maintainability, allowing teams to extend or customize features without reinventing the wheel.
 
 ## Prerequisites
 
