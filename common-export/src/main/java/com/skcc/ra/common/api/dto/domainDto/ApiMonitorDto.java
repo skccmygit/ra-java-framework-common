@@ -24,13 +24,13 @@ public class ApiMonitorDto implements Entitiable<ApiMonitor> {
     private Long apiExectDtlSeq;
 
     @Schema(description = "API응답상태값")
-    private int apiRespStsVal;
+    private Integer apiRespStsVal;
 
     @Schema(description = "APIID")
-    private int apiId;
+    private Integer apiId;
 
     @Schema(description = "API응답시간")
-    private int apiRespTime;
+    private Integer apiRespTime;
 
     @Schema(description = "API응답시간")
     private String apiRespTimeUnit;

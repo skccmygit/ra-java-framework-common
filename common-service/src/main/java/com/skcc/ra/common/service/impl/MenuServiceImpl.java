@@ -1,6 +1,7 @@
 package com.skcc.ra.common.service.impl;
 
 import com.skcc.ra.common.api.dto.excelDto.*;
+import com.skcc.ra.common.api.dto.responseDto.MenuResponseDto;
 import com.skcc.ra.common.repository.*;
 import com.skcc.ra.common.api.dto.excelDto.*;
 import com.skcc.ra.common.repository.*;
@@ -34,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -71,8 +73,9 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public List<MenuIDto> findAll(){
-        return menuRepository.findAllMenu("");
+    public List<MenuResponseDto> findAll(){
+        List<MenuIDto> res = menuRepository.findAllMenu("");
+        return res.stream().map(MenuResponseDto::from).collect(Collectors.toList());
     }
 
     @Override

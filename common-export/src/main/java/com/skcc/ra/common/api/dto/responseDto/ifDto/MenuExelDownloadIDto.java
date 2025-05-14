@@ -2,19 +2,19 @@ package com.skcc.ra.common.api.dto.responseDto.ifDto;
 
 public interface MenuExelDownloadIDto {
 
-    Long getMenuId1();
+    String getMenuId1();
     String getMenuNm1();
     String getUseYn1();
 
-    Long getMenuId2();
+    String getMenuId2();
     String getMenuNm2();
     String getUseYn2();
 
-    Long getMenuId3();
+    String getMenuId3();
     String getMenuNm3();
     String getUseYn3();
 
-    Long getMenuId4();
+    String getMenuId4();
     String getMenuNm4();
     String getUseYn4();
 

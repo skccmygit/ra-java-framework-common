@@ -1,5 +1,6 @@
 package com.skcc.ra.common.api;
 
+import com.skcc.ra.common.api.dto.responseDto.ApiMonitorStatsResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import com.skcc.ra.common.api.dto.domainDto.ApiMonitorDto;
@@ -30,16 +31,16 @@ public class ApiMonitorResource {
     private ApiMonitorService apiMonitorService;
     @Operation(summary = "API 모니터링 조회 - 상태값 기준")
     @GetMapping("/stats")
-    public ResponseEntity<Page<ApiMonitorStatsDto>> queryApiMonitorStatsSearch(@RequestParam(required = false) String taskClCd,
-                                                                               @RequestParam(required = false) String aproGroupClNm,
-                                                                               @RequestParam(required = false) String apiNmUrladdr,
-                                                                               @RequestParam(required = false) Integer apiRespTime,
-                                                                               @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") @RequestParam LocalDateTime exectDtmtFrom,
-                                                                               @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") @RequestParam LocalDateTime exectDtmtTo,
-                                                                               @RequestParam(required = false) Boolean nomalSts,
-                                                                               @RequestParam(required = false) Boolean delaySts,
-                                                                               @RequestParam(required = false) Boolean errSts,
-                                                                               Pageable pageable) {
+    public ResponseEntity<Page<ApiMonitorStatsResponseDto>> queryApiMonitorStatsSearch(@RequestParam(required = false) String taskClCd,
+                                                                                       @RequestParam(required = false) String aproGroupClNm,
+                                                                                       @RequestParam(required = false) String apiNmUrladdr,
+                                                                                       @RequestParam(required = false) Integer apiRespTime,
+                                                                                       @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") @RequestParam LocalDateTime exectDtmtFrom,
+                                                                                       @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") @RequestParam LocalDateTime exectDtmtTo,
+                                                                                       @RequestParam(required = false) Boolean nomalSts,
+                                                                                       @RequestParam(required = false) Boolean delaySts,
+                                                                                       @RequestParam(required = false) Boolean errSts,
+                                                                                       Pageable pageable) {
         return new ResponseEntity<>(apiMonitorService.queryApiMonitorStatsSearch(taskClCd, aproGroupClNm, apiNmUrladdr, apiRespTime, exectDtmtFrom, exectDtmtTo, nomalSts, delaySts, errSts, pageable), HttpStatus.OK);
     }
 

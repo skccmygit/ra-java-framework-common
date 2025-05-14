@@ -27,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -273,6 +274,31 @@ public class ExcelUtil {
             i++;
         }
     }
+
+    private static Map<String, String> convertObjectToMap(Object obj) {
+        Map<String, String> dataMap = new HashMap<>();
+        if (obj == null) {
+            return dataMap;
+        }
+
+        Class<?> objClass = obj.getClass();
+        Method[] methods = objClass.getMethods();
+
+        for (Method method : methods) {
+            if (method.getName().startsWith("get") && method.getParameterCount() == 0 && !method.getName().equals("getClass")) {
+                String propertyName = method.getName().substring(3);
+                propertyName = propertyName.substring(0, 1).toLowerCase() + propertyName.substring(1);
+                try {
+                    Object value = method.invoke(obj);
+                    dataMap.put(propertyName, String.valueOf(value));
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    log.warn("Error invoking getter method: {}", method.getName(), e);
+                }
+            }
+        }
+        return dataMap;
+    }
+
     private static void setCellValueAndType(Map<String, String> dataMap, List<ExcelCellType> excelCellTypeList, String colNm, CellStyle bCellStyle) {
         // default
         cell.setCellType(CellType.STRING);

@@ -1,7 +1,6 @@
 package com.skcc.ra.common.api.dto.responseDto.ifDto;
 
 public interface MenuIDto {
-
     String getMenuId();
     String getChrgTaskGroupCd();
     String getMenuTypeCd();
@@ -12,7 +11,7 @@ public interface MenuIDto {
     Integer getSortSeqn();
     String getUseYn();
     String getMenuExpseYn();
-    Long getSuperMenuId();
+    String getSuperMenuId();
     String getSuperMenuNm();
     String getScrenId();
     String getScrenNm();

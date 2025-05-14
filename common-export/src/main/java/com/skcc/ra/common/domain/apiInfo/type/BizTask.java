@@ -15,7 +15,7 @@ public enum BizTask {
     CSV("CSV","고객서비스", "feign.csv-batch-service.url"),
     ANL("ANL","분석", "feign.anl-batch-service.url"),
     ONM("ONM","ONM", "feign.onm-batch-service.url"),
-    COM("COM","공통", "feign.com-batch-service.url"),
+    COM("c","공통", "feign.com-batch-service.url"),
     IGW("IGW","통합GW", "feign.gw-batch-service.url");
 
     private final String code;

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import com.skcc.ra.common.api.dto.responseDto.MenuResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,8 +43,8 @@ public class MenuResource {
     
     @Operation(summary = "메뉴 조회 - 전체 메뉴")
     @GetMapping
-    public ResponseEntity<List<MenuIDto>> findMenuAll(){
-        return new ResponseEntity<>(menuService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<MenuResponseDto>> findMenuAll(){
+        return ResponseEntity.ok(menuService.findAll());
     }
     
     @Operation(summary = "메뉴 조회 - 사용 중인 메뉴")

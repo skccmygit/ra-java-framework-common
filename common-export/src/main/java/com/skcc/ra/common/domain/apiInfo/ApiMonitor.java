@@ -12,6 +12,7 @@ import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -32,15 +33,15 @@ public class ApiMonitor extends BaseEntity implements Apiable<ApiMonitorDto> {
 
     //API응답상태값
     @Column(name = "API_RESP_STS_VAL")
-    private int apiRespStsVal;
+    private Integer apiRespStsVal;
 
     //APIID
     @Column(name = "API_ID")
-    private int apiId;
+    private Integer apiId;
 
     //API응답시간
     @Column(name = "API_RESP_TIME")
-    private int apiRespTime;
+    private Integer apiRespTime;
 
     @Column(name = "ERR_CNTNT")
     private String errCntnt;
@@ -55,7 +56,7 @@ public class ApiMonitor extends BaseEntity implements Apiable<ApiMonitorDto> {
     public ApiMonitorDto toApi() {
         ApiMonitorDto apiMonitorDto = new ApiMonitorDto();
         BeanUtils.copyProperties(this, apiMonitorDto);
-        apiMonitorDto.setApiRespTimeUnit(Integer.toString(this.apiRespTime) + "ms" );
+        apiMonitorDto.setApiRespTimeUnit(Objects.isNull(this.apiRespTime) ? null : (this.apiRespTime + "ms"));
         if (this.apiExctStartDtmt != null) apiMonitorDto.setApiExctStartTime(this.apiExctStartDtmt.format(DateTimeFormatter.ofPattern("HH:mm")));
 
         return apiMonitorDto;

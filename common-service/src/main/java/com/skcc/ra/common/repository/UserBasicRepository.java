@@ -34,6 +34,7 @@ public interface UserBasicRepository extends JpaRepository<UserBasic, String> {
             "     , A.VCTN_NM AS vctnNm                                                                      \n" +
             "     , A.MPHNO AS mphno                                                                        \n" +
             "     , A.TCOM_ENTCP_DT AS tcomEntcpDt                                                          \n" +
+            "     , A.REOFO_CD AS reofoCd                                                                   \n" +
             "  FROM OCO.OCO50100 A                                                                           \n" +
             "  LEFT OUTER JOIN OCO.OCO50200 B ON (A.DEPTCD = B.DEPTCD)                                       \n" +
             "  LEFT OUTER JOIN OCO.OCO50300 C ON (B.BSSMACD = C.BSSMACD)                                     \n" +

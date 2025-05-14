@@ -3,6 +3,7 @@ package com.skcc.ra.common.service;
 import com.skcc.ra.common.api.dto.domainDto.MenuDto;
 import com.skcc.ra.common.api.dto.domainDto.MenuStatisticsDto;
 import com.skcc.ra.common.api.dto.domainDto.ScrenDto;
+import com.skcc.ra.common.api.dto.responseDto.MenuResponseDto;
 import com.skcc.ra.common.api.dto.responseDto.ifDto.MenuIDto;
 import com.skcc.ra.common.api.dto.responseDto.ifDto.ScrenIDto;
 import org.springframework.data.domain.Page;
@@ -16,7 +17,7 @@ public interface MenuService {
 
     MenuDto makeMenu(MenuDto menuDto);
 
-    List<MenuIDto> findAll();
+    List<MenuResponseDto> findAll();
     List<MenuIDto> findUseAll();
     MenuDto findByMenuId(String menuId);
     MenuDto findbyScrenId(String screnId);

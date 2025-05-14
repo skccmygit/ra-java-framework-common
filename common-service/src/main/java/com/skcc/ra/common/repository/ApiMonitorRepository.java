@@ -4,6 +4,7 @@ import jakarta.persistence.QueryHint;
 import com.skcc.ra.common.api.dto.responseDto.ApiMonitorDtlDto;
 import com.skcc.ra.common.api.dto.responseDto.ifDto.ApiMonitorStatsDto;
 import com.skcc.ra.common.domain.apiInfo.ApiMonitor;
+import org.hibernate.annotations.processing.SQL;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,7 +25,7 @@ public interface ApiMonitorRepository extends JpaRepository<ApiMonitor, Long> {
                     " FROM ApiMonitor t" +
             " WHERE t.apiId = :apiId " +
             "   AND t.apiExctStartDtmt BETWEEN :exectDtmtFrom AND :exectDtmtTo")
-    List<ApiMonitor> findByApiIdAndapiExectUserIdGreaterThanEqualAndapiExectUserIdLessThanEqual(Integer apiId, String exectDtmtFrom, String exectDtmtTo);
+    List<ApiMonitor> findByApiIdAndapiExectUserIdGreaterThanEqualAndapiExectUserIdLessThanEqual(Integer apiId, LocalDateTime exectDtmtFrom, LocalDateTime exectDtmtTo);
 
     @QueryHints(@QueryHint(name = HINT_COMMENT, value = "ONM ApiMonitorRepository.queryApiMonitorStatsSearch 이제현"))
     @Query(value =

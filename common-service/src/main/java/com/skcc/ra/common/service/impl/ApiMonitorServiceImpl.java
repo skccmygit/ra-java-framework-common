@@ -1,5 +1,7 @@
 package com.skcc.ra.common.service.impl;
 
+import com.skcc.ra.common.api.dto.responseDto.ApiMonitorStatsResponseDto;
+import com.skcc.ra.common.util.ResponseUtil;
 import org.springframework.transaction.annotation.Transactional;
 import com.skcc.ra.common.api.dto.domainDto.ApiMonitorDto;
 import com.skcc.ra.common.api.dto.responseDto.ApiMonitorDtlDto;
@@ -16,7 +18,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,8 +33,10 @@ public class ApiMonitorServiceImpl implements ApiMonitorService {
     @Value("${app.api-delay-time}")
     private Integer apiDelayTime;
 
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
     @Override
-    public Page<ApiMonitorStatsDto> queryApiMonitorStatsSearch(String taskClCd, String aproGroupClNm, String apiNmUrladdr, Integer apiRespTime, LocalDateTime exectDtmtFrom, LocalDateTime exectDtmtTo, Boolean nomalSts, Boolean delaySts, Boolean errSts, Pageable pageable) {
+    public Page<ApiMonitorStatsResponseDto> queryApiMonitorStatsSearch(String taskClCd, String aproGroupClNm, String apiNmUrladdr, Integer apiRespTime, LocalDateTime exectDtmtFrom, LocalDateTime exectDtmtTo, Boolean nomalSts, Boolean delaySts, Boolean errSts, Pageable pageable) {
 
         if (exectDtmtFrom == null || exectDtmtFrom.toString().trim().isEmpty())    throw new ServiceException("ONM.I0006");
         if (exectDtmtTo == null || exectDtmtTo.toString().trim().isEmpty())        throw new ServiceException("ONM.I0007");
@@ -58,14 +64,19 @@ public class ApiMonitorServiceImpl implements ApiMonitorService {
             delayStsVal = "";
             errStsVal = "";
         }
-
-        return apiMonitorRepository.queryApiMonitorStatsSearch(taskClCd, aproGroupClNm, apiNmUrladdr, apiRespTime, exectDtmtFrom, exectDtmtTo, nomalStsVal, delayStsVal, errStsVal, apiDelayTime, pageable);
+        Page<ApiMonitorStatsDto> page = apiMonitorRepository.queryApiMonitorStatsSearch(taskClCd, aproGroupClNm, apiNmUrladdr, apiRespTime, exectDtmtFrom, exectDtmtTo, nomalStsVal, delayStsVal, errStsVal, apiDelayTime, pageable);
+        Function<ApiMonitorStatsDto, ApiMonitorStatsResponseDto> converter = ApiMonitorStatsDto::from;
+        return ResponseUtil.convertPage(page, converter);
     }
 
     @Override
     public List<ApiMonitorDto> queryApiMonitorSearch(Integer apiId, LocalDateTime exectDtmtFrom, LocalDateTime exectDtmtTo) {
         if (exectDtmtTo != null) exectDtmtTo = exectDtmtTo.withSecond(59);
-        List<ApiMonitor> list = apiMonitorRepository.findByApiIdAndapiExectUserIdGreaterThanEqualAndapiExectUserIdLessThanEqual(apiId, String.valueOf(exectDtmtFrom), String.valueOf(exectDtmtTo));
+        List<ApiMonitor> list = apiMonitorRepository.findByApiIdAndapiExectUserIdGreaterThanEqualAndapiExectUserIdLessThanEqual(
+                apiId,
+                exectDtmtFrom,
+                exectDtmtTo
+        );
         return list.stream().map(ApiMonitor::toApi).collect(Collectors.toList());
     }
 
@@ -78,7 +89,7 @@ public class ApiMonitorServiceImpl implements ApiMonitorService {
             exectDtmtFrom = exectDtmt.atStartOfDay();
             exectDtmtTo = exectDtmt.atTime(23,59,59);
         }
-
-        return apiMonitorRepository.queryApiMonitorInfoByCondition(userId, exectDtmtFrom, exectDtmtTo, apiIds);
+        List<ApiMonitorDtlDto> list = apiMonitorRepository.queryApiMonitorInfoByCondition(userId, exectDtmtFrom, exectDtmtTo, apiIds);
+        return list;
     }
 }

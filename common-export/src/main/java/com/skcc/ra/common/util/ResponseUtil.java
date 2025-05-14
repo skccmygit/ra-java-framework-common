@@ -1,12 +1,26 @@
 package com.skcc.ra.common.util;
 
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ResponseUtil {
     public static HttpServletResponse setResponseHeader(String contentType, String charset, String fileName) {
         return setResponseHeader(contentType, charset, fileName, "", 0);
+    }
+
+    public static <S, T> Page<T> convertPage(Page<S> source, Function<S, T> converter) {
+        List<T> targetList = source.getContent().stream()
+                .map(converter)
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(targetList, source.getPageable(), source.getTotalElements());
     }
 
     /**
