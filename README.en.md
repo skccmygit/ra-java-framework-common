@@ -1,4 +1,4 @@
-# 시스템 관리 - 공통
+# System management - Common
 
 ## Introduction
 
