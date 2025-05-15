@@ -13,11 +13,25 @@ ALTER TABLE OCO40110 AUTO_INCREMENT = 1;
 ALTER TABLE OCO40111 AUTO_INCREMENT = 1;
 
 
--- Dept
+-- Dept (OCO50200)
 INSERT INTO OCO50200 (DEPTCD, LAST_CHNGR_ID, LAST_CHNG_DTMD, MGMT_DEPTCD, DEPT_NM, ENGSH_DEPT_NM, ENGSH_DEPT_ABBR_NM, BSSMACD, SUPER_DEPTCD, DEPT_GRADE_CD, DEPT_CRAT_DT, DEPT_ABOL_DT, FEMP_DEPTCD, WHTAX_BZPL_CD, SALS_DEPTCD, INV_DEPTCD, INVNT_WRHUS_CD, VAT_BZPL_CD, ZIPCD, BASIC_ADDR, DETIL_ADDR, EXTSN_NO, PHNO, FAX_NO, BZNO, BZMAN_ACQ_DT, TXOFC_CD, TXOFC_NM, COM_BSCND_NM, COM_ITM_NM, COM_CORP_NM, USE_YN, CCNTR_CD, RPRTT_NM) VALUES
 ('D001', 'system', NOW(), 'D000', 'Tech Support', 'Tech Support', 'TS', '01', null, '1', '20230414', '20230414', 'F001', '001', 'S001', 'INV001', 'WH001', 'VAT001', '100000', '123 Tech St', '456 Details Ave', '0010', '123-456-7890', '123-456-7891', '1234567890', '20230414', 'TX1', 'Tech Office', 'Tech Company', 'Item A', 'Corp A', 'Y', 'CN001', 'Report A'),
 ('D002', 'system', NOW(), 'D000', 'Sales Team', 'Sales Team', 'ST', '02', 'D001', '2', '20230414', '20230414', 'F002', '002', 'S002', 'INV002', 'WH002', 'VAT002', '200000', '789 Sales Rd', '101 Details St', '0011', '234-567-8901', '234-567-8902', '2345678901', '20230414', 'TX2', 'Sales Office', 'Sales Company', 'Item B', 'Corp B', 'Y', 'CN002', 'Report B'),
 ('D003', 'system', NOW(), 'D000', 'R&D', 'Research and Development', 'RD', '03', 'D002', '3', '20230414', '20230414', 'F003', '003', 'S003', 'INV003', 'WH003', 'VAT003', '300000', '456 Research Ave', '789 Details Blvd', '0012', '345-678-9012', '345-678-9013', '3456789012', '20230414', 'TX3', 'R&D Office', 'R&D Company', 'Item C', 'Corp C', 'Y', 'CN003', 'Report C');
+('ROOT01', 'SYSTEM', NOW(), 'ROOT01', 'SK주식회사', 'SK Corporation', 'SK-CORP', '00', 'ROOT01', '0', '20250101', NULL, 'ROOT01', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1230', '02-1234-5678', '02-1234-5679', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC000', '대표이사'),
+('IT0001', 'SYSTEM', NOW(), 'IT0001', 'IT본부', 'IT Division', 'IT-DIV', '01', 'ROOT01', '1', '20250101', NULL, 'IT0001', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1234', '02-1234-5678', '02-1234-5679', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC001', '김대표'),
+('IT0002', 'SYSTEM', NOW(), 'IT0001', 'IT개발팀', 'IT Development Team', 'IT-DEV', '01', 'IT0001', '2', '20250101', NULL, 'IT0002', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1235', '02-1234-5680', '02-1234-5681', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC002', '이부장'),
+('IT0003', 'SYSTEM', NOW(), 'IT0001', 'IT운영팀', 'IT Operation Team', 'IT-OPS', '01', 'IT0001', '2', '20250101', NULL, 'IT0003', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1236', '02-1234-5682', '02-1234-5683', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC003', '박부장'),
+('HR0001', 'SYSTEM', NOW(), 'HR0001', '인사팀', 'HR Team', 'HR-TEAM', '02', 'ROOT01', '1', '20250101', NULL, 'HR0001', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1237', '02-1234-5684', '02-1234-5685', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC004', '최부장');
+
+-- Common Code (OCO20100)
+INSERT INTO OCO.OCO20100 (CMMN_CD, LAST_CHNGR_ID, LAST_CHNG_DTMD, CMMN_CD_NM, CMMN_CD_DESC) VALUES
+('CHRG_TASK_GROUP_CD', 'SYSTEM',  NOW(), 'CHARGE TASK GROUP CODE', '담당업무그룹코드 (CHARGE TASK GROUP CODE)'),
+('CRUD_CL_CD', 'SYSTEM',  NOW(), 'CRUD CLASSIFICATION CODE', '생성/조회/수정/삭제 분류 코드'),
+('SCREN_CL_CD', 'SYSTEM',  NOW(), 'SCREEN CLASSIFICATION CODE', '화면 분류 코드'),
+('SYSTM_CTGRY_CD','SYSTEM',  NOW(), 'SYSTEM CATEGORY CODE', 'SYSTEM CATEGORY CODE'),
+('USER_ACTVY_TYPE_CD','SYSTEM',  NOW(), 'USER ACTIVITY TYPE CODE', '사용자 활동 유형 코드'),
+('REOFO_CD', 'SYSTEM',  NOW(), 'ROLE OFFICE', 'ROLE OFFICE (역할/직위)');
 
 -- Common Code Details (OCO20101)
 INSERT INTO OCO20101 (CMMN_CD, CMMN_CD_VAL, CMMN_CD_VAL_NM, SORT_SEQN, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
