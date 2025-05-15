@@ -1,0 +1,1091 @@
+{
+  "info": {
+    "_postman_id": "02569ee1-d14b-4d10-a8dc-77a1fa150f3d",
+    "name": "RA Common",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15337992"
+  },
+  "item": [
+    {
+      "name": "[기타] 사원 조회 (UserBasicResource)",
+      "item": [
+        {
+          "name": "사원 조회 - 사번, 부서코드, 사원명 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "userBasic"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사원 조회 - 전화번호 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/telno?telno=123-456-7890",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "userBasic",
+                "telno"
+              ],
+              "query": [
+                {
+                  "key": "telno",
+                  "value": "123-456-7890"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서장 조회 - 부서코드, 사번 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/teamLeader?deptcd=D000&empno=E0001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "userBasic",
+                "teamLeader"
+              ],
+              "query": [
+                {
+                  "key": "deptcd",
+                  "value": "D000"
+                },
+                {
+                  "key": "empno",
+                  "value": "E0001"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[메뉴관리] 메뉴 관리 API(MenuResource)",
+      "item": [
+        {
+          "name": "메뉴 등록,수정 - 존재여부 기준",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"menuId\": \"COM-01-02-04\",\n  \"chrgTaskGroupCd\": \"00\",\n  \"chrgTaskGroupNm\": \"string\",\n  \"menuTypeCd\": \"0\",\n  \"menuNm\": \"메뉴명\",\n  \"screnExcutClCd\": \"1\",\n  \"menuDesc\": \"메뉴설명입니다\",\n  \"menuStepVal\": 1,\n  \"sortSeqn\": 1,\n  \"useYn\": \"Y\",\n  \"menuExpseYn\": \"Y\",\n  \"superMenuId\": \"1\",\n  \"superMenuNm\": \"string\",\n  \"screnId\": \"string\",\n  \"screnNm\": \"string\",\n  \"screnDesc\": \"string\",\n  \"screnUrladdr\": \"string\",\n  \"screnClCd\": \"string\",\n  \"screnSizeClCd\": \"string\",\n  \"screnWidthSize\": 0,\n  \"screnVrtlnSize\": 0,\n  \"screnStartTopCodn\": 0,\n  \"screnStartLeftCodn\": 0,\n  \"linkaSystmTagCntnt\": \"string\",\n  \"shortcutSortSeqn\": 0,\n  \"bookmarkYN\": \"string\",\n  \"authYn\": \"string\",\n  \"newYn\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 조회 - 전체 메뉴",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 조회 - 사용 중인 메뉴",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/use",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "use"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 조회 - 화면 ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/screnId?screnId=COM-CC0001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "screnId"
+              ],
+              "query": [
+                {
+                  "key": "screnId",
+                  "value": "COM-CC0001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 상세 조회 - 메뉴 ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/dtl?menuId=COM-01-00-00",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "dtl"
+              ],
+              "query": [
+                {
+                  "key": "menuId",
+                  "value": "COM-01-00-00"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 엑셀 다운로드 - 전체 메뉴",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/excel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "excel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "화면 등록,수정 - 존재여부 기준(버튼 포함)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"screnId\": \"COM-CC0001\",\n  \"chrgTaskGroupCd\": \"00\",\n  \"chrgTaskGroupNm\": \"string\",\n  \"screnNm\": \"테스트화면\",\n  \"screnDesc\": \"테스트화면입니다.\",\n  \"screnUrladdr\": \"com-service/cmmnCd\",\n  \"useYn\": \"Y\",\n  \"screnClCd\": \"1\",\n  \"screnClNm\": \"string\",\n  \"screnSizeClCd\": \"1\",\n  \"screnWidthSize\": 100,\n  \"screnVrtlnSize\": 50,\n  \"screnStartTopCodn\": 50,\n  \"screnStartLeftCodn\": 50,\n  \"authYn\": \"string\",\n  \"bttnList\": [\n    {\n      \"screnId\": \"COM-CC0001\",\n      \"bttnId\": \"BTN001\",\n      \"bttnNm\": \"등록\",\n      \"bttnDesc\": \"등록기능\",\n      \"apiId\": 0,\n      \"apiNm\": \"조회 API\",\n      \"useYn\": \"Y\",\n      \"authYn\": \"Y\",\n      \"crudClCd\": \"R\",\n      \"crudClNm\": \"읽기\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/scren",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "scren"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "화면 조회 - 전체 화면(버튼 포함)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/scren?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "scren"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "화면 조회 - 사용 중인 화면(버튼 포함)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/scren/use?isUnpaged=N&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "scren",
+                "use"
+              ],
+              "query": [
+                {
+                  "key": "isUnpaged",
+                  "value": "N"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "화면 상세 조회 - 화면 ID 기준(버튼 포함)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/scren/dtl?screnId=COM-CC0001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "scren",
+                "dtl"
+              ],
+              "query": [
+                {
+                  "key": "screnId",
+                  "value": "COM-CC0001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴접속통계 조회 - 조건별",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/statistics?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "statistics"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴접속통계 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/statistics/excel?chrgTaskGroupCd=00&sumrDtFrom=00010101&sumrDtTo=99991231",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "statistics",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "00"
+                },
+                {
+                  "key": "sumrDtFrom",
+                  "value": "00010101"
+                },
+                {
+                  "key": "sumrDtTo",
+                  "value": "99991231"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "연동 시스템 절체여부 체크 - 메뉴 ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/systmConn?menuId=COM-01-02-04",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "systmConn"
+              ],
+              "query": [
+                {
+                  "key": "menuId",
+                  "value": "COM-01-02-04"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[기타] 암/복호화 API(EncryptionResource)",
+      "item": [
+        {
+          "name": "문자열 암호화",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/encryption/encrypt?originText=test",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "encryption",
+                "encrypt"
+              ],
+              "query": [
+                {
+                  "key": "originText",
+                  "value": "test"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "문자열 복호화",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/encryption/decrypt?cipherText=GKjZ%2B14Tya8mDOi9R231VA%3D%3D",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "encryption",
+                "decrypt"
+              ],
+              "query": [
+                {
+                  "key": "cipherText",
+                  "value": "GKjZ%2B14Tya8mDOi9R231VA%3D%3D"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[API관리] API 모니터링(ApiMonitorResource)",
+      "item": [
+        {
+          "name": "API 모니터링 조회 - 상태값 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiMonitor/stats?exectDtmtFrom=2022-05-13%2013%3A00&exectDtmtTo=2026-05-13%2013%3A00&delaySts=true&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiMonitor",
+                "stats"
+              ],
+              "query": [
+                {
+                  "key": "exectDtmtFrom",
+                  "value": "2022-05-13%2013%3A00"
+                },
+                {
+                  "key": "exectDtmtTo",
+                  "value": "2026-05-13%2013%3A00"
+                },
+                {
+                  "key": "delaySts",
+                  "value": "true"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 모니터링 조회 - API ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiMonitor?apiId=7&exectDtmtFrom=2022-05-13%2013%3A00&exectDtmtTo=2025-05-13%2013%3A00",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiMonitor"
+              ],
+              "query": [
+                {
+                  "key": "apiId",
+                  "value": "7"
+                },
+                {
+                  "key": "exectDtmtFrom",
+                  "value": "2022-05-13%2013%3A00"
+                },
+                {
+                  "key": "exectDtmtTo",
+                  "value": "2025-05-13%2013%3A00"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 모니터링 조회 - 검색조건",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiMonitor/condition?userId=SYSTEM&exectDtmt=2025-05-13&apiIds=7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiMonitor",
+                "condition"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "SYSTEM"
+                },
+                {
+                  "key": "exectDtmt",
+                  "value": "2025-05-13"
+                },
+                {
+                  "key": "apiIds",
+                  "value": "7"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[API관리] API 사용 통계 및 이력(ApiUseResource)",
+      "item": [
+        {
+          "name": "API 사용이력 통계 조회 - 업무별",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiUse/taskStats?useDtmtFrom=2025-01-01&useDtmtTo=2026-01-01",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiUse",
+                "taskStats"
+              ],
+              "query": [
+                {
+                  "key": "useDtmtFrom",
+                  "value": "2025-01-01"
+                },
+                {
+                  "key": "useDtmtTo",
+                  "value": "2026-01-01"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 사용 추이 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiUse/useTrends?aproGroupIds=1&useDtmtFrom=2025-01-01&useDtmtTo=2026-01-01",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiUse",
+                "useTrends"
+              ],
+              "query": [
+                {
+                  "key": "aproGroupIds",
+                  "value": "1"
+                },
+                {
+                  "key": "useDtmtFrom",
+                  "value": "2025-01-01"
+                },
+                {
+                  "key": "useDtmtTo",
+                  "value": "2026-01-01"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 사용 이력 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiUse/hist?useDtmtFrom=2022-01-01%2000%3A00&useDtmtTo=2026-01-01%2023%3A59&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiUse",
+                "hist"
+              ],
+              "query": [
+                {
+                  "key": "useDtmtFrom",
+                  "value": "2022-01-01%2000%3A00"
+                },
+                {
+                  "key": "useDtmtTo",
+                  "value": "2026-01-01%2023%3A59"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[기타] 부서 조회(DeptResource)",
+      "item": [
+        {
+          "name": "부서 리스트 조회(tree) - 상위코드 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/dept?superDeptcd=D002",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "dept"
+              ],
+              "query": [
+                {
+                  "key": "superDeptcd",
+                  "value": "D002"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "본부 조회 - 사용 중인 본부",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/dept/bssmacd/use",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "dept",
+                "bssmacd",
+                "use"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서 조회 - 조건별",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/dept/search?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "dept",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서 조회 - 부서 코드 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/dept/deptcd?deptcd=D001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "dept",
+                "deptcd"
+              ],
+              "query": [
+                {
+                  "key": "deptcd",
+                  "value": "D001"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
