@@ -1,0 +1,4041 @@
+{
+  "info": {
+    "_postman_id": "77373c2f-31d9-4531-ab3d-57b46f26fe77",
+    "name": "Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43488085",
+    "_collection_link": "https://anhnt-6070250.postman.co/workspace/Anhnt's-Workspace~d9dd0c1c-add0-4816-8914-ccdc7103f927/collection/43488085-77373c2f-31d9-4531-ab3d-57b46f26fe77?action=share&source=collection_link&creator=43488085"
+  },
+  "item": [
+    {
+      "name": "[계정관리] 계정 관리(AccountResource)",
+      "item": [
+        {
+          "name": "계정 정보 리스트 조회 - 조건별",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user?deptcdList=DEPT1,DEPT2&useridOrNm=john&useridStsCd=ACTIVE&deptNm=IT&fstRegDtmdFrom=2025-01-01&fstRegDtmdTo=2025-12-31&page=0&size=10&sort=id,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user"
+              ],
+              "query": [
+                {
+                  "key": "deptcdList",
+                  "value": "DEPT1,DEPT2"
+                },
+                {
+                  "key": "useridOrNm",
+                  "value": "john"
+                },
+                {
+                  "key": "useridStsCd",
+                  "value": "ACTIVE"
+                },
+                {
+                  "key": "deptNm",
+                  "value": "IT"
+                },
+                {
+                  "key": "fstRegDtmdFrom",
+                  "value": "2025-01-01"
+                },
+                {
+                  "key": "fstRegDtmdTo",
+                  "value": "2025-12-31"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "id,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 정보 조회 - 사용자 ID 기준",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user/userid?userid=12345",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user",
+                "userid"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "12345"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 정보 수정",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"userid\": \"12345\",\n    \"userNm\": \"John Doe\",\n    \"email\": \"john.doe@example.com\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 삭제 - 사용여부 변경",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\"userid1\", \"userid2\", \"userid3\"]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 정보 조회 - 사용자 ID 기준, 이름 / 휴대폰 번호만",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user/noAuth?userid=12345",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user",
+                "noAuth"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "12345"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 정보 리스트 조회 - 조건별2",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user/search?deptcdList=DEPT1,DEPT2&userNm=John",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "deptcdList",
+                  "value": "DEPT1,DEPT2"
+                },
+                {
+                  "key": "userNm",
+                  "value": "John"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 잠금 상태 변경 - toggle",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\"userid1\", \"userid2\", \"userid3\"]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user/lock",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user",
+                "lock"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 비밀번호 찾기 - 임시비밀번호 부여 후 SMS 전송",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"12345\",\n    \"method\": \"SMS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user/connPsswd",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user",
+                "connPsswd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 비밀번호 초기화 - 사용자 ID(사번)으로 비밀번호 초기화",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user/connPsswd/init?userid=12345",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user",
+                "connPsswd",
+                "init"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "12345"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 비밀번호 변경 - 비밀번호 변경 주기에 의한 변경",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"12345\",\n    \"currentPassword\": \"oldpass\",\n    \"newPassword\": \"newpass\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/user/connPsswd",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "user",
+                "connPsswd"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[권한관리] 추가 권한 신청 관리(AddAuthRequestResource)",
+      "item": [
+        {
+          "name": "추가 권한 신청 건 조회 - 일반 사용자",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest?page=0&size=10&userNm=홍길동&athrtyReqstOpDtmFrom=20250101&athrtyReqstOpDtmTo=20251231&athrtyReqstStsCd=PENDING",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "athrtyReqstOpDtmFrom",
+                  "value": "20250101"
+                },
+                {
+                  "key": "athrtyReqstOpDtmTo",
+                  "value": "20251231"
+                },
+                {
+                  "key": "athrtyReqstStsCd",
+                  "value": "PENDING"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"USER001\",\n    \"athrtyReqstStsCd\": \"PENDING\",\n    \"reqstReason\": \"업무 권한 필요\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청 프로세스 처리 - 취소 / 검토 / 담당자검토 / 반려",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"athrtyReqstSeqs\": [1, 2, 3],\n    \"procType\": \"REVIEW\",\n    \"procReason\": \"권한 검토 완료\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청 건 조회 - 검토자/승인자 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/admin?userNm=홍길동&athrtyReqstOpDtmFrom=20250101&athrtyReqstOpDtmTo=20251231&athrtyReqstStsCd=PENDING&indivInfoYn=Y&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "admin"
+              ],
+              "query": [
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "athrtyReqstOpDtmFrom",
+                  "value": "20250101"
+                },
+                {
+                  "key": "athrtyReqstOpDtmTo",
+                  "value": "20251231"
+                },
+                {
+                  "key": "athrtyReqstStsCd",
+                  "value": "PENDING"
+                },
+                {
+                  "key": "indivInfoYn",
+                  "value": "Y"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청 건 확인",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/check?athrtyReqstSeq=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "check"
+              ],
+              "query": [
+                {
+                  "key": "athrtyReqstSeq",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 승인 처리",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"athrtyReqstSeq\": 1,\n    \"userid\": \"USER001\",\n    \"athrtyReqstStsCd\": \"APPROVED\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/approve",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 부여를 위한 전체 역할 리스트 조회 - 기 추가 권한 부여된 역할은 별도 표기",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/role/all?userid=USER001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "role",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 부여를 위한 전체 메뉴 리스트 조회 - 기 추가 권한 부여된 메뉴는 별도 표기",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/menu/all?athrtyReqstSeq=1&menuNm=메인메뉴&userid=USER001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "menu",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "athrtyReqstSeq",
+                  "value": "1"
+                },
+                {
+                  "key": "menuNm",
+                  "value": "메인메뉴"
+                },
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 부여를 위한 전체 화면 리스트 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/scren/all?chrgTaskGroupCd=01&screnClCd=MAIN&screnNm=메인화면",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "scren",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "screnClCd",
+                  "value": "MAIN"
+                },
+                {
+                  "key": "screnNm",
+                  "value": "메인화면"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 부여를 위한 버튼 리스트 조회 - 화면 ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/bttn/all?athrtyReqstSeq=1&screnId=SCREEN001&userid=USER001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "bttn",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "athrtyReqstSeq",
+                  "value": "1"
+                },
+                {
+                  "key": "screnId",
+                  "value": "SCREEN001"
+                },
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청 후 부여 받은 역할 리스트 조회 - 신청번호 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/role/request?athrtyReqstSeq=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "role",
+                "request"
+              ],
+              "query": [
+                {
+                  "key": "athrtyReqstSeq",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청 후 부여 받은 메뉴 리스트 조회 - 신청번호 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/menu/request?athrtyReqstSeq=1&menuNm=메인메뉴",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "menu",
+                "request"
+              ],
+              "query": [
+                {
+                  "key": "athrtyReqstSeq",
+                  "value": "1"
+                },
+                {
+                  "key": "menuNm",
+                  "value": "메인메뉴"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청 후 부여 받은 화면 리스트 조회 - 신청번호 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/scren/request?athrtyReqstSeq=1&chrgTaskGroupCd=01&screnNm=메인화면",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "scren",
+                "request"
+              ],
+              "query": [
+                {
+                  "key": "athrtyReqstSeq",
+                  "value": "1"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "screnNm",
+                  "value": "메인화면"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "추가 권한 신청 후 부여 받은 버튼 리스트 조회 - 신청번호 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/bttn/request?athrtyReqstSeq=1&screnId=SCREEN001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "bttn",
+                "request"
+              ],
+              "query": [
+                {
+                  "key": "athrtyReqstSeq",
+                  "value": "1"
+                },
+                {
+                  "key": "screnId",
+                  "value": "SCREEN001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 추가 메뉴/버튼 매핑 - 추가 권한 신청 건에 대한 보완을 위한 API",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"athrtyReqstSeq\": 1,\n    \"userid\": \"USER001\",\n    \"menuList\": [\"MENU001\", \"MENU002\"],\n    \"bttnList\": [\"BTN001\", \"BTN002\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/add/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuthRequest",
+                "add",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[계정관리] 계정 신청 관리(AccountRequestResource)",
+      "item": [
+        {
+          "name": "계정 신청 내역 리스트 조회 - 조건별",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/request?userNm=홍길동&useridReqstStsCd=PENDING&useridReqstDtFrom=20250101&useridReqstDtTo=20251231&page=0&size=10&sort=id,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "request"
+              ],
+              "query": [
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "useridReqstStsCd",
+                  "value": "PENDING"
+                },
+                {
+                  "key": "useridReqstDtFrom",
+                  "value": "20250101"
+                },
+                {
+                  "key": "useridReqstDtTo",
+                  "value": "20251231"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "id,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 신청",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"USER001\",\n    \"userNm\": \"홍길동\",\n    \"email\": \"hong.gd@company.com\",\n    \"userContPhno\": \"010-1234-5678\",\n    \"deptcd\": \"IT001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/request",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "신청 대상 사원 정보 조회 - 사용자 ID(사번) 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/request/userid?userid=USER001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "request",
+                "userid"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 신청 건 검토",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[1, 2, 3]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/request/confirm",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "request",
+                "confirm"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 신청 건 승인",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[1, 2, 3]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/request/approve",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "request",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "계정 신청 건 반려",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"useridReqstSeq\": 1,\n    \"rejectReason\": \"필수 정보 누락\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/request/reject",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "request",
+                "reject"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[권한관리] 대무자 관리(AgentResource)",
+      "item": [
+        {
+          "name": "대무자 이력 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/agent?userInfo=홍길동&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "agent"
+              ],
+              "query": [
+                {
+                  "key": "userInfo",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "대무자 종료 - 권한 회수",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[1, 2, 3]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/agent",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "agent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "대무자 등록, 수정 - 존재여부 기준, 오늘부터 일 경우 권한 부여",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"USER001\",\n    \"agentUserid\": \"AGENT001\",\n    \"agentStartDt\": \"20250101\",\n    \"agentEndDt\": \"20251231\",\n    \"agentReason\": \"휴가로 인한 대무자 지정\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/agent",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "agent"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[이력관리] 권한 변경 이력 관리(AuthHistResource)",
+      "item": [
+        {
+          "name": "역할 기준 메뉴 매핑 변경 이력 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/menu?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&menuNm=메인메뉴&startDt=20250101&endDt=20251231&chngrNm=홍길동&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "role",
+                "menu"
+              ],
+              "query": [
+                {
+                  "key": "userRoleNm",
+                  "value": "ADMIN_ROLE"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "menuNm",
+                  "value": "메인메뉴"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 메뉴 매핑 변경 이력 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/menu/excel?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&menuNm=메인메뉴&startDt=20250101&endDt=20251231&chngrNm=홍길동",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "role",
+                "menu",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "userRoleNm",
+                  "value": "ADMIN_ROLE"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "menuNm",
+                  "value": "메인메뉴"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "홍길동"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 버튼 매핑 변경 이력 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/scren?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&screnNm=메인화면&startDt=20250101&endDt=20251231&chngrNm=홍길동&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "role",
+                "scren"
+              ],
+              "query": [
+                {
+                  "key": "userRoleNm",
+                  "value": "ADMIN_ROLE"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "screnNm",
+                  "value": "메인화면"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 버튼 매핑 변경 이력 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/scren/excel?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&screnNm=메인화면&startDt=20250101&endDt=20251231&chngrNm=홍길동",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "role",
+                "scren",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "userRoleNm",
+                  "value": "ADMIN_ROLE"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "screnNm",
+                  "value": "메인화면"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "홍길동"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 사용지 매핑 변경 이력 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/user?userRoleNm=ADMIN_ROLE&userNm=홍길동&startDt=20250101&endDt=20251231&chngrNm=김관리&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "role",
+                "user"
+              ],
+              "query": [
+                {
+                  "key": "userRoleNm",
+                  "value": "ADMIN_ROLE"
+                },
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "김관리"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 사용자 매핑 변경 이력 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/user/excel?userRoleNm=ADMIN_ROLE&userNm=홍길동&startDt=20250101&endDt=20251231&chngrNm=김관리",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "role",
+                "user",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "userRoleNm",
+                  "value": "ADMIN_ROLE"
+                },
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "김관리"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 메뉴 매핑 변경 이력 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/menu?userNm=홍길동&menuNm=메인메뉴&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "user",
+                "menu"
+              ],
+              "query": [
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "menuNm",
+                  "value": "메인메뉴"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "김관리"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 메뉴 매핑 변경 이력 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/menu/excel?userNm=홍길동&menuNm=메인메뉴&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "user",
+                "menu",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "menuNm",
+                  "value": "메인메뉴"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "김관리"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 버튼 매핑 변경 이력 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/scren?userNm=홍길동&screnNm=메인화면&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "user",
+                "scren"
+              ],
+              "query": [
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "screnNm",
+                  "value": "메인화면"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "김관리"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 버튼 매핑 변경 이력 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/scren/excel?userNm=홍길동&screnNm=메인화면&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authHist",
+                "user",
+                "scren",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "userNm",
+                  "value": "홍길동"
+                },
+                {
+                  "key": "screnNm",
+                  "value": "메인화면"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "01"
+                },
+                {
+                  "key": "startDt",
+                  "value": "20250101"
+                },
+                {
+                  "key": "endDt",
+                  "value": "20251231"
+                },
+                {
+                  "key": "chngrNm",
+                  "value": "김관리"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[계정관리] 인증번호 인증(AuthNumberResource)",
+      "item": [
+        {
+          "name": "인증번호 전송 - 계정 신청 시 본인 인증",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authNumer?userid=USER001&method=SMS",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authNumer"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                },
+                {
+                  "key": "method",
+                  "value": "SMS"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "인증번호 확인 - 계정 신청 시 본인 인증",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authNumer/auth?userid=USER001&authNumber=123456",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authNumer",
+                "auth"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                },
+                {
+                  "key": "authNumber",
+                  "value": "123456"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[권한관리] 권한 변경 이력 관리(AuthorizationResource)",
+      "item": [
+        {
+          "name": "Access Token 갱신",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"ADMIN00001\",\n    \"accessToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJST0xFIjpbXSwiQUNDT1VOVF9JRCI6IkFETUlOMDAwMDEiLCJleHAiOjE3NDczODg5OTUsImlhdCI6MTc0NzM4ODA5NX0.Ja8wf075qe57-ZxbSJ8VzciIpqVADQRAb62UjRXpSsM_or1mn1atAF1Vmjdpmx6k1S_zGQ8wjKUWfGQDre2unw\",\n    \"refreshToken\": \"bada533c-37de-4a9f-a49a-87beefc00720\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authorization/refresh",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authorization",
+                "refresh"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Access Token 유효성 체크",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"USER001\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n    \"refreshToken\": \"550e8400-e29b-41d4-a716-446655440000\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authorization/tokenAliveChk",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authorization",
+                "tokenAliveChk"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 권한 조회 - 역할, 사용자 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/authorization/api?userId=ADMIN00001&roles=ADMIN,USER&apiPath=/api/v1/com/account/request&methodValue=GET",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "authorization",
+                "api"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "ADMIN00001"
+                },
+                {
+                  "key": "roles",
+                  "value": "ADMIN,USER"
+                },
+                {
+                  "key": "apiPath",
+                  "value": "/api/v1/com/account/request"
+                },
+                {
+                  "key": "methodValue",
+                  "value": "GET"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[인증] 로그인 / 로그아웃(LoginResource)",
+      "item": [
+        {
+          "name": "로그인",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"ADMIN00001\",\n    \"connPsswd\": \"Skcc1234!\",\n    \"systmCtgryCd\": \"W\",\n    \"userContPhno\": \"Skcc1234!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "로그아웃",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userid\": \"ADMIN00001\",\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJST0xFIjpbXSwiQUNDT1VOVF9JRCI6IkFETUlOMDAwMDEiLCJleHAiOjE3NDczNjEyMTMsImlhdCI6MTc0NzM2MDMxM30.lI-slAgdslJTesZpKJSP42BKvs5vKcmeRF7srQIzFttMLbZI0jigvmVdtZx-DuHP54PiMQpM-KekdAIaIeBvNw\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[권한관리] 역할 관리(RoleResource)",
+      "item": [
+        {
+          "name": "역할 조회 - 전체 역할",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role?roleNm=ADMIN&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role"
+              ],
+              "query": [
+                {
+                  "key": "roleNm",
+                  "value": "ADMIN"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 수정",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"roleId\": \"ROLE_ADMIN\",\n    \"roleNm\": \"Administrator\",\n    \"useYn\": \"Y\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 등록",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"roleId\": \"ROLE_ADMIN\",\n    \"roleNm\": \"Administrator\",\n    \"useYn\": \"Y\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 조회 - 단건",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/userRoleId?userRoleId=ROLE_ADMIN",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "userRoleId"
+              ],
+              "query": [
+                {
+                  "key": "userRoleId",
+                  "value": "ROLE_ADMIN"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 사용자 조회 - 역할 ID 기준 매핑된 사용자 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/user/\n?userRoleId=ROLE_ADMIN&deptcdList=IT0001,IT0002&userNm=김민수",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "user",
+                "\n"
+              ],
+              "query": [
+                {
+                  "key": "userRoleId",
+                  "value": "ROLE_ADMIN"
+                },
+                {
+                  "key": "deptcdList",
+                  "value": "IT0001,IT0002"
+                },
+                {
+                  "key": "userNm",
+                  "value": "김민수"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 사용자 등록 - 역할 ID 기준 사용자 매핑",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"userRoleId\": \"ROLE_ADMIN\",\n    \"userId\": \"USER001\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 메뉴 조회 - 역할 ID 기준 매핑된 메뉴 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/menu?userRoleId=ROLE_ADMIN",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "menu"
+              ],
+              "query": [
+                {
+                  "key": "userRoleId",
+                  "value": "ROLE_ADMIN"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 메뉴 수정 - 역할 ID를 기준으로 메뉴를 매핑",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"userRoleId\": \"ROLE_ADMIN\",\n    \"menuId\": \"MENU001\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/menu",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 화면 조회 - 역할 ID 기준 - 역할과 화면은 매핑관계 X -> 전체 화면 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/scren/\n?userRoleId=ROLE_ADMIN&chrgTaskGroupCd=001&screnClCd=001&screnNm=메인화면",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "scren",
+                "\n"
+              ],
+              "query": [
+                {
+                  "key": "userRoleId",
+                  "value": "ROLE_ADMIN"
+                },
+                {
+                  "key": "chrgTaskGroupCd",
+                  "value": "001"
+                },
+                {
+                  "key": "screnClCd",
+                  "value": "001"
+                },
+                {
+                  "key": "screnNm",
+                  "value": "메인화면"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 버튼 조회 - 역할 ID 기준 매핑된 버튼 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/bttn?userRoleId=ROLE_ADMIN&screnId=SCREEN001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "bttn"
+              ],
+              "query": [
+                {
+                  "key": "userRoleId",
+                  "value": "ROLE_ADMIN"
+                },
+                {
+                  "key": "screnId",
+                  "value": "SCREEN001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "기본 매핑 대상 부서/팀 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/dept?deptOrTeamNm=IT본부",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "dept"
+              ],
+              "query": [
+                {
+                  "key": "deptOrTeamNm",
+                  "value": "IT본부"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "기본 매핑 대상 부서/팀 수정",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"roleDeptTeamCd\": \"IT0001\",\n    \"roleMappReofoCd\": \"001\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/dept",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "dept"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서/팀 기준 매핑된 역할 내역 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ms-excel"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole/excel?roleDeptTeamClCd=IT",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "deptRole",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "roleDeptTeamClCd",
+                  "value": "IT"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서/팀 기준 매핑된 역할 내역 일괄 엑셀 업로드",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "role_mappings.xlsx"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole/excel/upload",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "deptRole",
+                "excel",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "개인 정보 다운로드 권한 보유 여부 조회 - 개인 정보 다운로드 역할 보유 여부 + IP 체크",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/checkPriAuth?clientIp=192.168.1.100&screnId=SCREEN001&dwnldResonCntnt=업무용도",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "checkPriAuth"
+              ],
+              "query": [
+                {
+                  "key": "clientIp",
+                  "value": "192.168.1.100"
+                },
+                {
+                  "key": "screnId",
+                  "value": "SCREEN001"
+                },
+                {
+                  "key": "dwnldResonCntnt",
+                  "value": "업무용도"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "역할 기준 버튼 수정 - 역할 ID를 기준으로 버튼을 매핑",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"userRoleId\": \"ROLE_ADMIN\",\n    \"screnId\": \"SCREEN001\",\n    \"bttnId\": \"BTN001\",\n    \"useYn\": \"Y\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/bttn",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "bttn"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 역할 조회 - 사용자 ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/user/userid?userid=USER001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "user",
+                "userid"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 기준 역할 조회 - 메뉴 ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/menu/menuId?menuId=MENU001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "menu",
+                "menuId"
+              ],
+              "query": [
+                {
+                  "key": "menuId",
+                  "value": "MENU001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "화면 기준 역할 조회 - 화면 ID 기준 - 화면 내 버튼과 매핑된 역할 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/scren/screnId?screnId=SCREEN001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "scren",
+                "screnId"
+              ],
+              "query": [
+                {
+                  "key": "screnId",
+                  "value": "SCREEN001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서/팀 기준 매핑된 역할 내역 조회 - 기본 역할 매핑",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole/\n?roleDeptTeamCd=IT0001\\\n&roleMappReofoCd=001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "deptRole",
+                "\n"
+              ],
+              "query": [
+                {
+                  "key": "roleDeptTeamCd",
+                  "value": "IT0001\\\n"
+                },
+                {
+                  "key": "roleMappReofoCd",
+                  "value": "001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서/팀 기준 매핑된 역할 내역 수정 - 기본 역할 매핑",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"roleDeptTeamCd\": \"IT0001\",\n    \"roleMappReofoCd\": \"001\",\n    \"userRoleId\": \"ROLE_ADMIN\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "deptRole"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서/팀 기준 매핑된 역할 내역 일괄 업로드 양식 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ms-excel"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole/excel/template",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "deptRole",
+                "excel",
+                "template"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "부서/팀 기준 매핑된 역할 내역 일괄 엑셀 업로드 내용 적용",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n    \"roleDeptTeamCd\": \"IT0001\",\n    \"roleMappReofoCd\": \"001\",\n    \"userRoleId\": \"ROLE_ADMIN\",\n    \"roleNm\": \"Administrator\",\n    \"useYn\": \"Y\"\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "role",
+                "deptRole",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[이력관리] 사용 이력 관리(UseLogResource)",
+      "item": [
+        {
+          "name": "사용 이력 등록",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"systmCtgryCd\": \"ARG\",\n    \"userActvyTypeCd\": \"2\",\n    \"userActvyDtm\": \"20250514\",\n    \"userId\": \"Admin\",\n    \"userIp\": \"0:0:0:0:0:0:0:1\",\n    \"userActvyCntnt\": \"User login successful\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/useLog",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "useLog"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용 이력 조회 - 조건별",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/useLog?systmCtgryCd=ARG&userActvyTypeCd=2&userNm=Admin&userActvyDtmFrom=20250101&userActvyDtmTo=20251231&page=0&size=10&deptcdListYn='N'",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "useLog"
+              ],
+              "query": [
+                {
+                  "key": "systmCtgryCd",
+                  "value": "ARG"
+                },
+                {
+                  "key": "userActvyTypeCd",
+                  "value": "2"
+                },
+                {
+                  "key": "deptcdList",
+                  "value": "HR0001,IT0001,IT0002,IT0003,ROOT01",
+                  "disabled": true
+                },
+                {
+                  "key": "userNm",
+                  "value": "Admin"
+                },
+                {
+                  "key": "userActvyDtmFrom",
+                  "value": "20250101"
+                },
+                {
+                  "key": "userActvyDtmTo",
+                  "value": "20251231"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "deptcdListYn",
+                  "value": "'N'"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용 이력 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/useLog/excel?systmCtgryCd=ARG&userActvyTypeCd=2&userNm=Admin&userActvyDtmFrom=20250101&userActvyDtmTo=20251231&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "useLog",
+                "excel"
+              ],
+              "query": [
+                {
+                  "key": "systmCtgryCd",
+                  "value": "ARG"
+                },
+                {
+                  "key": "userActvyTypeCd",
+                  "value": "2"
+                },
+                {
+                  "key": "userNm",
+                  "value": "Admin"
+                },
+                {
+                  "key": "userActvyDtmFrom",
+                  "value": "20250101"
+                },
+                {
+                  "key": "userActvyDtmTo",
+                  "value": "20251231"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "[권한관리] 사용자 기준 메뉴 관리(UserAuthResource)",
+      "item": [
+        {
+          "name": "즐겨찾기 메뉴 등록 - 로그인 사용자 기준",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"menuId\": \"MENU001\",\n    \"sortSeqn\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/bookmark",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "bookmark"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "즐겨찾기 메뉴 일괄 수정 - 순서변경  - 로그인 사용자 기준",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n    {\n        \"menuId\": \"MENU001\",\n        \"sortSeqn\": 1\n    },\n    {\n        \"menuId\": \"MENU002\",\n        \"sortSeqn\": 2\n    }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/bookmark/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "bookmark",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "즐겨찾기 메뉴 조회 - 로그인 사용자 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/bookmark",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "bookmark"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "즐겨찾기 메뉴 삭제 - 로그인 사용자 기준",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"menuId\": \"MENU001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/bookmark",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "bookmark"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "바로가기 메뉴 등록 - 단건 - 로그인 사용자 기준",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"menuId\": \"MENU002\",\n    \"sortSeqn\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/shortcut",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "shortcut"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "바로가기 메뉴 등록 - 다건 - 로그인 사용자 기준",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n    {\n        \"menuId\": \"MENU001\",\n        \"sortSeqn\": 1\n    },\n    {\n        \"menuId\": \"MENU002\",\n        \"sortSeqn\": 2\n    }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/shortcut/list",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "shortcut",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "바로가기 메뉴 조회 - 로그인 사용자 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/shortcut",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "shortcut"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "바로가기 메뉴 삭제 - 로그인 사용자 기준",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"menuId\": \"MENU001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/shortcut",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "shortcut"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "마이뷰 등록",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"screnId\": \"SCREEN001\",\n    \"userScrenCnstteNm\": \"My Custom View\",\n    \"userIntiScrenYn\": \"N\",\n    \"useYn\": \"Y\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/myView",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "myView"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "마이뷰 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/myView",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "myView"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "마이뷰 수정 / 삭제 - 삭제는 Flag update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n    {\n        \"userScrenCnstteSeq\": 1,\n        \"userid\": \"Admin\",\n        \"userScrenCnstteNm\": \"Updated My Custom View\",\n        \"userIntiScrenYn\": \"N\",\n        \"useYn\": \"Y\",\n        \"myViewDtlDtoList\": null\n    }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/myView",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "myView"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "마이뷰 상세 조회",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/myView/dtl?userScrenCnstteSeq=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "myView",
+                "dtl"
+              ],
+              "query": [
+                {
+                  "key": "userScrenCnstteSeq",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 조회 - 로그인 사용자 기준 권한이 있는 전체 메뉴 - 로그인 후 메뉴 트리 생성 용도",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 조회 - 입력 받은 사용자 ID 기준 권한이 있는 전체 메뉴 - 사용자 별 권한 조회 용도",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/userid?userid=USER001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "userid"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 권한이 있는 화면 리스트 조회 - 화면에 매핑된 버튼 기준 - 사용자 별 권한 조회 용도",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren?userid=USER001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "scren"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "사용자 기준 권한이 있는 버튼 리스트 조회 - 사용자 ID, 화면 ID 기준 - 사용자 별 권한 조회 용도",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren/bttn?userid=USER001&screnId=SCREEN001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "scren",
+                "bttn"
+              ],
+              "query": [
+                {
+                  "key": "userid",
+                  "value": "USER001"
+                },
+                {
+                  "key": "screnId",
+                  "value": "SCREEN001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "로그인 사용자 기준 특정 메뉴 권한 여부 조회 - 메뉴 접근 시 마다 체크",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/menu?menuId=MENU001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "menu"
+              ],
+              "query": [
+                {
+                  "key": "menuId",
+                  "value": "MENU001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "로그인 사용자 기준 특정 화면 권한 있는 버튼 리스트 조회 - 화면 오픈 시 마다 체크",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren/bttn/auth?screnId=SCREEN001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9101",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "account",
+                "userAuth",
+                "scren",
+                "bttn",
+                "auth"
+              ],
+              "query": [
+                {
+                  "key": "screnId",
+                  "value": "SCREEN001"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
