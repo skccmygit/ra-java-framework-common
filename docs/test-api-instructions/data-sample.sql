@@ -17,7 +17,7 @@ ALTER TABLE OCO40111 AUTO_INCREMENT = 1;
 INSERT INTO OCO50200 (DEPTCD, LAST_CHNGR_ID, LAST_CHNG_DTMD, MGMT_DEPTCD, DEPT_NM, ENGSH_DEPT_NM, ENGSH_DEPT_ABBR_NM, BSSMACD, SUPER_DEPTCD, DEPT_GRADE_CD, DEPT_CRAT_DT, DEPT_ABOL_DT, FEMP_DEPTCD, WHTAX_BZPL_CD, SALS_DEPTCD, INV_DEPTCD, INVNT_WRHUS_CD, VAT_BZPL_CD, ZIPCD, BASIC_ADDR, DETIL_ADDR, EXTSN_NO, PHNO, FAX_NO, BZNO, BZMAN_ACQ_DT, TXOFC_CD, TXOFC_NM, COM_BSCND_NM, COM_ITM_NM, COM_CORP_NM, USE_YN, CCNTR_CD, RPRTT_NM) VALUES
 ('D001', 'system', NOW(), 'D000', 'Tech Support', 'Tech Support', 'TS', '01', null, '1', '20230414', '20230414', 'F001', '001', 'S001', 'INV001', 'WH001', 'VAT001', '100000', '123 Tech St', '456 Details Ave', '0010', '123-456-7890', '123-456-7891', '1234567890', '20230414', 'TX1', 'Tech Office', 'Tech Company', 'Item A', 'Corp A', 'Y', 'CN001', 'Report A'),
 ('D002', 'system', NOW(), 'D000', 'Sales Team', 'Sales Team', 'ST', '02', 'D001', '2', '20230414', '20230414', 'F002', '002', 'S002', 'INV002', 'WH002', 'VAT002', '200000', '789 Sales Rd', '101 Details St', '0011', '234-567-8901', '234-567-8902', '2345678901', '20230414', 'TX2', 'Sales Office', 'Sales Company', 'Item B', 'Corp B', 'Y', 'CN002', 'Report B'),
-('D003', 'system', NOW(), 'D000', 'R&D', 'Research and Development', 'RD', '03', 'D002', '3', '20230414', '20230414', 'F003', '003', 'S003', 'INV003', 'WH003', 'VAT003', '300000', '456 Research Ave', '789 Details Blvd', '0012', '345-678-9012', '345-678-9013', '3456789012', '20230414', 'TX3', 'R&D Office', 'R&D Company', 'Item C', 'Corp C', 'Y', 'CN003', 'Report C');
+('D003', 'system', NOW(), 'D000', 'R&D', 'Research and Development', 'RD', '03', 'D002', '3', '20230414', '20230414', 'F003', '003', 'S003', 'INV003', 'WH003', 'VAT003', '300000', '456 Research Ave', '789 Details Blvd', '0012', '345-678-9012', '345-678-9013', '3456789012', '20230414', 'TX3', 'R&D Office', 'R&D Company', 'Item C', 'Corp C', 'Y', 'CN003', 'Report C'),
 ('ROOT01', 'SYSTEM', NOW(), 'ROOT01', 'SK주식회사', 'SK Corporation', 'SK-CORP', '00', 'ROOT01', '0', '20250101', NULL, 'ROOT01', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1230', '02-1234-5678', '02-1234-5679', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC000', '대표이사'),
 ('IT0001', 'SYSTEM', NOW(), 'IT0001', 'IT본부', 'IT Division', 'IT-DIV', '01', 'ROOT01', '1', '20250101', NULL, 'IT0001', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1234', '02-1234-5678', '02-1234-5679', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC001', '김대표'),
 ('IT0002', 'SYSTEM', NOW(), 'IT0001', 'IT개발팀', 'IT Development Team', 'IT-DEV', '01', 'IT0001', '2', '20250101', NULL, 'IT0002', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1235', '02-1234-5680', '02-1234-5681', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC002', '이부장'),
@@ -50,23 +50,26 @@ INSERT INTO OCO50100 (EMPNO, LAST_CHNGR_ID, EMP_KRN_NM, EMP_ENGLNM, EMP_ENGFNM, 
 
 -- User Account Information (OCO10100)
 -- raw password: Skcc1234!
-INSERT INTO OCO10100 (USERID, USER_NM, CONN_PSSWD, PSSWD_EXPIR_DT, USER_CONT_PHNO, USER_EMAILADDR, DEPTCD, REOFO_CD, VCTN_CD, USER_GROUP_CD, INNER_USER_CL_CD, USER_IDENT_NO, FST_REG_DTMD, PSSWD_ERR_FRQY, USERID_STS_CD, USER_IPADDR, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
-('SYSTEM', 'JohnS', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01012345678', 'john@example.com', 'D001', '001', '001', 'A', '1', 'E0001', NOW(), 0, 'O', '192.168.0.1', 'system', NOW()),
-('SYSTEM1', 'AliceB', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01087654321', 'alice@example.com', 'D002', '002', '002', 'A', '1', 'E0002', NOW(), 0, 'O', '192.168.0.2', 'system', NOW()),
-('SYSTEM2', 'BobK', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01011112222', 'bob@example.com', 'D001', '001', '001', 'A', '2', NULL, NOW(), 1, 'L', '192.168.0.3', 'system', NOW()),
-('SYSTEM3', 'CarolM', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01033334444', 'carol@example.com', 'D003', '002', '002', 'B', '3', NULL, NOW(), 2, 'O', '192.168.0.4', 'system', NOW()),
-('SYSTEM4', 'DavidL', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01055556666', 'david@example.com', 'D004', '001', '001', 'C', '9', NULL, NOW(), 5, 'O', '192.168.0.5', 'system', NOW()),
-('SYSTEM5', 'CarolM', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01033334444', 'carol@example.com', 'D003', '002', '002', 'B', '3', NULL, NOW(), 2, 'D', '192.168.0.4', 'system', NOW());
+INSERT INTO OCO10100 (USERID, LAST_CHNGR_ID, LAST_CHNG_DTMD, USER_NM, CONN_PSSWD, PSSWD_EXPIR_DT, USER_CONT_PHNO, USER_EMAILADDR, DEPTCD, REOFO_CD, VCTN_CD, USER_GROUP_CD, INNER_USER_CL_CD, USER_IDENT_NO, FST_REG_DTMD, PSSWD_ERR_FRQY, USERID_STS_CD, USER_IPADDR) VALUES
+('SYSTEM', 'SYSTEM', NOW(), 'JohnS', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01012345678', 'john@example.com', 'D001', '001', '001', 'A', '1', 'E0001', NOW(), 0, 'O', '192.168.0.1'),
+('SYSTEM1', 'SYSTEM', NOW(), 'AliceB', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01087654321', 'alice@example.com', 'D002', '002', '002', 'A', '1', 'E0002', NOW(), 0, 'O', '192.168.0.2'),
+('SYSTEM2', 'SYSTEM', NOW(), 'BobK', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01011112222', 'bob@example.com', 'D001', '001', '001', 'A', '2', NULL, NOW(), 1, 'L', '192.168.0.3'),
+('SYSTEM3', 'SYSTEM', NOW(), 'CarolM', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01033334444', 'carol@example.com', 'D003', '002', '002', 'B', '3', NULL, NOW(), 2, 'O', '192.168.0.4'),
+('SYSTEM4', 'SYSTEM', NOW(), 'DavidL', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01055556666', 'david@example.com', 'D004', '001', '001', 'C', '9', NULL, NOW(), 5, 'O', '192.168.0.5'),
+('SYSTEM5', 'SYSTEM', NOW(), 'CarolM', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20250601', '01033334444', 'carol@example.com', 'D003', '002', '002', 'B', '3', NULL, NOW(), 2, 'D', '192.168.0.4');
+
+INSERT INTO OCO10100 (USERID, LAST_CHNGR_ID, LAST_CHNG_DTMD, USER_NM, CONN_PSSWD, PSSWD_EXPIR_DT, USER_CONT_PHNO, USER_EMAILADDR, DEPTCD, REOFO_CD, VCTN_CD, CUCEN_TEAM_CD, OFCPS_CD, USER_GROUP_CD, INNER_USER_CL_CD, USER_IDENT_NO, USERID_STS_CD, FST_REG_DTMD, PSSWD_ERR_FRQY, USER_IPADDR)
+VALUES
 -- System Administrator
-('ADMIN00001', 'SYSTEM', CURRENT_TIMESTAMP, '시스템관리자', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-1234-5678', 'admin@company.com', 'IT0001', 'MGR', 'ADM', 'IT001', 'S001', 'A', '9', 'ID001', 'O', '2025-01-01 09:00:00', 0, '192.168.1.100'),
+('ADMIN00001', 'SYSTEM', NOW(), '시스템관리자', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-1234-5678', 'admin@company.com', 'IT0001', 'MGR', 'ADM', 'IT001', 'S001', 'A', '9', 'ID001', 'O', '2025-01-01 09:00:00', 0, '192.168.1.100'),
 -- Regular Employee
-('USER00001', 'SYSTEM', CURRENT_TIMESTAMP, '홍길동', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-2345-6789', 'hong.gd@company.com', 'HR0001', 'EMP', 'GEN', 'HR001', 'E001', 'U', '1', 'ID002', 'O', '2025-01-02 09:00:00', 0, '192.168.1.101'),
+('USER00001', 'SYSTEM', NOW(), '홍길동', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-2345-6789', 'hong.gd@company.com', 'HR0001', 'EMP', 'GEN', 'HR001', 'E001', 'U', '1', 'ID002', 'O', '2025-01-02 09:00:00', 0, '192.168.1.101'),
 -- Manager
-('USER00002', 'SYSTEM', CURRENT_TIMESTAMP, '김부장', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-3456-7890', 'kim.mgr@company.com', 'MK0001', 'MGR', 'MNG', 'MK001', 'M001', 'U', '2', 'ID003', 'O', '2025-01-03 09:00:00', 0, '192.168.1.102'),
+('USER00002', 'SYSTEM', NOW(), '김부장', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-3456-7890', 'kim.mgr@company.com', 'MK0001', 'MGR', 'MNG', 'MK001', 'M001', 'U', '2', 'ID003', 'O', '2025-01-03 09:00:00', 0, '192.168.1.102'),
 -- Locked Account
-('USER00003', 'SYSTEM', CURRENT_TIMESTAMP, '이잠김', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-4567-8901', 'lee.lock@company.com', 'IT0002', 'EMP', 'GEN', 'IT002', 'E002', 'U', '4', 'ID004', 'L', '2025-01-04 09:00:00', 5, '192.168.1.103'),
+('USER00003', 'SYSTEM', NOW(), '이잠김', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-4567-8901', 'lee.lock@company.com', 'IT0002', 'EMP', 'GEN', 'IT002', 'E002', 'U', '4', 'ID004', 'L', '2025-01-04 09:00:00', 5, '192.168.1.103'),
 -- Pending Approval
-('USER00004', 'SYSTEM', CURRENT_TIMESTAMP, '박대기', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-5678-9012', 'park.wait@company.com', 'SA0001', 'EMP', 'GEN', 'SA001', 'E001', 'U', '3', 'ID005', 'W', '2025-01-05 09:00:00', 0, '192.168.1.104');
+('USER00004', 'SYSTEM', NOW(), '박대기', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-5678-9012', 'park.wait@company.com', 'SA0001', 'EMP', 'GEN', 'SA001', 'E001', 'U', '3', 'ID005', 'W', '2025-01-05 09:00:00', 0, '192.168.1.104');
 
 -- AppGroup
 INSERT INTO OCO40100 (LAST_CHNGR_ID, LAST_CHNG_DTMD, APRO_TYPE_CL_CD, APRO_TASK_CL_CD, APRO_GROUP_CL_NM, APRO_GROUP_DESC) VALUES
@@ -159,3 +162,12 @@ INSERT INTO OCO50300 (BSSMACD, LAST_CHNGR_ID, LAST_CHNG_DTMD, BSS_HQ_NM, USE_YN)
 ('C3', 'SYSTEM', NOW(), 'Gamma Branch Office', 'N'),
 ('D4', 'SYSTEM', NOW(), 'Delta Main Office', 'Y'),
 ('E5', 'SYSTEM', NOW(), 'Epsilon Operations', 'N');
+
+-- UserActvyLog (OCO10190)
+INSERT INTO OCO.OCO10190 (USER_ACTVY_SEQ, USER_ACTVY_DTM, USERID, LAST_CHNGR_ID, LAST_CHNG_DTMD, USER_ACTVY_TYPE_CD, CONN_IPADDR, SCREN_ID, SYSTM_CTGRY_CD, DWNLD_RESON_CNTNT, ACCSS_TOKEN_VAL, REFSH_TOKEN_VAL)
+VALUES
+(1, '20250514164924', 'Admin', 'Admin', '2025-05-14 18:49:24', '2', '0:0:0:0:0:0:0:1', NULL, 'ARG', NULL, NULL, NULL),
+(2, '20250516081855', 'ADMIN00001', 'Admin', '2025-05-16 10:19:03', '1', '0:0:0:0:0:0:0:1', NULL, 'ARG', NULL, NULL, NULL),
+(3, '20250516085216', 'ADMIN00001', 'Admin', '2025-05-16 10:52:16', '1', '0:0:0:0:0:0:0:1', NULL, 'W', NULL, NULL, NULL),
+(4, '20250516090328', 'Admin', 'Admin', '2025-05-16 11:03:28', '2', '0:0:0:0:0:0:0:1', NULL, 'ARG', NULL, NULL, NULL),
+(5, '20250516131901', 'Admin', 'Admin', '2025-05-16 15:19:02', '2', '0:0:0:0:0:0:0:1', NULL, 'ARG', NULL, NULL, NULL);
