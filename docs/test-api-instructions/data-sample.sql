@@ -171,3 +171,17 @@ VALUES
 (3, '20250516085216', 'ADMIN00001', 'Admin', '2025-05-16 10:52:16', '1', '0:0:0:0:0:0:0:1', NULL, 'W', NULL, NULL, NULL),
 (4, '20250516090328', 'Admin', 'Admin', '2025-05-16 11:03:28', '2', '0:0:0:0:0:0:0:1', NULL, 'ARG', NULL, NULL, NULL),
 (5, '20250516131901', 'Admin', 'Admin', '2025-05-16 15:19:02', '2', '0:0:0:0:0:0:0:1', NULL, 'ARG', NULL, NULL, NULL);
+
+-- Role (OCO10110)
+INSERT INTO OCO.OCO10110 (USER_ROLE_ID, USER_ROLE_NM, USER_ROLE_DESC, USER_ATHRTY_GROUP_CD, LOCK_ATHRTY_CL_CD, USE_YN, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
+('C001', 'IT_ADMIN', 'IT 시스템 관리를 위한 최고 권한', '001', 'Y', 'Y', 'SYSTEM', NOW()),
+('C002', 'AUTH_CONFIRM', '권한 확인자', '002', 'Y', 'Y', 'SYSTEM', NOW()),
+('C003', 'AUTH_APPROVE', '권한 승인자', '002', 'Y', 'Y', 'SYSTEM', NOW()),
+('C004', 'AUTH_INDIV', '개인 권한', '003', 'N', 'Y', 'SYSTEM', NOW()),
+('C005', 'AUTH_RPA', 'RPA 권한', '003', 'N', 'Y', 'SYSTEM', NOW()),
+('S037', 'TSE_SMALL_TEAM_LEADER', 'TSE 소규모팀장', '004', 'Y', 'Y', 'SYSTEM', NOW()),
+('S038', 'TSE_TEAM_MEMBER', 'TSE 팀원', '004', 'N', 'Y', 'SYSTEM', NOW()),
+('S040', 'BP_COMMON', 'BP 공통', '005', 'N', 'Y', 'SYSTEM', NOW()),
+('I016', 'KNOWLEDGE_MANAGEMENT_BP_TSE_SEARCH', '지식관리 BP TSE 조회', '006', 'N', 'Y', 'SYSTEM', NOW()),
+('C999', 'AUTH_DEVELOPER', '개발자', '007', 'Y', 'Y', 'SYSTEM', NOW()),
+('Z001', 'AUTH_DEFAULT', '기본 권한', '999', 'N', 'Y', 'SYSTEM', NOW());
