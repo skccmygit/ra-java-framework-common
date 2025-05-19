@@ -287,7 +287,7 @@ INSERT INTO OCO.OCO10121 (USER_ROLE_ID, SCREN_ID, BTTN_ID, LAST_CHNGR_ID, LAST_C
 ('Z001', 'COM-UM0004', 'BTN_SEARCH', 'SYSTEM', NOW()),
 ('Z001', 'COM-UL0001', 'BTN_EXPORT', 'SYSTEM', NOW());
 
-
+-- UserScrenBttn (OCO10107)
 INSERT INTO OCO.OCO10107 (USERID, SCREN_ID, BTTN_ID, ATHRTY_REQST_SEQ, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
 ('Admin', 'COM-CC0001', 'BTN_SAVE', 1, 'SYSTEM', NOW()),
 ('Admin', 'COM-CC0001', 'BTN_DELETE', 1, 'SYSTEM', NOW()),
@@ -309,6 +309,25 @@ INSERT INTO OCO.OCO10107 (USERID, SCREN_ID, BTTN_ID, ATHRTY_REQST_SEQ, LAST_CHNG
 ('SYSTEM2', 'COM-PM0011', 'BTN_EXPORT', 1, 'SYSTEM', NOW()),
 ('SYSTEM3', 'COM-PM0020', 'BTN_SAVE', 1, 'SYSTEM', NOW()),
 ('SYSTEM4', 'COM-UM0002', 'BTN_APPROVE', 1, 'SYSTEM', NOW());
+
+-- Bttn (OCO10230)
+INSERT INTO OCO.OCO10230 (SCREN_ID, BTTN_ID, BTTN_NM, BTTN_DESC, API_ID, USE_YN, CRUD_CL_CD, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
+('COM-CC0001', 'BTN_SAVE', '저장', '공통코드 저장', 1001, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-CC0001', 'BTN_DELETE', '삭제', '공통코드 삭제', 1002, 'Y', 'D', 'SYSTEM', NOW()),
+('COM-CC0001', 'BTN_SEARCH', '조회', '공통코드 조회', 1003, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-PM0002', 'BTN_SAVE', '저장', '역할 정보 저장', 2001, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-PM0002', 'BTN_DELETE', '삭제', '역할 정보 삭제', 2002, 'Y', 'D', 'SYSTEM', NOW()),
+('COM-PM0002', 'BTN_SEARCH', '조회', '역할 정보 조회', 2003, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-PM0017', 'BTN_APPROVE', '승인', '권한 승인', 3001, 'Y', 'U', 'SYSTEM', NOW()),
+('COM-PM0017', 'BTN_REJECT', '반려', '권한 승인 반려', 3002, 'Y', 'U', 'SYSTEM', NOW()),
+('COM-UM0003', 'BTN_SAVE', '저장', '사용자 정보 저장', 4001, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-UM0003', 'BTN_RESET_PWD', '비밀번호초기화', '비밀번호 초기화', 4002, 'Y', 'U', 'SYSTEM', NOW()),
+('COM-UM0003', 'BTN_SEARCH', '조회', '사용자 정보 조회', 4003, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-MM0003', 'BTN_SAVE', '저장', '화면 정보 저장', 5001, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-MM0003', 'BTN_DELETE', '삭제', '화면 정보 삭제', 5002, 'Y', 'D', 'SYSTEM', NOW()),
+('COM-MM0003', 'BTN_TEST', '테스트', '화면 테스트', 5003, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-UL0001', 'BTN_EXPORT', '내보내기', '사용이력 내보내기', 6001, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-UL0002', 'BTN_EXPORT', '내보내기', '통계 내보내기', 6002, 'Y', 'R', 'SYSTEM', NOW());
 
 -- AccountStsChng (OCO10103)
 INSERT INTO OCO.OCO10103 (USERID,CHNG_COL_ENGSH_NM,CHNG_DTM,LAST_CHNGR_ID,LAST_CHNG_DTMD,CHNG_COL_VAL) VALUES
