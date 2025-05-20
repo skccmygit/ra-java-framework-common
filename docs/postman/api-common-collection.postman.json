@@ -132,7 +132,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/search?empnoList=E0001&deptcdList=D001&empNm=John%20Smith&deptNm=Tech%20Support&page=0&size=10&bssmacd=01&vctnNm=IT&clofpNm=Senior",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/search?empnoList=E0001&deptcdList=D001&empNm=John%20Smith&page=0&size=10&vctnNm=IT&clofpNm=Senior",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -161,7 +161,8 @@
                 },
                 {
                   "key": "deptNm",
-                  "value": "Tech%20Support"
+                  "value": "Tech%20Support",
+                  "disabled": true
                 },
                 {
                   "key": "page",
@@ -173,7 +174,8 @@
                 },
                 {
                   "key": "bssmacd",
-                  "value": "01"
+                  "value": "",
+                  "disabled": true
                 },
                 {
                   "key": "vctnNm",
@@ -234,7 +236,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list?empnoList=E0001&deptcdList=D001&empNm=John%20Smith&deptNm=Tech%20Support",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list?empnoList=E0001&deptcdList=D001&empNm=John%20Smith",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -263,7 +265,8 @@
                 },
                 {
                   "key": "deptNm",
-                  "value": "Tech%20Support"
+                  "value": "Tech%20Support",
+                  "disabled": true
                 }
               ]
             }
@@ -281,7 +284,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list/noMasking?empnoList=E0001&deptcdList=D001&empNm=John%20Smith&deptNm=Tech%20Support",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list/noMasking?empnoList=E0001&deptcdList=D001&empNm=John%20Smith",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -311,7 +314,8 @@
                 },
                 {
                   "key": "deptNm",
-                  "value": "Tech%20Support"
+                  "value": "Tech%20Support",
+                  "disabled": true
                 }
               ]
             }
@@ -1550,7 +1554,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiId?apiId=12",
+              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiId?apiId=1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1567,7 +1571,7 @@
               "query": [
                 {
                   "key": "apiId",
-                  "value": "12"
+                  "value": "1"
                 }
               ]
             }
@@ -1700,7 +1704,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"apiId\": 17,\n  \"aproGroupId\": 0,\n  \"apiNm\": \"테스트\",\n  \"apiDesc\": \"테스트입니다.\",\n  \"apiLocUrladdr\": \"/test1\",\n  \"httMethodVal\": \"GET\",\n  \"apiReqCntnt\": \"String aproGroupId 1\",\n  \"apiRespCntnt\": \"String\",\n  \"aproTaskClCd\": \"ISC\",\n  \"aproTaskClCdNm\": \"string\",\n  \"aproGroupClNm\": \"테스트\"\n}",
+              "raw": "{\n  \"apiId\": 8,\n  \"aproGroupId\": 0,\n  \"apiNm\": \"테스트\",\n  \"apiDesc\": \"테스트입니다.\",\n  \"apiLocUrladdr\": \"/test1\",\n  \"httMethodVal\": \"GET\",\n  \"apiReqCntnt\": \"String aproGroupId 1\",\n  \"apiRespCntnt\": \"String\",\n  \"aproTaskClCd\": \"ISC\",\n  \"aproTaskClCdNm\": \"string\",\n  \"aproGroupClNm\": \"테스트\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1741,7 +1745,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[\n  17\n]",
+              "raw": "[\n  8\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2024,7 +2028,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[\n  {\n    \"cmmnCd\": \"CHRG_TASK_GROUP_CD\",\n    \"cmmnCdNm\": \"string\",\n    \"cmmnCdVal\": \"AAA\",\n    \"cmmnCdValNm\": \"진행중\",\n    \"cmmnCdValDesc\": \"공통코드값내용\",\n    \"sortSeqn\": 1,\n    \"useYn\": \"Y\",\n    \"refrnAttrVal1\": \"참조속성명1\",\n    \"refrnAttrVal2\": \"참조속성명2\",\n    \"refrnAttrVal3\": \"참조속성명3\",\n    \"refrnAttrVal4\": \"참조속성명4\",\n    \"refrnAttrVal5\": \"참조속성명5\",\n    \"refrnAttrVal6\": \"참조속성명6\",\n    \"refrnAttrVal7\": \"참조속성명7\",\n    \"refrnAttrVal8\": \"참조속성명8\",\n    \"refrnAttrVal9\": \"참조속성명9\",\n    \"refrnAttrVal10\": \"참조속성명10\",\n    \"superCmmnCd\": \"C01\",\n    \"superCmmnCdNm\": \"string\",\n    \"superCmmnCdVal\": \"BBB\",\n    \"superCmmnCdValNm\": \"BBB\"\n  }\n]",
+              "raw": "[\n  {\n    \"cmmnCd\": \"CHRG_TASK_GROUP_CD\",\n    \"cmmnCdNm\": \"string\",\n    \"cmmnCdVal\": \"00\",\n    \"cmmnCdValNm\": \"진행중\",\n    \"cmmnCdValDesc\": \"공통코드값내용\",\n    \"sortSeqn\": 1,\n    \"useYn\": \"Y\",\n    \"refrnAttrVal1\": \"참조속성명1\",\n    \"refrnAttrVal2\": \"참조속성명2\",\n    \"refrnAttrVal3\": \"참조속성명3\",\n    \"refrnAttrVal4\": \"참조속성명4\",\n    \"refrnAttrVal5\": \"참조속성명5\",\n    \"refrnAttrVal6\": \"참조속성명6\",\n    \"refrnAttrVal7\": \"참조속성명7\",\n    \"refrnAttrVal8\": \"참조속성명8\",\n    \"refrnAttrVal9\": \"참조속성명9\",\n    \"refrnAttrVal10\": \"참조속성명10\",\n    \"superCmmnCd\": \"C01\",\n    \"superCmmnCdNm\": \"string\",\n    \"superCmmnCdVal\": \"BBB\",\n    \"superCmmnCdValNm\": \"BBB\"\n  }\n]",
               "options": {
                 "raw": {
                   "language": "json"
