@@ -22,6 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -46,6 +50,8 @@ public class AttachFileServiceImpl implements AttachFileService {
 
     @Value("${spring.profiles.active}")
     private String env;
+
+    private static final String ILLEGAL_CHARS = "[<>:\"|?*]";
 
     private String[] allowedExtensionType = {
         "xlsx","xls","doc","docx","ppt","pptx", //"potx","ppsx","xltx","dotx",
@@ -161,6 +167,14 @@ public class AttachFileServiceImpl implements AttachFileService {
             if (!chkFileType && !"WFM".equals(taskGroup)) {
                 throw new ServiceException("COM.I0014");
             } else {
+                if (!isValidPath(saveFilePath)) {
+                    saveFilePath = repairPath(saveFilePath);
+                }
+                Path pathFile = Paths.get(saveFilePath);
+                Path parentDir = pathFile.getParent();
+                if (parentDir != null && !Files.exists(parentDir)) {
+                    Files.createDirectories(parentDir);
+                }
                 if (!new File(saveFilePath).exists()){
                     new File(saveFilePath).mkdir();
                 }
@@ -186,6 +200,54 @@ public class AttachFileServiceImpl implements AttachFileService {
             log.error(e.getMessage(), e);
             throw new ServiceException("COM.I0017");
         }
+    }
+
+    public static boolean isValidPath(String pathStr) {
+        try {
+            Paths.get(pathStr);
+            return true;
+        } catch (InvalidPathException ex) {
+            return false;
+        }
+    }
+
+    public static String repairPath(String original) {
+        // 1) Normalize all slashes to the platform default
+        String sep = File.separator;
+        String normalized = original.replace("\\", sep).replace("/", sep);
+
+        // 2) Split into segments, stripping illegal characters from each
+        String[] rawSegments = normalized.split(sep.equals("\\") ? "\\\\" : sep);
+        List<String> cleanSegments = new ArrayList<>();
+        for (String seg : rawSegments) {
+            if (seg.isEmpty()) continue;                // skip empty
+            // remove any illegal characters
+            String cleaned = seg.replaceAll(ILLEGAL_CHARS, "");
+            if (!cleaned.isEmpty()) {
+                cleanSegments.add(cleaned);
+            }
+        }
+
+        // 3) Rebuild the path, preserving a leading drive letter or root if present
+        StringBuilder rebuilt = new StringBuilder();
+        // Detect Windows drive letter (e.g. "C:")
+        if (cleanSegments.size() > 0 && cleanSegments.get(0).matches("^[A-Za-z]:$")) {
+            rebuilt.append(cleanSegments.remove(0))
+                    .append(sep);
+        } else if (normalized.startsWith(sep)) {
+            // absolute on Unix or UNC root on Windows
+            rebuilt.append(sep);
+        }
+
+        // join the rest
+        for (int i = 0; i < cleanSegments.size(); i++) {
+            rebuilt.append(cleanSegments.get(i));
+            if (i < cleanSegments.size() - 1) {
+                rebuilt.append(sep);
+            }
+        }
+
+        return rebuilt.toString();
     }
 
     public boolean chkFileType(String mimeType, String fileType) {

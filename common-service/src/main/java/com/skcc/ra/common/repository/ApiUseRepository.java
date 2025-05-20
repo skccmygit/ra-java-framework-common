@@ -49,7 +49,7 @@ public interface ApiUseRepository extends JpaRepository<ApiMonitor, Long> {
     @QueryHints(@QueryHint(name = HINT_COMMENT, value = "ONM ApiUseRepository.queryApiUseTrendsdDaily 이제현"))
     @Query(value =
             "SELECT new com.skcc.ra.common.api.dto.responseDto.ApiUseTrendDto(ag.aproGroupId, ag.aproGroupClNm, " +
-                    "MAX(am.apiExectDt), " +
+                    "am.apiExectDt, " +
                     "SUM(am.apiExectCcnt)) " +
                     "FROM ApiStat am " +
                     "INNER JOIN ApiInfo ai ON am.apiId = ai.apiId " +

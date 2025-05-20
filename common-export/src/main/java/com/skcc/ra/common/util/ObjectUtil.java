@@ -57,7 +57,7 @@ public class ObjectUtil {
     }
 
     public static <T> List<T> toDtoList(List<Map> list, Class<T> dto){
-        return list == null ? Collections.emptyList() : (List<T>) list.stream().map(map -> toDto(map, dto)).collect(Collectors.toList());
+        return (list == null || list.isEmpty()) ? Collections.emptyList() : (List<T>) list.stream().map(map -> toDto(map, dto)).collect(Collectors.toList());
     }
 
     public static <T> Page<T> toDtoPage(Page<Map> pList, Class<T> dto){
