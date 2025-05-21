@@ -96,7 +96,16 @@ public class MenuResource {
                                                         Pageable pageable ){
         return new ResponseEntity<>(menuService.findUseScren(chrgTaskGroupCd, screnClCd, screnNm, isUnpaged, pageable), HttpStatus.OK);
     }
-    
+    @Operation(summary = "화면 보기 목록 - 사용 중인 화면(버튼 포함)")
+    @GetMapping("/scren/useList")
+    public ResponseEntity<List<ScrenIDto>> findListUseScren(@RequestParam(required = false) String chrgTaskGroupCd,
+                                                        @RequestParam(required = false) String screnClCd,
+                                                        @RequestParam(required = false)String screnNm,
+                                                        @RequestParam(required = false, defaultValue = "N") String isUnpaged,
+                                                        Pageable pageable ){
+        return new ResponseEntity<>(menuService.findUseScren(chrgTaskGroupCd, screnClCd, screnNm, isUnpaged, pageable).toList(), HttpStatus.OK);
+    }
+
     @Operation(summary = "화면 상세 조회 - 화면 ID 기준(버튼 포함)")
     @GetMapping("/scren/dtl")
     public ResponseEntity<ScrenDto> findByScrenId(@RequestParam(required = false) String screnId){

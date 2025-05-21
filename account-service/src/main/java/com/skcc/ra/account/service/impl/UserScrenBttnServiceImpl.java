@@ -94,7 +94,7 @@ public class UserScrenBttnServiceImpl implements UserScrenBttnService {
         if (screnClCd == null) screnClCd = "";
         if (screnNm == null) screnNm = "";
 
-        return commonClient.findUseScren(chrgTaskGroupCd, screnClCd, screnNm, "Y").toList();
+        return commonClient.findUseScren(chrgTaskGroupCd, screnClCd, screnNm, "Y");
     }
 
     @Override
