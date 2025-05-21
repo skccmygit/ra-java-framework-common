@@ -200,9 +200,9 @@ spring:
 
   datasource:
 #    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy # sqlTrace 적용을 위해
-#    url: jdbc:log4jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+#    url: jdbc:log4jdbc:mysql://localhost:3306/OCO?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3307?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+    url: jdbc:mysql://localhost:3307/OCO?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
     hikari:
       pool-name: Hikari
       connection-timeout: 30000
