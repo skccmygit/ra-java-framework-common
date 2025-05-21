@@ -23,6 +23,19 @@ INSERT INTO OCO50200 (DEPTCD, LAST_CHNGR_ID, LAST_CHNG_DTMD, MGMT_DEPTCD, DEPT_N
 ('IT0002', 'SYSTEM', NOW(), 'IT0001', 'IT개발팀', 'IT Development Team', 'IT-DEV', '01', 'IT0001', '2', '20250101', NULL, 'IT0002', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1235', '02-1234-5680', '02-1234-5681', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC002', '이부장'),
 ('IT0003', 'SYSTEM', NOW(), 'IT0001', 'IT운영팀', 'IT Operation Team', 'IT-OPS', '01', 'IT0001', '2', '20250101', NULL, 'IT0003', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1236', '02-1234-5682', '02-1234-5683', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC003', '박부장'),
 ('HR0001', 'SYSTEM', NOW(), 'HR0001', '인사팀', 'HR Team', 'HR-TEAM', '02', 'ROOT01', '1', '20250101', NULL, 'HR0001', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울특별시 강남구 테헤란로 231', '센터필드 웨스트동 11층', '1237', '02-1234-5684', '02-1234-5685', '1234567890', '20250101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC004', '최부장');
+INSERT INTO OCO.OCO50200 (
+    DEPTCD, MGMT_DEPTCD, DEPT_NM, ENGSH_DEPT_NM, ENGSH_DEPT_ABBR_NM, BSSMACD, SUPER_DEPTCD, DEPT_GRADE_CD,
+    DEPT_CRAT_DT, DEPT_ABOL_DT, FEMP_DEPTCD, WHTAX_BZPL_CD, SALS_DEPTCD, INV_DEPTCD, INVNT_WRHUS_CD, VAT_BZPL_CD,
+    ZIPCD, BASIC_ADDR, DETIL_ADDR, PHNO, FAX_NO, BZNO, BZMAN_ACQ_DT, TXOFC_CD, TXOFC_NM, COM_BSCND_NM,
+    COM_ITM_NM, COM_CORP_NM, USE_YN, CCNTR_CD, RPRTT_NM, EXTSN_NO, LAST_CHNGR_ID, LAST_CHNG_DTMD
+) VALUES
+('SA0011', 'SA0001', '영업지원팀', 'Sales Support Team', 'SA-SUP', '01', 'SA0001', '2', '20240101', NULL, 'SA0011', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울 강남구', '센터필드 1층', '02-1111-1111', '02-1111-1112', '1234567890', '20240101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC001', '김대표', '1001', 'SYSTEM', NOW()),
+('D001', 'ROOT01', 'IT본부', 'IT Division', 'IT-DIV', '01', 'ROOT01', '1', '20240101', NULL, 'D001', 'WHT001', 'SLS001', 'INV001', 'WH001', 'VAT001', '06164', '서울 강남구', '센터필드 2층', '02-2222-2222', '02-2222-2223', '1234567891', '20240101', '101', '강남세무서', '서비스업', 'IT서비스', 'SK주식회사', 'Y', 'CC002', '이부장', '1002', 'SYSTEM', NOW()),
+('D002', 'ROOT01', '영업팀', 'Sales Team', 'SALES', '02', 'ROOT01', '1', '20240101', NULL, 'D002', 'WHT001', 'SLS002', 'INV002', 'WH002', 'VAT002', '06165', '서울 서초구', '센터필드 3층', '02-3333-3333', '02-3333-3334', '1234567892', '20240101', '102', '서초세무서', '제조업', '전자제품', 'SK주식회사', 'Y', 'CC003', '박부장', '1003', 'SYSTEM', NOW()),
+('D003', 'ROOT01', '연구개발팀', 'R&D Team', 'RND', '03', 'ROOT01', '1', '20240101', NULL, 'D003', 'WHT001', 'SLS003', 'INV003', 'WH003', 'VAT003', '06166', '서울 송파구', '센터필드 4층', '02-4444-4444', '02-4444-4445', '1234567893', '20240101', '103', '송파세무서', '연구업', '신기술', 'SK주식회사', 'Y', 'CC004', '최부장', '1004', 'SYSTEM', NOW()),
+('D004', 'ROOT01', '경영지원팀', 'Management Support', 'MGMT', '04', 'ROOT01', '1', '20240101', NULL, 'D004', 'WHT001', 'SLS004', 'INV004', 'WH004', 'VAT004', '06167', '서울 중구', '센터필드 5층', '02-5555-5555', '02-5555-5556', '1234567894', '20240101', '104', '중구세무서', '관리업', '경영지원', 'SK주식회사', 'Y', 'CC005', '한부장', '1005', 'SYSTEM', NOW()),
+('MK0001', 'ROOT01', '마케팅팀', 'Marketing Team', 'MKT', '06', 'ROOT01', '1', '20240101', NULL, 'MK0001', 'WHT001', 'SLS006', 'INV006', 'WH006', 'VAT006', '06169', '서울 노원구', '센터필드 7층', '02-7777-7777', '02-7777-7778', '1234567896', '20240101', '106', '노원세무서', '마케팅', '광고', 'SK주식회사', 'Y', 'CC007', '유부장', '1007', 'SYSTEM', NOW()),
+('SA0001', 'ROOT01', '영업본부', 'Sales Division', 'SALES-DIV', '07', 'ROOT01', '1', '20240101', NULL, 'SA0001', 'WHT001', 'SLS007', 'INV007', 'WH007', 'VAT007', '06170', '서울 용산구', '센터필드 8층', '02-8888-8888', '02-8888-8889', '1234567897', '20240101', '107', '용산세무서', '영업', '영업본부', 'SK주식회사', 'Y', 'CC008', '임부장', '1008', 'SYSTEM', NOW());
 
 -- Common Code (OCO20100)
 INSERT INTO OCO.OCO20100 (CMMN_CD, LAST_CHNGR_ID, LAST_CHNG_DTMD, CMMN_CD_NM, CMMN_CD_DESC) VALUES
@@ -31,14 +44,62 @@ INSERT INTO OCO.OCO20100 (CMMN_CD, LAST_CHNGR_ID, LAST_CHNG_DTMD, CMMN_CD_NM, CM
 ('SCREN_CL_CD', 'SYSTEM',  NOW(), 'SCREEN CLASSIFICATION CODE', '화면 분류 코드'),
 ('SYSTM_CTGRY_CD','SYSTEM',  NOW(), 'SYSTEM CATEGORY CODE', 'SYSTEM CATEGORY CODE'),
 ('USER_ACTVY_TYPE_CD','SYSTEM',  NOW(), 'USER ACTIVITY TYPE CODE', '사용자 활동 유형 코드'),
-('REOFO_CD', 'SYSTEM',  NOW(), 'ROLE OFFICE', 'ROLE OFFICE (역할/직위)');
+('REOFO_CD', 'SYSTEM',  NOW(), 'ROLE OFFICE', 'ROLE OFFICE (역할/직위)'),
+('ATHRTY_REQST_STS_CD', 'SYSTEM', NOW(), 'AUTHORITY REQUEST STATUS CODE', 'AUTHORITY REQUEST STATUS CODE');
+INSERT INTO OCO.OCO20100 (CMMN_CD, CHRG_TASK_GROUP_CD, CMMN_CD_NM, CMMN_CD_DESC, CMMN_CD_VAL_LENTH, USE_YN, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
+('INNER_USER_CL_CD', '00', '내부사용자구분코드', '내부 사용자 유형을 구분하는 코드', 2, 'Y', 'SYSTEM', NOW()),
+('BP_VCTN_CD', '00', 'BP휴가코드', 'BP 직원의 휴가 유형 코드', 2, 'Y', 'SYSTEM', NOW()),
+('SETTL_USER_ID', '00', '결재자ID', '결재 권한이 있는 사용자 식별 코드', 2, 'Y', 'SYSTEM', NOW()),
+('ATAC_FILE_TASK_CL_CD', '00', '첨부파일업무구분코드', '첨부 파일의 업무 구분을 위한 코드', 2, 'Y', 'SYSTEM', NOW());
+
 
 -- Common Code Details (OCO20101)
 INSERT INTO OCO20101 (CMMN_CD, CMMN_CD_VAL, CMMN_CD_VAL_NM, SORT_SEQN, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
 ('USERID_STS_CD', 'O0', '활성', 1, 'SYSTEM', NOW()),
 ('USERID_STS_CD', 'L0', '잠금', 2, 'SYSTEM', NOW()),
 ('REOFO_CD', 'M1', '관리자', 1, 'SYSTEM', NOW()),
-('REOFO_CD', 'E1', '일반사용자', 2, 'SYSTEM', NOW());
+('REOFO_CD', 'E1', '일반사용자', 2, 'SYSTEM', NOW()),
+('REOFO_CD', '112', '관리하다 1', 1, 'SYSTEM', NOW()),
+('REOFO_CD', '116', '관리하다 2', 2, 'SYSTEM', NOW()),
+('REOFO_CD', '200', '관리하다 3', 3, 'SYSTEM', NOW());
+
+INSERT INTO OCO.OCO20101 (CMMN_CD, CMMN_CD_VAL, CMMN_CD_VAL_NM, SORT_SEQN, USE_YN, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
+-- Internal User Classification (INNER_USER_CL_CD)
+('INNER_USER_CL_CD', '1', '정규직', 1, 'Y', 'SYSTEM', NOW()),
+('INNER_USER_CL_CD', '2', '계약직', 2, 'Y', 'SYSTEM', NOW()),
+('INNER_USER_CL_CD', '3', '인턴', 3, 'Y', 'SYSTEM', NOW()),
+('INNER_USER_CL_CD', '4', '파견직', 4, 'Y', 'SYSTEM', NOW()),
+('INNER_USER_CL_CD', '9', '기타', 5, 'Y', 'SYSTEM', NOW()),
+
+-- BP Vacation Code (BP_VCTN_CD)
+('BP_VCTN_CD', '01', '연차', 1, 'Y', 'SYSTEM', NOW()),
+('BP_VCTN_CD', '02', '반차', 2, 'Y', 'SYSTEM', NOW()),
+('BP_VCTN_CD', '03', '병가', 3, 'Y', 'SYSTEM', NOW()),
+('BP_VCTN_CD', '04', '공가', 4, 'Y', 'SYSTEM', NOW()),
+('BP_VCTN_CD', '05', '특별휴가', 5, 'Y', 'SYSTEM', NOW()),
+
+-- Settlement User ID (SETTL_USER_ID)
+('SETTL_USER_ID', '01', '팀장', 1, 'Y', 'SYSTEM', NOW()),
+('SETTL_USER_ID', '02', '부서장', 2, 'Y', 'SYSTEM', NOW()),
+('SETTL_USER_ID', '03', '임원', 3, 'Y', 'SYSTEM', NOW()),
+('SETTL_USER_ID', '04', '대표이사', 4, 'Y', 'SYSTEM', NOW()),
+('SETTL_USER_ID', '09', '시스템관리자', 5, 'Y', 'SYSTEM', NOW()),
+
+-- Attachment File Task Classification (ATAC_FILE_TASK_CL_CD)
+('ATAC_FILE_TASK_CL_CD', '01', '일반문서', 1, 'Y', 'SYSTEM', NOW()),
+('ATAC_FILE_TASK_CL_CD', '02', '계약서', 2, 'Y', 'SYSTEM', NOW()),
+('ATAC_FILE_TASK_CL_CD', '03', '인사문서', 3, 'Y', 'SYSTEM', NOW()),
+('ATAC_FILE_TASK_CL_CD', '04', '회계문서', 4, 'Y', 'SYSTEM', NOW()),
+('ATAC_FILE_TASK_CL_CD', '05', '기술문서', 5, 'Y', 'SYSTEM', NOW()),
+
+-- AUTHORITY REQUEST STATUS CODE
+('ATHRTY_REQST_STS_CD', 'A', 'Approve', 1, 'Y', 'SYSTEM', NOW()),
+('ATHRTY_REQST_STS_CD', 'C', 'Confirm', 1, 'Y', 'SYSTEM', NOW()),
+('ATHRTY_REQST_STS_CD', 'U', 'Unrequest', 1, 'Y', 'SYSTEM', NOW()),
+('ATHRTY_REQST_STS_CD', 'R', 'Reject', 1, 'Y', 'SYSTEM', NOW()),
+('ATHRTY_REQST_STS_CD', 'Q', 'Request', 1, 'Y', 'SYSTEM', NOW()),
+('ATHRTY_REQST_STS_CD', 'S', 'Success', 1, 'Y', 'SYSTEM', NOW());
+
 
 -- UserBasic (OCO50100)
 INSERT INTO OCO50100 (EMPNO, LAST_CHNGR_ID, EMP_KRN_NM, EMP_ENGLNM, EMP_ENGFNM, DEPTCD, BTHDY, OWHM_PHNO, MPHNO, GROUP_ENTCP_DT, TCOM_ENTCP_DT, CURTP_OFORD_DT, CURTP_OFORD_CD, RESG_DT, COM_CL_CD, CLOFP_CD, REOFO_CD, JGP_CD, VCTN_CD, TEAMBR_CL_CD, CLOFP_NM, JGP_NM, VCTN_NM, EMAILADDR, BEFO_EMPNO) VALUES
@@ -47,6 +108,31 @@ INSERT INTO OCO50100 (EMPNO, LAST_CHNGR_ID, EMP_KRN_NM, EMP_ENGLNM, EMP_ENGFNM, 
 ('E100003', 'SYSTEM', '박성호', 'Park', 'Sungho', 'IT0003', '19880520', '02-1234-5680', '010-3333-4444', '20140501', '20140501', '20210501', 'A03', NULL, 'A', '003', '202', 'B', '003', 'T03', '차장', '운영', 'IT운영', 'sungho.park@company.com', NULL),
 ('E100004', 'SYSTEM', '최유진', 'Choi', 'Yujin', 'HR0001', '19950710', '02-1234-5681', '010-4444-5555', '20180701', '20180701', '20220701', 'A04', NULL, 'A', '004', '203', 'B', '003', 'T04', '대리', '인사', '인사관리', 'yujin.choi@company.com', NULL),
 ('E100005', 'SYSTEM', '정태훈', 'Jung', 'Taehoon', 'ROOT01', '19850825', '02-1234-5682', '010-5555-6666', '20120825', '20120825', '20200825', 'A05', NULL, 'A', '005', '204', 'B', '003', 'T05', '부장', '경영', '경영지원', 'taehoon.jung@company.com', NULL);
+
+INSERT INTO OCO.OCO50100 (EMPNO, LAST_CHNGR_ID, LAST_CHNG_DTMD, EMP_KRN_NM, EMP_ENGLNM, EMP_ENGFNM, DEPTCD, BTHDY, OWHM_PHNO, MPHNO, GROUP_ENTCP_DT, TCOM_ENTCP_DT, CURTP_OFORD_DT, CURTP_OFORD_CD, RESG_DT, COM_CL_CD, CLOFP_CD, REOFO_CD, JGP_CD, VCTN_CD, TEAMBR_CL_CD, CLOFP_NM, JGP_NM, VCTN_NM, EMAILADDR, BEFO_EMPNO
+)
+VALUES
+-- REOFO_CD = '200'
+('EMP001', 'admin', CURRENT_TIMESTAMP, '홍길동', 'GilDong', 'Hong', 'ROOT01', '19900101', '0212345678', '01012345678', '20150101', '20150201', '20230101', 'A01', NULL, 'A', 'C01', '200', 'J', 'V01', 'T01', '부서A', '직급A', '휴가A', 'emp001@example.com', NULL),
+('EMP002', 'admin', CURRENT_TIMESTAMP, '김철수', 'ChulSoo', 'Kim', 'IT0001', '19890505', '0212345679', '01012345679', '20160101', '20160201', '20230201', 'A02', NULL, 'A', 'C02', '200', 'J', 'V02', 'T02', '부서B', '직급B', '휴가B', 'emp002@example.com', NULL),
+('EMP003', 'admin', CURRENT_TIMESTAMP, '이영희', 'YoungHee', 'Lee', 'IT0002', '19920303', '0212345680', '01012345680', '20170101', '20170201', '20230301', 'A03', NULL, 'A', 'C03', '200', 'J', 'V03', 'T03', '부서C', '직급C', '휴가C', 'emp003@example.com', NULL),
+('EMP004', 'admin', CURRENT_TIMESTAMP, '박지성', 'JiSung', 'Park', 'IT0003', '19911212', '0212345681', '01012345681', '20180101', '20180201', '20230401', 'A04', NULL, 'A', 'C04', '200', 'J', 'V04', 'T04', '부서D', '직급D', '휴가D', 'emp004@example.com', NULL),
+('EMP005', 'admin', CURRENT_TIMESTAMP, '최수영', 'SooYoung', 'Choi', 'HR0001', '19881225', '0212345682', '01012345682', '20190101', '20190201', '20230501', 'A05', NULL, 'A', 'C05', '200', 'J', 'V05', 'T05', '부서E', '직급E', '휴가E', 'emp005@example.com', NULL),
+
+-- REOFO_CD = '116'
+('EMP006', 'admin', CURRENT_TIMESTAMP, '정유미', 'YooMi', 'Jung', 'ROOT01', '19940404', '0212345683', '01012345683', '20150101', '20150201', '20230601', 'A06', NULL, 'A', 'C06', '116', 'J', 'V06', 'T06', '부서F', '직급F', '휴가F', 'emp006@example.com', NULL),
+('EMP007', 'admin', CURRENT_TIMESTAMP, '한지민', 'JiMin', 'Han', 'IT0001', '19951010', '0212345684', '01012345684', '20160101', '20160201', '20230701', 'A07', NULL, 'A', 'C07', '116', 'J', 'V07', 'T07', '부서G', '직급G', '휴가G', 'emp007@example.com', NULL),
+('EMP008', 'admin', CURRENT_TIMESTAMP, '유재석', 'JaeSeok', 'Yoo', 'IT0002', '19801111', '0212345685', '01012345685', '20170101', '20170201', '20230801', 'A08', NULL, 'A', 'C08', '116', 'J', 'V08', 'T08', '부서H', '직급H', '휴가H', 'emp008@example.com', NULL),
+('EMP009', 'admin', CURRENT_TIMESTAMP, '이광수', 'KwangSoo', 'Lee', 'IT0003', '19850405', '0212345686', '01012345686', '20180101', '20180201', '20230901', 'A09', NULL, 'A', 'C09', '116', 'J', 'V09', 'T09', '부서I', '직급I', '휴가I', 'emp009@example.com', NULL),
+('EMP010', 'admin', CURRENT_TIMESTAMP, '송지효', 'JiHyo', 'Song', 'HR0001', '19830703', '0212345687', '01012345687', '20190101', '20190201', '20231001', 'A10', NULL, 'A', 'C10', '116', 'J', 'V10', 'T10', '부서J', '직급J', '휴가J', 'emp010@example.com', NULL),
+
+-- REOFO_CD = '112'
+('EMP011', 'admin', CURRENT_TIMESTAMP, '강호동', 'HoDong', 'Kang', 'ROOT01', '19700210', '0212345688', '01012345688', '20150101', '20150201', '20231101', 'A11', NULL, 'A', 'C11', '112', 'J', 'V11', 'T11', '부서K', '직급K', '휴가K', 'emp011@example.com', NULL),
+('EMP012', 'admin', CURRENT_TIMESTAMP, '김희철', 'HeeChul', 'Kim', 'IT0001', '19840704', '0212345689', '01012345689', '20160101', '20160201', '20231201', 'A12', NULL, 'A', 'C12', '112', 'J', 'V12', 'T12', '부서L', '직급L', '휴가L', 'emp012@example.com', NULL),
+('EMP013', 'admin', CURRENT_TIMESTAMP, '장도연', 'DoYeon', 'Jang', 'IT0002', '19920707', '0212345690', '01012345690', '20170101', '20170201', '20231301', 'A13', NULL, 'A', 'C13', '112', 'J', 'V13', 'T13', '부서M', '직급M', '휴가M', 'emp013@example.com', NULL),
+('EMP014', 'admin', CURRENT_TIMESTAMP, '신동엽', 'DongYeop', 'Shin', 'IT0003', '19750412', '0212345691', '01012345691', '20180101', '20180201', '20231401', 'A14', NULL, 'A', 'C14', '112', 'J', 'V14', 'T14', '부서N', '직급N', '휴가N', 'emp014@example.com', NULL),
+('EMP015', 'admin', CURRENT_TIMESTAMP, '김태호', 'TaeHo', 'Kim', 'HR0001', '19800606', '0212345692', '01012345692', '20190101', '20190201', '20231501', 'A15', NULL, 'A', 'C15', '112', 'J', 'V15', 'T15', '부서O', '직급O', '휴가O', 'emp015@example.com', NULL);
+
 
 -- User Account Information (OCO10100)
 -- raw password: Skcc1234!
@@ -75,6 +161,8 @@ VALUES
 ('USER00003', 'SYSTEM', NOW(), '이잠김', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-4567-8901', 'lee.lock@company.com', 'IT0002', 'EMP', 'GEN', 'IT002', 'E002', 'U', '4', 'ID004', 'L', '2025-01-04 09:00:00', 5, '192.168.1.103'),
 -- Pending Approval
 ('USER00004', 'SYSTEM', NOW(), '박대기', '$2a$10$xdKG7VrGkNgzxy7NwU6rpOzPtX5nub5SPuHO5YckBXZHb4K1kKp1e', '20251231', '010-5678-9012', 'park.wait@company.com', 'SA0001', 'EMP', 'GEN', 'SA001', 'E001', 'U', '3', 'ID005', 'W', '2025-01-05 09:00:00', 0, '192.168.1.104');
+INSERT INTO oco.oco10100 (USERID,LAST_CHNGR_ID,LAST_CHNG_DTMD,USER_NM,CONN_PSSWD,PSSWD_EXPIR_DT,USER_CONT_PHNO,USER_EMAILADDR,DEPTCD,REOFO_CD,VCTN_CD,CUCEN_TEAM_CD,OFCPS_CD,USER_GROUP_CD,INNER_USER_CL_CD,USER_IDENT_NO,USERID_STS_CD,FST_REG_DTMD,PSSWD_ERR_FRQY,USER_IPADDR) VALUES
+	 ('E100004','SYSTEM','2025-05-14 16:44:37','최유진','CA9E11019FC37E236284F83A2ED483FDFD198C3D611763748BA4840F3B5619ABF6ACC2A8BD20E9007197D6AEDE28D65EEEF9135CD13E64CDB1E9E0562BD46156','20251231','010-5678-9012','park.akur@company.com','SA0011','EMP','GEN','SA001','E001','U','3','ID005','R','2025-01-05 09:00:00',0,'192.168.1.104');
 
 -- AppGroup
 INSERT INTO OCO40100 (LAST_CHNGR_ID, LAST_CHNG_DTMD, APRO_TYPE_CL_CD, APRO_TASK_CL_CD, APRO_GROUP_CL_NM, APRO_GROUP_DESC) VALUES
@@ -317,22 +405,22 @@ INSERT INTO OCO.OCO10107 (USERID, SCREN_ID, BTTN_ID, ATHRTY_REQST_SEQ, LAST_CHNG
 
 -- Bttn (OCO10230)
 INSERT INTO OCO.OCO10230 (SCREN_ID, BTTN_ID, BTTN_NM, BTTN_DESC, API_ID, USE_YN, CRUD_CL_CD, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
-('COM-CC0001', 'BTN_SAVE', '저장', '공통코드 저장', 1001, 'Y', 'C', 'SYSTEM', NOW()),
-('COM-CC0001', 'BTN_DELETE', '삭제', '공통코드 삭제', 1002, 'Y', 'D', 'SYSTEM', NOW()),
-('COM-CC0001', 'BTN_SEARCH', '조회', '공통코드 조회', 1003, 'Y', 'R', 'SYSTEM', NOW()),
-('COM-PM0002', 'BTN_SAVE', '저장', '역할 정보 저장', 2001, 'Y', 'C', 'SYSTEM', NOW()),
-('COM-PM0002', 'BTN_DELETE', '삭제', '역할 정보 삭제', 2002, 'Y', 'D', 'SYSTEM', NOW()),
-('COM-PM0002', 'BTN_SEARCH', '조회', '역할 정보 조회', 2003, 'Y', 'R', 'SYSTEM', NOW()),
-('COM-PM0017', 'BTN_APPROVE', '승인', '권한 승인', 3001, 'Y', 'U', 'SYSTEM', NOW()),
-('COM-PM0017', 'BTN_REJECT', '반려', '권한 승인 반려', 3002, 'Y', 'U', 'SYSTEM', NOW()),
-('COM-UM0003', 'BTN_SAVE', '저장', '사용자 정보 저장', 4001, 'Y', 'C', 'SYSTEM', NOW()),
-('COM-UM0003', 'BTN_RESET_PWD', '비밀번호초기화', '비밀번호 초기화', 4002, 'Y', 'U', 'SYSTEM', NOW()),
-('COM-UM0003', 'BTN_SEARCH', '조회', '사용자 정보 조회', 4003, 'Y', 'R', 'SYSTEM', NOW()),
-('COM-MM0003', 'BTN_SAVE', '저장', '화면 정보 저장', 5001, 'Y', 'C', 'SYSTEM', NOW()),
-('COM-MM0003', 'BTN_DELETE', '삭제', '화면 정보 삭제', 5002, 'Y', 'D', 'SYSTEM', NOW()),
-('COM-MM0003', 'BTN_TEST', '테스트', '화면 테스트', 5003, 'Y', 'R', 'SYSTEM', NOW()),
-('COM-UL0001', 'BTN_EXPORT', '내보내기', '사용이력 내보내기', 6001, 'Y', 'R', 'SYSTEM', NOW()),
-('COM-UL0002', 'BTN_EXPORT', '내보내기', '통계 내보내기', 6002, 'Y', 'R', 'SYSTEM', NOW());
+('COM-CC0001', 'BTN_SAVE', '저장', '공통코드 저장', 1, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-CC0001', 'BTN_DELETE', '삭제', '공통코드 삭제', 1, 'Y', 'D', 'SYSTEM', NOW()),
+('COM-CC0001', 'BTN_SEARCH', '조회', '공통코드 조회', 1, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-PM0002', 'BTN_SAVE', '저장', '역할 정보 저장', 2, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-PM0002', 'BTN_DELETE', '삭제', '역할 정보 삭제', 2, 'Y', 'D', 'SYSTEM', NOW()),
+('COM-PM0002', 'BTN_SEARCH', '조회', '역할 정보 조회', 2, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-PM0017', 'BTN_APPROVE', '승인', '권한 승인', 2, 'Y', 'U', 'SYSTEM', NOW()),
+('COM-PM0017', 'BTN_REJECT', '반려', '권한 승인 반려', 2, 'Y', 'U', 'SYSTEM', NOW()),
+('COM-UM0003', 'BTN_SAVE', '저장', '사용자 정보 저장', 3, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-UM0003', 'BTN_RESET_PWD', '비밀번호초기화', '비밀번호 초기화', 3, 'Y', 'U', 'SYSTEM', NOW()),
+('COM-UM0003', 'BTN_SEARCH', '조회', '사용자 정보 조회', 3, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-MM0003', 'BTN_SAVE', '저장', '화면 정보 저장', 4, 'Y', 'C', 'SYSTEM', NOW()),
+('COM-MM0003', 'BTN_DELETE', '삭제', '화면 정보 삭제', 4, 'Y', 'D', 'SYSTEM', NOW()),
+('COM-MM0003', 'BTN_TEST', '테스트', '화면 테스트', 5, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-UL0001', 'BTN_EXPORT', '내보내기', '사용이력 내보내기', 6, 'Y', 'R', 'SYSTEM', NOW()),
+('COM-UL0002', 'BTN_EXPORT', '내보내기', '통계 내보내기', 6, 'Y', 'R', 'SYSTEM', NOW());
 
 -- AccountStsChng (OCO10103)
 INSERT INTO OCO.OCO10103 (USERID,CHNG_COL_ENGSH_NM,CHNG_DTM,LAST_CHNGR_ID,LAST_CHNG_DTMD,CHNG_COL_VAL) VALUES
@@ -470,3 +558,119 @@ INSERT INTO OCO.OCO10105 (USERID, MENU_ID, SORT_SEQN, LAST_CHNGR_ID, LAST_CHNG_D
 ('SYSTEM5', 'COM-01-02-05', 1, 'SYSTEM', NOW()),
 ('SYSTEM6', 'COM-01-02-06', 1, 'SYSTEM', NOW()),
 ('SYSTEM7', 'COM-01-02-07', 1, 'SYSTEM', NOW());
+
+-- UserAuthReq (OCO10130)
+INSERT INTO OCO.OCO10130 (LAST_CHNGR_ID, LAST_CHNG_DTMD, ATHRTY_REQST_STS_CD, USERID, REQST_RESON_CNTNT, INDIV_INFO_YN, RPA_USER_YN,  REQST_USER_IPADDR)
+VALUES
+('SYSTEM3', CURRENT_TIMESTAMP, 'Q', 'USER00004', 'Initial access request to dashboard.', 'N', 'N', '192.168.10.1'),
+('USER00001', CURRENT_TIMESTAMP, 'U', 'SYSTEM', 'Update needed for report access.', 'N', 'Y', '192.168.10.2'),
+('EMP002', CURRENT_TIMESTAMP, 'A', 'ADMIN00001', 'Granting temporary admin access.', 'Y', 'N', '192.168.10.3'),
+('E100001', CURRENT_TIMESTAMP, 'C', 'USER00003', 'Completed previous pending request.', 'N', 'N', '192.168.10.4'),
+('EMP003', CURRENT_TIMESTAMP, 'R', 'SYSTEM1', 'Request rejected due to policy.', 'Y', 'N', '192.168.10.5'),
+('E100002', CURRENT_TIMESTAMP, 'Q', 'SYSTEM5', 'Access to dev tools required.', 'N', 'Y', '192.168.10.6'),
+('SYSTEM7', CURRENT_TIMESTAMP, 'U', 'EMP004', 'Update for scheduled backup job.', 'N', 'N', '192.168.10.7'),
+('SYSTEM4', CURRENT_TIMESTAMP, 'A', 'E100005', 'Audit logging access granted.', 'Y', 'Y', '192.168.10.8'),
+('EMP005', CURRENT_TIMESTAMP, 'C', 'USER00004', 'Completed auto-approval process.', 'N', 'N', '192.168.10.9'),
+('SYSTEM2', CURRENT_TIMESTAMP, 'R', 'EMP006', 'Rejected: user already has role.', 'Y', 'N', '192.168.10.10'),
+('EMP007', CURRENT_TIMESTAMP, 'Q', 'SYSTEM6', 'QA access requested.', 'N', 'Y', '192.168.10.11'),
+('ADMIN00001', CURRENT_TIMESTAMP, 'U', 'Admin', 'User profile update requested.', 'N', 'N', '192.168.10.12'),
+('EMP008', CURRENT_TIMESTAMP, 'A', 'EMP009', 'Approval for data extraction.', 'Y', 'Y', '192.168.10.13'),
+('SYSTEM1', CURRENT_TIMESTAMP, 'C', 'USER00002', 'Marking request as completed.', 'N', 'N', '192.168.10.14'),
+('E100003', CURRENT_TIMESTAMP, 'R', 'EMP010', 'Request denied by supervisor.', 'Y', 'N', '192.168.10.15'),
+('EMP011', CURRENT_TIMESTAMP, 'Q', 'EMP012', 'Quick access for release fix.', 'N', 'Y', '192.168.10.16'),
+('USER00004', CURRENT_TIMESTAMP, 'U', 'SYSTEM3', 'Updating access permissions.', 'Y', 'Y', '192.168.10.17'),
+('EMP013', CURRENT_TIMESTAMP, 'A', 'SYSTEM7', 'Automated task approval.', 'N', 'N', '192.168.10.18'),
+('SYSTEM6', CURRENT_TIMESTAMP, 'C', 'EMP014', 'Access completed and verified.', 'Y', 'N', '192.168.10.19'),
+('EMP015', CURRENT_TIMESTAMP, 'R', 'SYSTEM', 'Final rejection after review.', 'N', 'N', '192.168.10.20'),
+('SYSTEM1', CURRENT_TIMESTAMP, 'Q', 'USER00001', 'Initial permission request submitted.', 'N', 'N', '10.0.0.1'),
+('USER00002', CURRENT_TIMESTAMP, 'U', 'SYSTEM3', 'Upgrade requested for task runner.', 'N', 'Y', '10.0.0.2'),
+('SYSTEM5', CURRENT_TIMESTAMP, 'A', 'ADMIN00001', 'Access granted after verification.', 'Y', 'N', '10.0.0.3'),
+('USER00004', CURRENT_TIMESTAMP, 'C', 'SYSTEM6', 'Marked as complete after review.', 'N', 'N', '10.0.0.4'),
+('SYSTEM7', CURRENT_TIMESTAMP, 'R', 'USER00003', 'Rejected due to policy mismatch.', 'Y', 'N', '10.0.0.5'),
+('ADMIN00001', CURRENT_TIMESTAMP, 'Q', 'E100004', 'Quick access needed for critical fix.', 'N', 'Y', '10.0.0.6'),
+('E100004', CURRENT_TIMESTAMP, 'U', 'SYSTEM1', 'Updated to include recent changes.', 'N', 'Y', '10.0.0.7'),
+('SYSTEM', CURRENT_TIMESTAMP, 'A', 'USER00004', 'Automated task approved successfully.', 'Y', 'N', '10.0.0.8'),
+('USER00003', CURRENT_TIMESTAMP, 'C', 'SYSTEM5', 'Status changed to completed.', 'N', 'N', '10.0.0.9'),
+('SYSTEM6', CURRENT_TIMESTAMP, 'R', 'Admin', 'Request rejected during manual review.', 'Y', 'Y', '10.0.0.10'),
+('USER00001', CURRENT_TIMESTAMP, 'Q', 'SYSTEM7', 'Temporary access requested.', 'N', 'N', '10.0.0.11'),
+('SYSTEM3', CURRENT_TIMESTAMP, 'U', 'USER00002', 'Updated with additional roles.', 'Y', 'N', '10.0.0.12'),
+('SYSTEM2', CURRENT_TIMESTAMP, 'A', 'SYSTEM4', 'Granted auto-access to internal system.', 'N', 'Y', '10.0.0.13'),
+('SYSTEM4', CURRENT_TIMESTAMP, 'C', 'SYSTEM', 'Automation completed the request.', 'N', 'Y', '10.0.0.14'),
+('USER00002', CURRENT_TIMESTAMP, 'R', 'SYSTEM2', 'Rejected — duplicate request.', 'Y', 'N', '10.0.0.15'),
+('SYSTEM7', CURRENT_TIMESTAMP, 'Q', 'USER00003', 'Queued for further validation.', 'N', 'N', '10.0.0.16'),
+('Admin', CURRENT_TIMESTAMP, 'U', 'SYSTEM6', 'System role updated by admin.', 'N', 'Y', '10.0.0.17'),
+('USER00004', CURRENT_TIMESTAMP, 'A', 'SYSTEM1', 'Access approved for nightly job.', 'Y', 'N', '10.0.0.18'),
+('SYSTEM', CURRENT_TIMESTAMP, 'C', 'USER00001', 'Closure confirmed by system.', 'N', 'Y', '10.0.0.19'),
+('SYSTEM5', CURRENT_TIMESTAMP, 'R', 'USER00004', 'Rejected due to invalid request type.', 'Y', 'N', '10.0.0.20');
+
+-- UserAuthReqProcHis (OCO10131)
+INSERT INTO OCO.OCO10131 (ATHRTY_REQST_SEQ, ATHRTY_REQST_OP_DTM, ATHRTY_REQST_STS_CD, LAST_CHNGR_ID, LAST_CHNG_DTMD, SETTL_USERID, SETTL_USER_IPADDR, GVBK_RESON_CNTNT)
+VALUES
+(1, '20250518103000', 'Q', 'SYSTEM1', CURRENT_TIMESTAMP, 'USER00001', '192.168.0.1', NULL),
+(2, '20250518103100', 'U', 'USER00003', CURRENT_TIMESTAMP, 'SYSTEM', '192.168.0.2', NULL),
+(3, '20250518103200', 'A', 'SYSTEM3', CURRENT_TIMESTAMP, 'SYSTEM2', '192.168.0.3', NULL),
+(4, '20250518103300', 'C', 'ADMIN00001', CURRENT_TIMESTAMP, 'SYSTEM4', '192.168.0.4', NULL),
+(5, '20250518103400', 'R', 'USER00002', CURRENT_TIMESTAMP, 'SYSTEM6', '192.168.0.5', 'Rejected due to incomplete information.'),
+(6, '20250518103500', 'A', 'SYSTEM2', CURRENT_TIMESTAMP, 'USER00004', '192.168.0.6', NULL),
+(7, '20250518103600', 'Q', 'SYSTEM4', CURRENT_TIMESTAMP, 'USER00001', '192.168.0.7', NULL),
+(8, '20250518103700', 'U', 'USER00001', CURRENT_TIMESTAMP, 'SYSTEM5', '192.168.0.8', NULL),
+(9, '20250518103800', 'C', 'SYSTEM6', CURRENT_TIMESTAMP, 'SYSTEM1', '192.168.0.9', NULL),
+(10, '20250518103900', 'R', 'USER00004', CURRENT_TIMESTAMP, 'USER00002', '192.168.0.10', 'Request denied by supervisor.'),
+(11, '20250518104000', 'A', 'SYSTEM7', CURRENT_TIMESTAMP, 'SYSTEM3', '192.168.0.11', NULL),
+(12, '20250518104100', 'Q', 'USER00002', CURRENT_TIMESTAMP, 'SYSTEM4', '192.168.0.12', NULL),
+(13, '20250518104200', 'U', 'SYSTEM1', CURRENT_TIMESTAMP, 'USER00003', '192.168.0.13', NULL),
+(14, '20250518104300', 'C', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM2', '192.168.0.14', NULL),
+(15, '20250518104400', 'R', 'SYSTEM2', CURRENT_TIMESTAMP, 'SYSTEM5', '192.168.0.15', 'Insufficient access rights.'),
+(16, '20250518104500', 'Q', 'USER00003', CURRENT_TIMESTAMP, 'SYSTEM6', '192.168.0.16', NULL),
+(17, '20250518104600', 'A', 'ADMIN00001', CURRENT_TIMESTAMP, 'SYSTEM7', '192.168.0.17', NULL),
+(18, '20250518104700', 'C', 'SYSTEM4', CURRENT_TIMESTAMP, 'SYSTEM1', '192.168.0.18', NULL),
+(19, '20250518104800', 'U', 'USER00001', CURRENT_TIMESTAMP, 'SYSTEM3', '192.168.0.19', NULL),
+(20, '20250518104900', 'R', 'USER00002', CURRENT_TIMESTAMP, 'SYSTEM', '192.168.0.20', 'Validation failed — duplicate entry.');
+
+-- UserRoleDept (OCO10111)
+INSERT INTO OCO.OCO10111 (ROLE_DEPT_TEAM_CD, ROLE_MAPP_REOFO_CD, LAST_CHNGR_ID, LAST_CHNG_DTMD, ROLE_DEPT_TEAM_CL_CD, ACCNT_CRAT_AUTO_YN, USE_YN)
+VALUES
+('HR001', '2001', 'SYSTEM1', CURRENT_TIMESTAMP, 'A', 'Y', 'Y'),
+('IT002', '2002', 'USER00001', CURRENT_TIMESTAMP, 'B', 'Y', 'Y'),
+('FIN003', '2003', 'SYSTEM2', CURRENT_TIMESTAMP, NULL, 'Y', 'Y'),
+('MKT004', '2004', 'ADMIN00001', CURRENT_TIMESTAMP, 'C', 'Y', 'Y'),
+('SL001', '2005', 'SYSTEM', CURRENT_TIMESTAMP, 'A', 'Y', 'Y'),
+('HR002', '2006', 'SYSTEM3', CURRENT_TIMESTAMP, 'B', 'Y', 'Y'),
+('IT003', '2007', 'USER00002', CURRENT_TIMESTAMP, NULL, 'Y', 'Y'),
+('FIN004', '2008', 'SYSTEM5', CURRENT_TIMESTAMP, 'C', 'Y', 'Y'),
+('MKT005', '2009', 'USER00003', CURRENT_TIMESTAMP, 'A', 'Y', 'Y'),
+('SL002', '2010', 'SYSTEM4', CURRENT_TIMESTAMP, NULL, 'Y', 'Y'),
+('HR003', '2011', 'ADMIN00001', CURRENT_TIMESTAMP, 'B', 'Y', 'Y'),
+('IT004', '2012', 'SYSTEM1', CURRENT_TIMESTAMP, 'C', 'Y', 'Y'),
+('FIN005', '2013', 'USER00004', CURRENT_TIMESTAMP, 'A', 'Y', 'Y'),
+('MKT006', '2014', 'SYSTEM6', CURRENT_TIMESTAMP, 'B', 'Y', 'Y'),
+('SL003', '2015', 'SYSTEM7', CURRENT_TIMESTAMP, NULL, 'Y', 'Y'),
+('HR004', '2016', 'SYSTEM2', CURRENT_TIMESTAMP, 'C', 'Y', 'Y'),
+('IT005', '2017', 'USER00001', CURRENT_TIMESTAMP, 'A', 'Y', 'Y'),
+('FIN006', '2018', 'SYSTEM3', CURRENT_TIMESTAMP, NULL, 'Y', 'Y'),
+('MKT007', '2019', 'ADMIN00001', CURRENT_TIMESTAMP, 'B', 'Y', 'Y'),
+('SL004', '2020', 'SYSTEM4', CURRENT_TIMESTAMP, 'C', 'Y', 'Y');
+
+-- UserAuthReqHis  (OCO10132)
+INSERT INTO OCO.OCO10132 (ATHRTY_REQST_SEQ, ATHRTY_REQST_DTL_SEQ, USER_ROLE_ID, MENU_ID, SCREN_ID, BTTN_ID, ATHRTY_ADDN_YN, LAST_CHNGR_ID, LAST_CHNG_DTMD
+) VALUES
+(1, 1, 'C001', 'COM-01-02-01', 'COM-PM0002', 'BTN_SAVE', 'Y', 'SYSTEM', NOW()),
+(1, 2, 'C001', 'COM-01-02-01', 'COM-PM0002', 'BTN_DELETE', 'N', 'SYSTEM', NOW()),
+(2, 1, 'C003', 'COM-01-02-06', 'COM-PM0017', 'BTN_APPROVE', 'Y', 'SYSTEM', NOW()),
+(2, 2, 'C003', 'COM-01-02-06', 'COM-PM0017', 'BTN_REJECT', 'N', 'SYSTEM', NOW()),
+(3, 1, 'Z001', 'COM-01-04-03', 'COM-UM0004', 'BTN_SEARCH', 'Y', 'SYSTEM', NOW());
+
+--UserMenuHist  (OCO10116)
+
+INSERT INTO OCO.OCO10116 (USERID, MENU_ID, CHNG_DTM, CRUD_CL_CD,ATHRTY_REQST_SEQ, CHNG_USER_IPADDR, CHNG_RESON_CNTNT, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
+('USER00001', 'COM-01-02-01', '20250521103000', 'C', 1, '192.168.0.10', '신규 메뉴 권한 부여', 'SYSTEM', NOW()),
+('USER00001', 'COM-01-02-01', '20250522110000', 'U', 2, '192.168.0.10', '메뉴 권한 수정', 'SYSTEM', NOW()),
+('USER00002', 'COM-01-04-03', '20250521120000', 'C', 3, '192.168.0.11', '신규 메뉴 권한 부여', 'SYSTEM', NOW()),
+('USER00003', 'COM-01-03-01', '20250521130000', 'D', 4, '192.168.0.12', '메뉴 권한 삭제', 'SYSTEM', NOW());
+
+-- Sample data for OCO10117 (UserScrenBttnHist)
+INSERT INTO OCO.OCO10117 (USERID, SCREN_ID, BTTN_ID, CHNG_DTM, CRUD_CL_CD, ATHRTY_REQST_SEQ, CHNG_USER_IPADDR, CHNG_RESON_CNTNT, LAST_CHNGR_ID, LAST_CHNG_DTMD) VALUES
+('USER00001', 'COM-PM0002', 'BTN_SAVE',   '20250521103000', 'C', 1001, '192.168.0.10', '신규 버튼 권한 부여', 'SYSTEM', NOW()),
+('USER00001', 'COM-PM0002', 'BTN_DELETE', '20250522110000', 'U', 1001, '192.168.0.10', '버튼 권한 수정',     'SYSTEM', NOW()),
+('USER00002', 'COM-UM0004', 'BTN_SEARCH', '20250521120000', 'C', 1002, '192.168.0.11', '신규 버튼 권한 부여', 'SYSTEM', NOW()),
+('USER00003', 'COM-UL0001', 'BTN_EXPORT', '20250521130000', 'D', 1003, '192.168.0.12', '버튼 권한 삭제',     'SYSTEM', NOW());
