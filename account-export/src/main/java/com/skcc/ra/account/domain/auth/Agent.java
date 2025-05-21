@@ -23,7 +23,7 @@ public class Agent extends BaseEntity implements Apiable<AgentDto> {
     @Column(name = "AGENT_REG_SEQ", nullable = false)
     private Integer agentRegSeq;
 
-    @Column(name = "USERID", length = 4)
+    @Column(name = "USERID", length = 10)
     private String userid;
 
     @Column(name = "AGENT_ID", length = 10)
