@@ -101,7 +101,7 @@ public class UserScrenBttnServiceImpl implements UserScrenBttnService {
     public List<BttnDto> searchBttnAuthByUserid(Integer athrtyReqstSeq, String screnId, String userid) {
 
         String reqUserid = userid;
-        if (StringUtils.isEmpty(reqUserid) && athrtyReqstSeq > 0) {
+        if (StringUtils.isEmpty(reqUserid) && athrtyReqstSeq != null && athrtyReqstSeq > 0) {
             Optional<UserAuthReq> oUserAuthReq = userAuthReqRepository.findByAthrtyReqstSeq(athrtyReqstSeq);
             if (oUserAuthReq.isEmpty()) throw new ServiceException("COM.I1022");
 
