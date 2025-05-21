@@ -153,7 +153,7 @@ public interface RoleRepository extends JpaRepository<Role, String> {
 
     @QueryHints(@QueryHint(name=COMMENT, value="공통, common, 천지은"))
     @Query(value = "SELECT  new com.skcc.ra.account.api.dto.domainDto.RoleDto(role, " +
-                                                                    "(CASE WHEN (userRole = null) THEN 'N' ELSE 'Y' END)) " +
+                                                                    "(CASE WHEN userRole.userRoleId is null THEN 'N' ELSE 'Y' END)) " +
                      "FROM Role role  " +
                      "LEFT OUTER JOIN UserRole userRole ON role.userRoleId = userRole.userRoleId AND userRole.userid = :userid " +
                     "WHERE role.useYn = 'Y' ")
