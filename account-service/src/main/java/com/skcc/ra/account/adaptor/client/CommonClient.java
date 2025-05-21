@@ -40,6 +40,6 @@ public interface CommonClient {
                                 @RequestParam(required = false, value = "isUnpaged") String isUnpaged);
 
     @GetMapping("/api/v1/com/common/apiMgt/apiId")
-    HashMap<String,String> findApiInfo(Integer apiId);
+    HashMap<String,String> findApiInfo(@RequestParam Integer apiId);
 }
 
