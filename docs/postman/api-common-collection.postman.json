@@ -20,7 +20,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic?userNm=John Smith&empno=E0001",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic?userNm=&empno=E100001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -36,11 +36,11 @@
               "query": [
                 {
                   "key": "userNm",
-                  "value": "John Smith"
+                  "value": ""
                 },
                 {
                   "key": "empno",
-                  "value": "E0001"
+                  "value": "E100001"
                 }
               ]
             }
@@ -58,7 +58,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/telno?telno=123-456-7890",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/telno?telno=010-1111-2222",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -75,7 +75,7 @@
               "query": [
                 {
                   "key": "telno",
-                  "value": "123-456-7890"
+                  "value": "010-1111-2222"
                 }
               ]
             }
@@ -93,7 +93,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/teamLeader?deptcd=D003&empno=E0003",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/teamLeader?deptcd=IT0001&empno=E100001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -110,11 +110,11 @@
               "query": [
                 {
                   "key": "deptcd",
-                  "value": "D003"
+                  "value": "IT0001"
                 },
                 {
                   "key": "empno",
-                  "value": "E0003"
+                  "value": "E100001"
                 }
               ]
             }
@@ -132,7 +132,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/search?empnoList=E0001&deptcdList=D001&empNm=John%20Smith&page=0&size=10&vctnNm=IT&clofpNm=Senior",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/search?empnoList=E100001&deptcdList=IT0001&empNm=&deptNm=IT&page=0&size=10&bssmacd=01&vctnNm=IT&clofpNm=",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -149,20 +149,19 @@
               "query": [
                 {
                   "key": "empnoList",
-                  "value": "E0001"
+                  "value": "E100001"
                 },
                 {
                   "key": "deptcdList",
-                  "value": "D001"
+                  "value": "IT0001"
                 },
                 {
                   "key": "empNm",
-                  "value": "John%20Smith"
+                  "value": ""
                 },
                 {
                   "key": "deptNm",
-                  "value": "Tech%20Support",
-                  "disabled": true
+                  "value": "IT"
                 },
                 {
                   "key": "page",
@@ -174,8 +173,7 @@
                 },
                 {
                   "key": "bssmacd",
-                  "value": "",
-                  "disabled": true
+                  "value": "01"
                 },
                 {
                   "key": "vctnNm",
@@ -183,7 +181,7 @@
                 },
                 {
                   "key": "clofpNm",
-                  "value": "Senior"
+                  "value": ""
                 }
               ]
             }
@@ -201,7 +199,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/mphno?empno=E0001",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/mphno?empno=E100001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -218,7 +216,7 @@
               "query": [
                 {
                   "key": "empno",
-                  "value": "E0001"
+                  "value": "E100001"
                 }
               ]
             }
@@ -236,7 +234,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list?empnoList=E0001&deptcdList=D001&empNm=John%20Smith",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list?empnoList=E100001&deptcdList=IT0001&empNm=&deptNm=IT",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -253,20 +251,19 @@
               "query": [
                 {
                   "key": "empnoList",
-                  "value": "E0001"
+                  "value": "E100001"
                 },
                 {
                   "key": "deptcdList",
-                  "value": "D001"
+                  "value": "IT0001"
                 },
                 {
                   "key": "empNm",
-                  "value": "John%20Smith"
+                  "value": ""
                 },
                 {
                   "key": "deptNm",
-                  "value": "Tech%20Support",
-                  "disabled": true
+                  "value": "IT"
                 }
               ]
             }
@@ -284,7 +281,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list/noMasking?empnoList=E0001&deptcdList=D001&empNm=John%20Smith",
+              "raw": "http://localhost:9100/api/v1/com/common/userBasic/list/noMasking?empnoList=E100001&deptcdList=IT0001&empNm=&deptNm=IT",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -302,20 +299,19 @@
               "query": [
                 {
                   "key": "empnoList",
-                  "value": "E0001"
+                  "value": "E100001"
                 },
                 {
                   "key": "deptcdList",
-                  "value": "D001"
+                  "value": "IT0001"
                 },
                 {
                   "key": "empNm",
-                  "value": "John%20Smith"
+                  "value": ""
                 },
                 {
                   "key": "deptNm",
-                  "value": "Tech%20Support",
-                  "disabled": true
+                  "value": "IT"
                 }
               ]
             }
@@ -327,47 +323,6 @@
     {
       "name": "[메뉴관리] 메뉴 관리 API(MenuResource)",
       "item": [
-        {
-          "name": "메뉴 등록,수정 - 존재여부 기준",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "accept",
-                "value": "*/*"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"menuId\": \"COM-01-02-04\",\n  \"chrgTaskGroupCd\": \"00\",\n  \"chrgTaskGroupNm\": \"string\",\n  \"menuTypeCd\": \"0\",\n  \"menuNm\": \"메뉴명\",\n  \"screnExcutClCd\": \"1\",\n  \"menuDesc\": \"메뉴설명입니다\",\n  \"menuStepVal\": 1,\n  \"sortSeqn\": 1,\n  \"useYn\": \"Y\",\n  \"menuExpseYn\": \"Y\",\n  \"superMenuId\": \"1\",\n  \"superMenuNm\": \"string\",\n  \"screnId\": \"string\",\n  \"screnNm\": \"string\",\n  \"screnDesc\": \"string\",\n  \"screnUrladdr\": \"string\",\n  \"screnClCd\": \"string\",\n  \"screnSizeClCd\": \"string\",\n  \"screnWidthSize\": 0,\n  \"screnVrtlnSize\": 0,\n  \"screnStartTopCodn\": 0,\n  \"screnStartLeftCodn\": 0,\n  \"linkaSystmTagCntnt\": \"string\",\n  \"shortcutSortSeqn\": 0,\n  \"bookmarkYN\": \"string\",\n  \"authYn\": \"string\",\n  \"newYn\": \"string\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/menu",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9100",
-              "path": [
-                "api",
-                "v1",
-                "com",
-                "common",
-                "menu"
-              ]
-            }
-          },
-          "response": []
-        },
         {
           "name": "메뉴 조회 - 전체 메뉴",
           "request": {
@@ -519,48 +474,6 @@
                 "common",
                 "menu",
                 "excel"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "화면 등록,수정 - 존재여부 기준(버튼 포함)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "accept",
-                "value": "*/*"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"screnId\": \"COM-CC0001\",\n  \"chrgTaskGroupCd\": \"00\",\n  \"chrgTaskGroupNm\": \"string\",\n  \"screnNm\": \"테스트화면\",\n  \"screnDesc\": \"테스트화면입니다.\",\n  \"screnUrladdr\": \"com-service/cmmnCd\",\n  \"useYn\": \"Y\",\n  \"screnClCd\": \"1\",\n  \"screnClNm\": \"string\",\n  \"screnSizeClCd\": \"1\",\n  \"screnWidthSize\": 100,\n  \"screnVrtlnSize\": 50,\n  \"screnStartTopCodn\": 50,\n  \"screnStartLeftCodn\": 50,\n  \"authYn\": \"string\",\n  \"bttnList\": [\n    {\n      \"screnId\": \"COM-CC0001\",\n      \"bttnId\": \"BTN001\",\n      \"bttnNm\": \"등록\",\n      \"bttnDesc\": \"등록기능\",\n      \"apiId\": 0,\n      \"apiNm\": \"조회 API\",\n      \"useYn\": \"Y\",\n      \"authYn\": \"Y\",\n      \"crudClCd\": \"R\",\n      \"crudClNm\": \"읽기\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/menu/scren",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9100",
-              "path": [
-                "api",
-                "v1",
-                "com",
-                "common",
-                "menu",
-                "scren"
               ]
             }
           },
@@ -798,6 +711,89 @@
                   "key": "menuId",
                   "value": "COM-01-02-04"
                 }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "메뉴 등록,수정 - 존재여부 기준",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"menuId\": \"COM-01-02-04\",\n  \"chrgTaskGroupCd\": \"00\",\n  \"chrgTaskGroupNm\": \"string\",\n  \"menuTypeCd\": \"0\",\n  \"menuNm\": \"메뉴명\",\n  \"screnExcutClCd\": \"1\",\n  \"menuDesc\": \"메뉴설명입니다\",\n  \"menuStepVal\": 1,\n  \"sortSeqn\": 1,\n  \"useYn\": \"Y\",\n  \"menuExpseYn\": \"Y\",\n  \"superMenuId\": \"1\",\n  \"superMenuNm\": \"string\",\n  \"screnId\": \"string\",\n  \"screnNm\": \"string\",\n  \"screnDesc\": \"string\",\n  \"screnUrladdr\": \"string\",\n  \"screnClCd\": \"string\",\n  \"screnSizeClCd\": \"string\",\n  \"screnWidthSize\": 0,\n  \"screnVrtlnSize\": 0,\n  \"screnStartTopCodn\": 0,\n  \"screnStartLeftCodn\": 0,\n  \"linkaSystmTagCntnt\": \"string\",\n  \"shortcutSortSeqn\": 0,\n  \"bookmarkYN\": \"string\",\n  \"authYn\": \"string\",\n  \"newYn\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "화면 등록,수정 - 존재여부 기준(버튼 포함)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"screnId\": \"COM-CC0001\",\n  \"chrgTaskGroupCd\": \"00\",\n  \"chrgTaskGroupNm\": \"string\",\n  \"screnNm\": \"테스트화면\",\n  \"screnDesc\": \"테스트화면입니다.\",\n  \"screnUrladdr\": \"com-service/cmmnCd\",\n  \"useYn\": \"Y\",\n  \"screnClCd\": \"1\",\n  \"screnClNm\": \"string\",\n  \"screnSizeClCd\": \"1\",\n  \"screnWidthSize\": 100,\n  \"screnVrtlnSize\": 50,\n  \"screnStartTopCodn\": 50,\n  \"screnStartLeftCodn\": 50,\n  \"authYn\": \"string\",\n  \"bttnList\": [\n    {\n      \"screnId\": \"COM-CC0001\",\n      \"bttnId\": \"BTN001\",\n      \"bttnNm\": \"등록\",\n      \"bttnDesc\": \"등록기능\",\n      \"apiId\": 0,\n      \"apiNm\": \"조회 API\",\n      \"useYn\": \"Y\",\n      \"authYn\": \"Y\",\n      \"crudClCd\": \"R\",\n      \"crudClNm\": \"읽기\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/menu/scren",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "menu",
+                "scren"
               ]
             }
           },
@@ -1510,144 +1506,6 @@
       "name": "[API관리] API 기본정보 관리(ApiMgtResource)",
       "item": [
         {
-          "name": "API 기본목록 조회 - Application 그룹 ID 기준",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "accept",
-                "value": "*/*"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/apiMgt?aproGroupId=1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9100",
-              "path": [
-                "api",
-                "v1",
-                "com",
-                "common",
-                "apiMgt"
-              ],
-              "query": [
-                {
-                  "key": "aproGroupId",
-                  "value": "1"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "API 상세정보 조회 - API ID 기준",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "accept",
-                "value": "*/*"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiId?apiId=1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9100",
-              "path": [
-                "api",
-                "v1",
-                "com",
-                "common",
-                "apiMgt",
-                "apiId"
-              ],
-              "query": [
-                {
-                  "key": "apiId",
-                  "value": "1"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "API 기본목록 엑셀다운로드",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "accept",
-                "value": "*/*"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/excel",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9100",
-              "path": [
-                "api",
-                "v1",
-                "com",
-                "common",
-                "apiMgt",
-                "excel"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "API 리스트 조회 - 검색조건",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "accept",
-                "value": "*/*"
-              }
-            ],
-            "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiInfoByCondition?taskClCd=ISC",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9100",
-              "path": [
-                "api",
-                "v1",
-                "com",
-                "common",
-                "apiMgt",
-                "apiInfoByCondition"
-              ],
-              "query": [
-                {
-                  "key": "taskClCd",
-                  "value": "ISC"
-                },
-                {
-                  "key": "apiNmUrladdrDesc",
-                  "value": "Process Daily",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "API 기본정보 생성",
           "request": {
             "method": "POST",
@@ -1663,7 +1521,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"apiId\": 0,\n  \"aproGroupId\": 0,\n  \"apiNm\": \"테스트\",\n  \"apiDesc\": \"테스트입니다.\",\n  \"apiLocUrladdr\": \"/test\",\n  \"httMethodVal\": \"GET\",\n  \"apiReqCntnt\": \"String aproGroupId\",\n  \"apiRespCntnt\": \"String\",\n  \"aproTaskClCd\": \"ISC\",\n  \"aproTaskClCdNm\": \"string\",\n  \"aproGroupClNm\": \"테스트\"\n}",
+              "raw": "{\n  \"aproGroupId\": 1,\n  \"apiNm\": \"api name\",\n  \"apiDesc\": \"api desc.\",\n  \"apiLocUrladdr\": \"/test-api\",\n  \"httMethodVal\": \"GET\",\n  \"apiReqCntnt\": \"String aproGroupId\",\n  \"apiRespCntnt\": \"String\",\n  \"aproTaskClCd\": \"ISC\",\n  \"aproTaskClCdNm\": \"string\",\n  \"aproGroupClNm\": \"테스트\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1704,7 +1562,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"apiId\": 8,\n  \"aproGroupId\": 0,\n  \"apiNm\": \"테스트\",\n  \"apiDesc\": \"테스트입니다.\",\n  \"apiLocUrladdr\": \"/test1\",\n  \"httMethodVal\": \"GET\",\n  \"apiReqCntnt\": \"String aproGroupId 1\",\n  \"apiRespCntnt\": \"String\",\n  \"aproTaskClCd\": \"ISC\",\n  \"aproTaskClCdNm\": \"string\",\n  \"aproGroupClNm\": \"테스트\"\n}",
+              "raw": "{\n  \"apiId\": 8,\n  \"aproGroupId\": 1,\n  \"apiNm\": \"api name\",\n  \"apiDesc\": \"api desc.\",\n  \"apiLocUrladdr\": \"/test-api\",\n  \"httMethodVal\": \"GET\",\n  \"apiReqCntnt\": \"String aproGroupId 1\",\n  \"apiRespCntnt\": \"String\",\n  \"aproTaskClCd\": \"ISC\",\n  \"aproTaskClCdNm\": \"string\",\n  \"aproGroupClNm\": \"테스트\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1769,6 +1627,143 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "API 기본목록 조회 - Application 그룹 ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiMgt?aproGroupId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiMgt"
+              ],
+              "query": [
+                {
+                  "key": "aproGroupId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 상세정보 조회 - API ID 기준",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiId?apiId=8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiMgt",
+                "apiId"
+              ],
+              "query": [
+                {
+                  "key": "apiId",
+                  "value": "8"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 기본목록 엑셀다운로드",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/excel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiMgt",
+                "excel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API 리스트 조회 - 검색조건",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiInfoByCondition?taskClCd=COM&apiNmUrladdrDesc=api name",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "apiMgt",
+                "apiInfoByCondition"
+              ],
+              "query": [
+                {
+                  "key": "taskClCd",
+                  "value": "COM"
+                },
+                {
+                  "key": "apiNmUrladdrDesc",
+                  "value": "api name"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -1791,7 +1786,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"cmmnCd\": \"CHRG_TASK_GROUP_CD\",\n    \"chrgTaskGroupCd\": \"00\",\n    \"cmmnCdNm\": \"테스트코드\",\n    \"cmmnCdDesc\": \"테스트입니다\",\n    \"cmmnCdValLenth\": 5,\n    \"useYn\": \"Y\",\n    \"refrnAttrNm1\": \"참조속성명1\",\n    \"refrnAttrNm2\": \"참조속성명2\",\n    \"refrnAttrNm3\": \"참조속성명3\",\n    \"refrnAttrNm4\": \"참조속성명4\",\n    \"refrnAttrNm5\": \"참조속성명5\",\n    \"refrnAttrNm6\": \"참조속성명6\",\n    \"refrnAttrNm7\": \"참조속성명7\",\n    \"refrnAttrNm8\": \"참조속성명8\",\n    \"refrnAttrNm9\": \"참조속성명9\",\n    \"refrnAttrNm10\": \"참조속성명10\",\n    \"chrgTaskGroupNm\": \"공통\"\n}",
+              "raw": "{\n    \"cmmnCd\": \"CHRG_TASK_GROUP_CD_TEST\",\n    \"chrgTaskGroupCd\": \"00\",\n    \"cmmnCdNm\": \"테스트코드\",\n    \"cmmnCdDesc\": \"테스트입니다\",\n    \"cmmnCdValLenth\": 5,\n    \"useYn\": \"Y\",\n    \"refrnAttrNm1\": \"참조속성명1\",\n    \"refrnAttrNm2\": \"참조속성명2\",\n    \"refrnAttrNm3\": \"참조속성명3\",\n    \"refrnAttrNm4\": \"참조속성명4\",\n    \"refrnAttrNm5\": \"참조속성명5\",\n    \"refrnAttrNm6\": \"참조속성명6\",\n    \"refrnAttrNm7\": \"참조속성명7\",\n    \"refrnAttrNm8\": \"참조속성명8\",\n    \"refrnAttrNm9\": \"참조속성명9\",\n    \"refrnAttrNm10\": \"참조속성명10\",\n    \"chrgTaskGroupNm\": \"공통\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2028,7 +2023,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[\n  {\n    \"cmmnCd\": \"CHRG_TASK_GROUP_CD\",\n    \"cmmnCdNm\": \"string\",\n    \"cmmnCdVal\": \"00\",\n    \"cmmnCdValNm\": \"진행중\",\n    \"cmmnCdValDesc\": \"공통코드값내용\",\n    \"sortSeqn\": 1,\n    \"useYn\": \"Y\",\n    \"refrnAttrVal1\": \"참조속성명1\",\n    \"refrnAttrVal2\": \"참조속성명2\",\n    \"refrnAttrVal3\": \"참조속성명3\",\n    \"refrnAttrVal4\": \"참조속성명4\",\n    \"refrnAttrVal5\": \"참조속성명5\",\n    \"refrnAttrVal6\": \"참조속성명6\",\n    \"refrnAttrVal7\": \"참조속성명7\",\n    \"refrnAttrVal8\": \"참조속성명8\",\n    \"refrnAttrVal9\": \"참조속성명9\",\n    \"refrnAttrVal10\": \"참조속성명10\",\n    \"superCmmnCd\": \"C01\",\n    \"superCmmnCdNm\": \"string\",\n    \"superCmmnCdVal\": \"BBB\",\n    \"superCmmnCdValNm\": \"BBB\"\n  }\n]",
+              "raw": "[\n  {\n    \"cmmnCd\": \"CHRG_TASK_GROUP_CD\",\n    \"cmmnCdNm\": \"string\",\n    \"cmmnCdVal\": \"00\",\n    \"cmmnCdValNm\": \"진행중\",\n    \"cmmnCdValDesc\": \"공통코드값내용\",\n    \"sortSeqn\": 1,\n    \"useYn\": \"Y\",\n    \"refrnAttrVal1\": \"참조속성명1\",\n    \"refrnAttrVal2\": \"참조속성명2\",\n    \"refrnAttrVal3\": \"참조속성명3\",\n    \"refrnAttrVal4\": \"참조속성명4\",\n    \"refrnAttrVal5\": \"참조속성명5\",\n    \"refrnAttrVal6\": \"참조속성명6\",\n    \"refrnAttrVal7\": \"참조속성명7\",\n    \"refrnAttrVal8\": \"참조속성명8\",\n    \"refrnAttrVal9\": \"참조속성명9\",\n    \"refrnAttrVal10\": \"참조속성명10\",\n    \"superCmmnCd\": \"CHRG_TASK_GROUP_CD\",\n    \"superCmmnCdNm\": \"string\",\n    \"superCmmnCdVal\": \"CHRG_TASK_GROUP_CD\",\n    \"superCmmnCdValNm\": \"CHRG_TASK_GROUP_CD\"\n  }\n]",
               "options": {
                 "raw": {
                   "language": "json"
