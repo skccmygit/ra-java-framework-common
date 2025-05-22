@@ -33,13 +33,13 @@ public interface CommonClient {
                                        @RequestParam(required = false, value = "deptcdList") List<String> deptcdList,
                                        @RequestParam(required = false, value = "empno") String empno);
 
-    @GetMapping("/api/v1/com/common/menu/scren/use")
-    Page<ScrenDto> findUseScren(@RequestParam(required = false, value = "chrgTaskGroupCd") String chrgTaskGroupCd,
+    @GetMapping("/api/v1/com/common/menu/scren/useList")
+    List<ScrenDto> findUseScren(@RequestParam(required = false, value = "chrgTaskGroupCd") String chrgTaskGroupCd,
                                 @RequestParam(required = false, value = "screnClCd") String screnClCd,
                                 @RequestParam(required = false, value = "screnNm") String screnNm,
                                 @RequestParam(required = false, value = "isUnpaged") String isUnpaged);
 
     @GetMapping("/api/v1/com/common/apiMgt/apiId")
-    HashMap<String,String> findApiInfo(Integer apiId);
+    HashMap<String,String> findApiInfo(@RequestParam Integer apiId);
 }
 

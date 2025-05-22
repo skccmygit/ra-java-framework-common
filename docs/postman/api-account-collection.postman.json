@@ -21,7 +21,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/user?deptcdList=DEPT1,DEPT2&useridOrNm=john&useridStsCd=ACTIVE&deptNm=IT&fstRegDtmdFrom=2025-01-01&fstRegDtmdTo=2025-12-31&page=0&size=10&sort=id,desc",
+              "raw": "http://localhost:9101/api/v1/com/account/user?deptcdList=IT0002,IT0001&useridOrNm=USER00003&useridStsCd=L&deptNm=IT개발팀&fstRegDtmdFrom=2025-01-01&fstRegDtmdTo=2025-12-31&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -37,19 +37,19 @@
               "query": [
                 {
                   "key": "deptcdList",
-                  "value": "DEPT1,DEPT2"
+                  "value": "IT0002,IT0001"
                 },
                 {
                   "key": "useridOrNm",
-                  "value": "john"
+                  "value": "USER00003"
                 },
                 {
                   "key": "useridStsCd",
-                  "value": "ACTIVE"
+                  "value": "L"
                 },
                 {
                   "key": "deptNm",
-                  "value": "IT"
+                  "value": "IT개발팀"
                 },
                 {
                   "key": "fstRegDtmdFrom",
@@ -69,7 +69,8 @@
                 },
                 {
                   "key": "sort",
-                  "value": "id,desc"
+                  "value": "id,desc",
+                  "disabled": true
                 }
               ]
             }
@@ -90,7 +91,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/user/userid?userid=12345",
+              "raw": "http://localhost:9101/api/v1/com/account/user/userid?userid=USER00003",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -107,7 +108,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "12345"
+                  "value": "USER00003"
                 }
               ]
             }
@@ -129,7 +130,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n    \"userid\": \"12345\",\n    \"userNm\": \"John Doe\",\n    \"email\": \"john.doe@example.com\"\n}]",
+              "raw": "[{\n    \"userid\": \"SYSTEM1\",\n    \"userNm\": \"AliceB\",\n    \"userIpaddr\": \"192.168.43.217\",\n    \"userContPhno\": \"+82-1074938271\"\n}]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -169,7 +170,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[\"userid1\", \"userid2\", \"userid3\"]",
+              "raw": "[\"SYSTEM7\"]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -208,7 +209,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/user/noAuth?userid=12345",
+              "raw": "http://localhost:9101/api/v1/com/account/user/noAuth?userid=USER00001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -225,7 +226,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "12345"
+                  "value": "USER00001"
                 }
               ]
             }
@@ -246,7 +247,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/user/search?deptcdList=DEPT1,DEPT2&userNm=John",
+              "raw": "http://localhost:9101/api/v1/com/account/user/search?deptcdList=D004,DEPT2&userNm=DavidL",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -263,11 +264,11 @@
               "query": [
                 {
                   "key": "deptcdList",
-                  "value": "DEPT1,DEPT2"
+                  "value": "D004,DEPT2"
                 },
                 {
                   "key": "userNm",
-                  "value": "John"
+                  "value": "DavidL"
                 }
               ]
             }
@@ -289,7 +290,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[\"userid1\", \"userid2\", \"userid3\"]",
+              "raw": "[\"SYSTEM6\"]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -333,7 +334,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"userid\": \"12345\",\n    \"method\": \"SMS\"\n}",
+              "raw": "{\n    \"userid\": \"SYSTEM1\",\n    \"method\": \"email\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -373,7 +374,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/user/connPsswd/init?userid=12345",
+              "raw": "http://localhost:9101/api/v1/com/account/user/connPsswd/init?userid=SYSTEM1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -391,7 +392,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "12345"
+                  "value": "SYSTEM1"
                 }
               ]
             }
@@ -413,7 +414,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"userid\": \"12345\",\n    \"currentPassword\": \"oldpass\",\n    \"newPassword\": \"newpass\"\n}",
+              "raw": "{\n    \"userid\": \"SYSTEM1\",\n    \"oldConnPsswd\": \"44E19C4120648A1C7A77D105ECA328BCE112FFBB3EE7563F6A068BD14F5778B7C81A86CD8125E5B2A533B90BD3CF6F01BB5F4783198C531AE388B6F02CB97091\",\n    \"newConnPsswd\": \"AdK$4Mp@5Cq\",\n    \"newConnPsswdCheck\": \"AdK$4Mp@5Cq\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -455,7 +456,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest?page=0&size=10&userNm=홍길동&athrtyReqstOpDtmFrom=20250101&athrtyReqstOpDtmTo=20251231&athrtyReqstStsCd=PENDING",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest?userNm=Rooney&athrtyReqstOpDtmFrom=20250101000000&athrtyReqstOpDtmTo=20251231235959&athrtyReqstStsCd=U&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -470,28 +471,28 @@
               ],
               "query": [
                 {
+                  "key": "userNm",
+                  "value": "Rooney"
+                },
+                {
+                  "key": "athrtyReqstOpDtmFrom",
+                  "value": "20250101000000"
+                },
+                {
+                  "key": "athrtyReqstOpDtmTo",
+                  "value": "20251231235959"
+                },
+                {
+                  "key": "athrtyReqstStsCd",
+                  "value": "U"
+                },
+                {
                   "key": "page",
                   "value": "0"
                 },
                 {
                   "key": "size",
                   "value": "10"
-                },
-                {
-                  "key": "userNm",
-                  "value": "홍길동"
-                },
-                {
-                  "key": "athrtyReqstOpDtmFrom",
-                  "value": "20250101"
-                },
-                {
-                  "key": "athrtyReqstOpDtmTo",
-                  "value": "20251231"
-                },
-                {
-                  "key": "athrtyReqstStsCd",
-                  "value": "PENDING"
                 }
               ]
             }
@@ -510,7 +511,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"userid\": \"USER001\",\n    \"athrtyReqstStsCd\": \"PENDING\",\n    \"reqstReason\": \"업무 권한 필요\"\n}",
+              "raw": "{\n    \"userid\": \"USER001\",\n    \"athrtyReqstStsCd\": \"Q\",\n    \"reqstReason\": \"업무 권한 필요\",\n    \"indivInfoYn\": \"Y\",\n    \"reqstUserIpaddr\": \"192.168.10.1\",\n    \"reqstResonCntnt\": \"test api\",\n    \"rpaUserYn\": \"Y\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -547,7 +548,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"athrtyReqstSeqs\": [1, 2, 3],\n    \"procType\": \"REVIEW\",\n    \"procReason\": \"권한 검토 완료\"\n}",
+              "raw": "{\n    \"athrtyReqstSeq\": [1],\n    \"status\": \"CONFIRM\",\n    \"gvbkResonCntnt\": \"권한 검토 완료\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -583,7 +584,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/admin?userNm=홍길동&athrtyReqstOpDtmFrom=20250101&athrtyReqstOpDtmTo=20251231&athrtyReqstStsCd=PENDING&indivInfoYn=Y&page=0&size=10",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/admin?page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -600,23 +601,28 @@
               "query": [
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "athrtyReqstOpDtmFrom",
-                  "value": "20250101"
+                  "value": "20250101",
+                  "disabled": true
                 },
                 {
                   "key": "athrtyReqstOpDtmTo",
-                  "value": "20251231"
+                  "value": "20251231",
+                  "disabled": true
                 },
                 {
                   "key": "athrtyReqstStsCd",
-                  "value": "PENDING"
+                  "value": "PENDING",
+                  "disabled": true
                 },
                 {
                   "key": "indivInfoYn",
-                  "value": "Y"
+                  "value": "Y",
+                  "disabled": true
                 },
                 {
                   "key": "page",
@@ -678,7 +684,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n    \"athrtyReqstSeq\": 1,\n    \"userid\": \"USER001\",\n    \"athrtyReqstStsCd\": \"APPROVED\"\n}]",
+              "raw": "[\n    {\n        \"athrtyReqstSeq\": 1,\n        \"userid\": \"Admin\",\n        \"athrtyReqstStsCd\": \"C\",\n        \"apprvResonCntnt\": \"test api\",\n        \"chngResonCntnt\": \"test api\",\n        \"userAuthReqHiss\": [\n            {\n                \"athrtyReqstSeq\": 1,\n                \"athrtyReqstDtlSeq\": 1,\n                \"userRoleId\": \"C001\",\n                \"menuId\": \"COM-01-02-01\",\n                \"screnId\": \"COM-PM0002\",\n                \"bttnId\": \"BTN_SAVE\",\n                \"athrtyAddnYn\": \"Y\"\n            }\n        ]\n    }\n    \n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -715,7 +721,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/role/all?userid=USER001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/role/all?userid=Admin",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -733,7 +739,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "Admin"
                 }
               ]
             }
@@ -751,7 +757,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/menu/all?athrtyReqstSeq=1&menuNm=메인메뉴&userid=USER001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/menu/all?athrtyReqstSeq=1&menuNm=공통관리&userid=SYSTEM",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -773,11 +779,11 @@
                 },
                 {
                   "key": "menuNm",
-                  "value": "메인메뉴"
+                  "value": "공통관리"
                 },
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "SYSTEM"
                 }
               ]
             }
@@ -795,7 +801,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/scren/all?chrgTaskGroupCd=01&screnClCd=MAIN&screnNm=메인화면",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/scren/all",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -813,15 +819,18 @@
               "query": [
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "screnClCd",
-                  "value": "MAIN"
+                  "value": "MAIN",
+                  "disabled": true
                 },
                 {
                   "key": "screnNm",
-                  "value": "메인화면"
+                  "value": "메인화면",
+                  "disabled": true
                 }
               ]
             }
@@ -839,7 +848,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/bttn/all?athrtyReqstSeq=1&screnId=SCREEN001&userid=USER001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/bttn/all?athrtyReqstSeq=2&screnId=COM-CC0001&userid=Admin",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -857,15 +866,15 @@
               "query": [
                 {
                   "key": "athrtyReqstSeq",
-                  "value": "1"
+                  "value": "2"
                 },
                 {
                   "key": "screnId",
-                  "value": "SCREEN001"
+                  "value": "COM-CC0001"
                 },
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "Admin"
                 }
               ]
             }
@@ -919,7 +928,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/menu/request?athrtyReqstSeq=1&menuNm=메인메뉴",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/menu/request?athrtyReqstSeq=1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -941,7 +950,8 @@
                 },
                 {
                   "key": "menuNm",
-                  "value": "메인메뉴"
+                  "value": "공통관리",
+                  "disabled": true
                 }
               ]
             }
@@ -959,7 +969,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/scren/request?athrtyReqstSeq=1&chrgTaskGroupCd=01&screnNm=메인화면",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/scren/request?athrtyReqstSeq=1&chrgTaskGroupCd=00&screnNm=역할관리",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -981,11 +991,11 @@
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "00"
                 },
                 {
                   "key": "screnNm",
-                  "value": "메인화면"
+                  "value": "역할관리"
                 }
               ]
             }
@@ -1003,7 +1013,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/bttn/request?athrtyReqstSeq=1&screnId=SCREEN001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuthRequest/bttn/request?athrtyReqstSeq=1&screnId=COM-UM0003",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1025,7 +1035,7 @@
                 },
                 {
                   "key": "screnId",
-                  "value": "SCREEN001"
+                  "value": "COM-UM0003"
                 }
               ]
             }
@@ -1044,7 +1054,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"athrtyReqstSeq\": 1,\n    \"userid\": \"USER001\",\n    \"menuList\": [\"MENU001\", \"MENU002\"],\n    \"bttnList\": [\"BTN001\", \"BTN002\"]\n}",
+              "raw": "{\n  \"athrtyReqstSeq\": 2,\n  \"athrtyReqstStsCd\": \"A\",\n  \"athrtyReqstStsNm\": \"승인\",\n  \"userid\": \"Admin\",\n  \"reqstResonCntnt\": \"업무상 권한 필요\",\n  \"apprvResonCntnt\": \"업무 적합\",\n  \"indivInfoYn\": \"Y\",\n  \"rpaUserYn\": \"Y\",\n  \"reqstUserIpaddr\": \"192.168.0.10\",\n  \"chngResonCntnt\": \"권한 변경 요청\",\n  \"userAuthReqProcHiss\": [\n    {\n      \"athrtyReqstSeq\": 2,\n      \"athrtyReqstProcSeq\": 1,\n      \"athrtyReqstStsCd\": \"A\",\n      \"procUserId\": \"Admin\",\n      \"procDt\": \"2024-05-21\",\n      \"procResonCntnt\": \"승인 처리\"\n    }\n  ],\n  \"userAuthReqHiss\": [\n    {\n      \"athrtyReqstSeq\": 2,\n      \"athrtyReqstDtlSeq\": 1,\n      \"userRoleId\": \"C001\",\n      \"menuId\": \"COM-01-02-00\",\n      \"screnId\": \"COM-PM0002\",\n      \"bttnId\": \"BTN_SAVE\",\n      \"athrtyAddnYn\": \"Y\"\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1087,7 +1097,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/request?userNm=홍길동&useridReqstStsCd=PENDING&useridReqstDtFrom=20250101&useridReqstDtTo=20251231&page=0&size=10&sort=id,desc",
+              "raw": "http://localhost:9101/api/v1/com/account/request?userNm=Rooney&useridReqstStsCd=Q&useridReqstDtFrom=20250101&useridReqstDtTo=20251231&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1103,11 +1113,11 @@
               "query": [
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "Rooney"
                 },
                 {
                   "key": "useridReqstStsCd",
-                  "value": "PENDING"
+                  "value": "Q"
                 },
                 {
                   "key": "useridReqstDtFrom",
@@ -1127,7 +1137,8 @@
                 },
                 {
                   "key": "sort",
-                  "value": "id,desc"
+                  "value": "id,desc",
+                  "disabled": true
                 }
               ]
             }
@@ -1146,7 +1157,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"userid\": \"USER001\",\n    \"userNm\": \"홍길동\",\n    \"email\": \"hong.gd@company.com\",\n    \"userContPhno\": \"010-1234-5678\",\n    \"deptcd\": \"IT001\"\n}",
+              "raw": "{\n    \"userid\": \"E100005\",\n    \"reqstResonCntnt\": \"new employee\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1182,7 +1193,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/request/userid?userid=USER001",
+              "raw": "http://localhost:9101/api/v1/com/account/request/userid?userid=E100004",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1199,7 +1210,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "E100004"
                 }
               ]
             }
@@ -1336,7 +1347,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/agent?userInfo=홍길동&page=0&size=10",
+              "raw": "http://localhost:9101/api/v1/com/account/agent?userInfo=USER00001&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1352,7 +1363,7 @@
               "query": [
                 {
                   "key": "userInfo",
-                  "value": "홍길동"
+                  "value": "USER00001"
                 },
                 {
                   "key": "page",
@@ -1379,7 +1390,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[1, 2, 3]",
+              "raw": "[2]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1416,7 +1427,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"userid\": \"USER001\",\n    \"agentUserid\": \"AGENT001\",\n    \"agentStartDt\": \"20250101\",\n    \"agentEndDt\": \"20251231\",\n    \"agentReason\": \"휴가로 인한 대무자 지정\"\n}",
+              "raw": "{\n  \"agentRegSeq\": 2,\n  \"userDeptcd\": \"HR0001\",\n  \"userDeptNm\": \"인사팀\",\n  \"userid\": \"USER00001\",\n  \"userNm\": \"홍길동\",\n  \"agentDeptcd\": \"string\",\n  \"agentDeptNm\": \"string\",\n  \"agentId\": \"ADKD112\",\n  \"agentNm\": \"Agen test\",\n  \"deptcd\": \"IT0001\",\n  \"deptNm\": \"IT본부\",\n  \"agentStartDt\": \"20250521\",\n  \"agentEndSchdlDt\": \"20251231\",\n  \"agentEndDt\": \"20251231\",\n  \"endYn\": \"N\",\n  \"agentRegResonCntnt\": \"휴가로 인한 대무자 지정\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1457,7 +1468,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/menu?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&menuNm=메인메뉴&startDt=20250101&endDt=20251231&chngrNm=홍길동&page=0&size=10",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/menu?startDt=20250101&endDt=20251231&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1475,15 +1486,18 @@
               "query": [
                 {
                   "key": "userRoleNm",
-                  "value": "ADMIN_ROLE"
+                  "value": "ADMIN_ROLE",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "menuNm",
-                  "value": "메인메뉴"
+                  "value": "메인메뉴",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1495,7 +1509,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "page",
@@ -1521,7 +1536,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/menu/excel?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&menuNm=메인메뉴&startDt=20250101&endDt=20251231&chngrNm=홍길동",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/menu/excel?startDt=20250101&endDt=20251231",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1540,15 +1555,18 @@
               "query": [
                 {
                   "key": "userRoleNm",
-                  "value": "ADMIN_ROLE"
+                  "value": "ADMIN_ROLE",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "menuNm",
-                  "value": "메인메뉴"
+                  "value": "메인메뉴",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1560,7 +1578,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 }
               ]
             }
@@ -1578,7 +1597,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/scren?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&screnNm=메인화면&startDt=20250101&endDt=20251231&chngrNm=홍길동&page=0&size=10",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/scren?startDt=20250101&endDt=20251231&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1596,15 +1615,18 @@
               "query": [
                 {
                   "key": "userRoleNm",
-                  "value": "ADMIN_ROLE"
+                  "value": "ADMIN_ROLE",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "screnNm",
-                  "value": "메인화면"
+                  "value": "메인화면",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1616,7 +1638,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "page",
@@ -1642,7 +1665,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/scren/excel?userRoleNm=ADMIN_ROLE&chrgTaskGroupCd=01&screnNm=메인화면&startDt=20250101&endDt=20251231&chngrNm=홍길동",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/scren/excel?startDt=20250101&endDt=20251231",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1661,15 +1684,18 @@
               "query": [
                 {
                   "key": "userRoleNm",
-                  "value": "ADMIN_ROLE"
+                  "value": "ADMIN_ROLE",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "screnNm",
-                  "value": "메인화면"
+                  "value": "메인화면",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1681,7 +1707,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 }
               ]
             }
@@ -1699,7 +1726,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/user?userRoleNm=ADMIN_ROLE&userNm=홍길동&startDt=20250101&endDt=20251231&chngrNm=김관리&page=0&size=10",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/user?startDt=20250101&endDt=20251231&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1717,11 +1744,13 @@
               "query": [
                 {
                   "key": "userRoleNm",
-                  "value": "ADMIN_ROLE"
+                  "value": "ADMIN_ROLE",
+                  "disabled": true
                 },
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1733,7 +1762,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "김관리"
+                  "value": "김관리",
+                  "disabled": true
                 },
                 {
                   "key": "page",
@@ -1759,7 +1789,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/user/excel?userRoleNm=ADMIN_ROLE&userNm=홍길동&startDt=20250101&endDt=20251231&chngrNm=김관리",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/role/user/excel?startDt=20250101&endDt=20251231",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1778,11 +1808,13 @@
               "query": [
                 {
                   "key": "userRoleNm",
-                  "value": "ADMIN_ROLE"
+                  "value": "'AUTH_DEFAULT'",
+                  "disabled": true
                 },
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "'DavidL'",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1794,7 +1826,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "김관리"
+                  "value": "'SYSTEM'",
+                  "disabled": true
                 }
               ]
             }
@@ -1812,7 +1845,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/menu?userNm=홍길동&menuNm=메인메뉴&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리&page=0&size=10",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/menu?startDt=20250101&endDt=20251231&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1830,15 +1863,18 @@
               "query": [
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "menuNm",
-                  "value": "메인메뉴"
+                  "value": "메인메뉴",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1850,7 +1886,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "김관리"
+                  "value": "김관리",
+                  "disabled": true
                 },
                 {
                   "key": "page",
@@ -1876,7 +1913,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/menu/excel?userNm=홍길동&menuNm=메인메뉴&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/menu/excel?startDt=20250101&endDt=20251231",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1895,15 +1932,18 @@
               "query": [
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "menuNm",
-                  "value": "메인메뉴"
+                  "value": "메인메뉴",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1915,7 +1955,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "김관리"
+                  "value": "김관리",
+                  "disabled": true
                 }
               ]
             }
@@ -1933,7 +1974,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/scren?userNm=홍길동&screnNm=메인화면&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리&page=0&size=10",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/scren?startDt=20250101&endDt=20251231&page=0&size=10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1951,15 +1992,18 @@
               "query": [
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "screnNm",
-                  "value": "메인화면"
+                  "value": "메인화면",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -1971,7 +2015,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "김관리"
+                  "value": "김관리",
+                  "disabled": true
                 },
                 {
                   "key": "page",
@@ -1997,7 +2042,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/scren/excel?userNm=홍길동&screnNm=메인화면&chrgTaskGroupCd=01&startDt=20250101&endDt=20251231&chngrNm=김관리",
+              "raw": "http://localhost:9101/api/v1/com/account/authHist/user/scren/excel?startDt=20250101&endDt=20251231",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2016,15 +2061,18 @@
               "query": [
                 {
                   "key": "userNm",
-                  "value": "홍길동"
+                  "value": "홍길동",
+                  "disabled": true
                 },
                 {
                   "key": "screnNm",
-                  "value": "메인화면"
+                  "value": "메인화면",
+                  "disabled": true
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "01"
+                  "value": "01",
+                  "disabled": true
                 },
                 {
                   "key": "startDt",
@@ -2036,7 +2084,8 @@
                 },
                 {
                   "key": "chngrNm",
-                  "value": "김관리"
+                  "value": "김관리",
+                  "disabled": true
                 }
               ]
             }
@@ -2059,7 +2108,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authNumer?userid=USER001&method=SMS",
+              "raw": "http://localhost:9101/api/v1/com/account/authNumer?userid=E100001&method=sms",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2075,11 +2124,11 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "E100001"
                 },
                 {
                   "key": "method",
-                  "value": "SMS"
+                  "value": "sms"
                 }
               ]
             }
@@ -2097,7 +2146,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/authNumer/auth?userid=USER001&authNumber=123456",
+              "raw": "http://localhost:9101/api/v1/com/account/authNumer/auth?userid=E100001&authNumber=418379",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2114,11 +2163,11 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "E100001"
                 },
                 {
                   "key": "authNumber",
-                  "value": "123456"
+                  "value": "418379"
                 }
               ]
             }
@@ -2180,7 +2229,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"userid\": \"USER001\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n    \"refreshToken\": \"550e8400-e29b-41d4-a716-446655440000\"\n}",
+              "raw": "{\n    \"userid\": \"ADMIN00001\",\n    \"accessToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJST0xFIjpbXSwiQUNDT1VOVF9JRCI6IkFETUlOMDAwMDEiLCJleHAiOjE3NDczODkwNzcsImlhdCI6MTc0NzM4ODE3N30.F96nhL2_TOCVvdN43d9VIZKMORqqpMhq8VLTPxWT5rfy4NQAzgN6VNPEp3ifTqAIXOlFNu5jxZ0vpHEIqOOQjw\",\n    \"refreshToken\": \"bada533c-37de-4a9f-a49a-87beefc00720\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2401,7 +2450,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"roleId\": \"ROLE_ADMIN\",\n    \"roleNm\": \"Administrator\",\n    \"useYn\": \"Y\"\n}",
+              "raw": "{\n    \"userRoleId\": \"T001\",\n    \"userRoleNm\": \"TEST\",\n    \"userRoleDesc\": \"update role after test create new\",\n    \"lockAthrtyClCd\": \"Y\",\n    \"userAthrtyGroupCd\": \"X\",\n    \"useYn\": \"N\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2438,7 +2487,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"roleId\": \"ROLE_ADMIN\",\n    \"roleNm\": \"Administrator\",\n    \"useYn\": \"Y\"\n}",
+              "raw": "{\n    \"userRoleId\": \"T001\",\n    \"userRoleNm\": \"TEST\",\n    \"userRoleDesc\": \"test create new\",\n    \"lockAthrtyClCd\": \"Y\",\n    \"userAthrtyGroupCd\": \"X\",\n    \"useYn\": \"N\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2474,7 +2523,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/userRoleId?userRoleId=ROLE_ADMIN",
+              "raw": "http://localhost:9101/api/v1/com/account/role/userRoleId?userRoleId=T001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2491,7 +2540,7 @@
               "query": [
                 {
                   "key": "userRoleId",
-                  "value": "ROLE_ADMIN"
+                  "value": "T001"
                 }
               ]
             }
@@ -2509,7 +2558,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/user/\n?userRoleId=ROLE_ADMIN&deptcdList=IT0001,IT0002&userNm=김민수",
+              "raw": "http://localhost:9101/api/v1/com/account/role/user?userRoleId=C001&deptcdList=IT0001,IT0002&userNm=시스템관리자",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2521,13 +2570,12 @@
                 "com",
                 "account",
                 "role",
-                "user",
-                "\n"
+                "user"
               ],
               "query": [
                 {
                   "key": "userRoleId",
-                  "value": "ROLE_ADMIN"
+                  "value": "C001"
                 },
                 {
                   "key": "deptcdList",
@@ -2535,7 +2583,7 @@
                 },
                 {
                   "key": "userNm",
-                  "value": "김민수"
+                  "value": "시스템관리자"
                 }
               ]
             }
@@ -2554,7 +2602,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n    \"userRoleId\": \"ROLE_ADMIN\",\n    \"userId\": \"USER001\"\n}]",
+              "raw": "[\n\t{\n\n    \"userRoleId\": \"C002\",\n    \"userid\" : \"SYSTEM4\",\n\t\"useYn\": \"Y\",\n    \"athrtyReqstSeq\": 1,\n\t\"chngResonCntnt\": \"create\"\n\t},\n\t{\n    \"userRoleId\": \"Z001\",\n    \"userid\" : \"SYSTEM4\",\n\t\"useYn\": \"N\",\n    \"athrtyReqstSeq\": 2,\n\t\"chngResonCntnt\": \"create\"\n\t}\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2591,7 +2639,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/menu?userRoleId=ROLE_ADMIN",
+              "raw": "http://localhost:9101/api/v1/com/account/role/menu?userRoleId=Admin",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2608,7 +2656,7 @@
               "query": [
                 {
                   "key": "userRoleId",
-                  "value": "ROLE_ADMIN"
+                  "value": "Admin"
                 }
               ]
             }
@@ -2627,7 +2675,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n    \"userRoleId\": \"ROLE_ADMIN\",\n    \"menuId\": \"MENU001\"\n}]",
+              "raw": "[\n    {\n        \"userRoleId\": \"C001\",\n        \"menuId\": \"COM-01-00-00\",\n        \"athrtyReqstSeq\": 1,\n        \"chngResonCntnt\": \"Change for test api\"\n    }\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2660,11 +2708,12 @@
             "header": [
               {
                 "key": "Accept",
-                "value": "application/json"
+                "value": "application/json",
+                "disabled": true
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/scren/\n?userRoleId=ROLE_ADMIN&chrgTaskGroupCd=001&screnClCd=001&screnNm=메인화면",
+              "raw": "http://localhost:9101/api/v1/com/account/role/scren?userRoleId=C001&chrgTaskGroupCd=00&screnClCd=1&screnNm=공통코드 관리",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2676,25 +2725,24 @@
                 "com",
                 "account",
                 "role",
-                "scren",
-                "\n"
+                "scren"
               ],
               "query": [
                 {
                   "key": "userRoleId",
-                  "value": "ROLE_ADMIN"
+                  "value": "C001"
                 },
                 {
                   "key": "chrgTaskGroupCd",
-                  "value": "001"
+                  "value": "00"
                 },
                 {
                   "key": "screnClCd",
-                  "value": "001"
+                  "value": "1"
                 },
                 {
                   "key": "screnNm",
-                  "value": "메인화면"
+                  "value": "공통코드 관리"
                 }
               ]
             }
@@ -2712,7 +2760,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/bttn?userRoleId=ROLE_ADMIN&screnId=SCREEN001",
+              "raw": "http://localhost:9101/api/v1/com/account/role/bttn?userRoleId=C001&screnId=COM-CC0001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2729,11 +2777,11 @@
               "query": [
                 {
                   "key": "userRoleId",
-                  "value": "ROLE_ADMIN"
+                  "value": "C001"
                 },
                 {
                   "key": "screnId",
-                  "value": "SCREEN001"
+                  "value": "COM-CC0001"
                 }
               ]
             }
@@ -2751,7 +2799,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/dept?deptOrTeamNm=IT본부",
+              "raw": "http://localhost:9101/api/v1/com/account/role/dept",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2768,7 +2816,8 @@
               "query": [
                 {
                   "key": "deptOrTeamNm",
-                  "value": "IT본부"
+                  "value": "R%26D",
+                  "disabled": true
                 }
               ]
             }
@@ -2787,7 +2836,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n    \"roleDeptTeamCd\": \"IT0001\",\n    \"roleMappReofoCd\": \"001\"\n}]",
+              "raw": "[{\n    \"roleDeptTeamCd\": \"IT0001\",\n    \"roleMappReofoCd\": \"001\",\n    \"roleDeptTeamClCd\": \"\",\n    \"accntCratAutoYn\": \"Y\",\n    \"useYn\": \"Y\"\n}]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2860,7 +2909,7 @@
                 {
                   "key": "file",
                   "type": "file",
-                  "src": "role_mappings.xlsx"
+                  "src": "/C:/Users/anhnt389/Downloads/roleMappingFormat.xlsx"
                 }
               ]
             },
@@ -2940,7 +2989,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n    \"userRoleId\": \"ROLE_ADMIN\",\n    \"screnId\": \"SCREEN001\",\n    \"bttnId\": \"BTN001\",\n    \"useYn\": \"Y\"\n}]",
+              "raw": "[{\n    \"userRoleId\": \"C001\",\n    \"screnId\": \"COM-UL0002\",\n    \"bttnId\": \"BTN_EXPORT\",\n    \"authYn\": \"Y\",\n    \"athrtyReqstSeq\": 2,\n    \"chngResonCntnt\": \"test api\"\n}]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2977,7 +3026,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/user/userid?userid=USER001",
+              "raw": "http://localhost:9101/api/v1/com/account/role/user/userid?userid=SYSTEM",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2995,7 +3044,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "SYSTEM"
                 }
               ]
             }
@@ -3013,7 +3062,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/menu/menuId?menuId=MENU001",
+              "raw": "http://localhost:9101/api/v1/com/account/role/menu/menuId?menuId=COM-01-00-00",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -3031,7 +3080,7 @@
               "query": [
                 {
                   "key": "menuId",
-                  "value": "MENU001"
+                  "value": "COM-01-00-00"
                 }
               ]
             }
@@ -3049,7 +3098,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/scren/screnId?screnId=SCREEN001",
+              "raw": "http://localhost:9101/api/v1/com/account/role/scren/screnId?screnId=COM-CC0001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -3067,7 +3116,7 @@
               "query": [
                 {
                   "key": "screnId",
-                  "value": "SCREEN001"
+                  "value": "COM-CC0001"
                 }
               ]
             }
@@ -3085,7 +3134,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole/\n?roleDeptTeamCd=IT0001\\\n&roleMappReofoCd=001",
+              "raw": "http://localhost:9101/api/v1/com/account/role/deptRole?roleDeptTeamCd=IT0001&roleMappReofoCd=001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -3097,13 +3146,12 @@
                 "com",
                 "account",
                 "role",
-                "deptRole",
-                "\n"
+                "deptRole"
               ],
               "query": [
                 {
                   "key": "roleDeptTeamCd",
-                  "value": "IT0001\\\n"
+                  "value": "IT0001"
                 },
                 {
                   "key": "roleMappReofoCd",
@@ -3126,7 +3174,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[{\n    \"roleDeptTeamCd\": \"IT0001\",\n    \"roleMappReofoCd\": \"001\",\n    \"userRoleId\": \"ROLE_ADMIN\"\n}]",
+              "raw": "[\n    {\n        \"userRoleDeptDto\": {\n            \"roleDeptTeamCd\": \"FIN003\",\n            \"roleMappReofoCd\": \"2003\",\n            \"roleDeptTeamClCd\": \"A\",\n            \"accntCratAutoYn\": \"Y\",\n            \"useYn\": \"Y\"\n        },\n        \"userRoleDeptMappingDtoList\": [\n            {\n                \"userRoleId\": \"C002\",\n                \"authYn\": \"Y\",\n                \"athrtyReqstSeq\": 1,\n                \"chngResonCntnt\": \"this is for test\"\n            }\n        ]\n    }\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3864,7 +3912,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuth/userid?userid=USER001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/userid?userid=Admin",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -3881,7 +3929,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "Admin"
                 }
               ]
             }
@@ -3899,7 +3947,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren?userid=USER001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren?userid=Admin",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -3916,7 +3964,7 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "Admin"
                 }
               ]
             }
@@ -3934,7 +3982,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren/bttn?userid=USER001&screnId=SCREEN001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren/bttn?userid=Admin&screnId=COM-CC0001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -3952,11 +4000,11 @@
               "query": [
                 {
                   "key": "userid",
-                  "value": "USER001"
+                  "value": "Admin"
                 },
                 {
                   "key": "screnId",
-                  "value": "SCREEN001"
+                  "value": "COM-CC0001"
                 }
               ]
             }
@@ -3974,7 +4022,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuth/menu?menuId=MENU001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/menu?menuId=COM-01-02-01",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -3991,7 +4039,7 @@
               "query": [
                 {
                   "key": "menuId",
-                  "value": "MENU001"
+                  "value": "COM-01-02-01"
                 }
               ]
             }
@@ -4009,7 +4057,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren/bttn/auth?screnId=SCREEN001",
+              "raw": "http://localhost:9101/api/v1/com/account/userAuth/scren/bttn/auth?screnId=COM-CC0001",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -4028,7 +4076,7 @@
               "query": [
                 {
                   "key": "screnId",
-                  "value": "SCREEN001"
+                  "value": "COM-CC0001"
                 }
               ]
             }
