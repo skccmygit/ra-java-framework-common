@@ -179,6 +179,10 @@ springdoc:
 4. The Swagger Account Api will be available at `http://localhost:9101/api/com/account/swagger-ui/index.html`
    ![swager-account.png](docs/imgs/swagger-account.png)
 
+> [!NOTE]
+> For further details, please refer to the Postman collection located in the docs/postman folder.
+
+
 ## Running the Application with H2 Database
 
 1. Start the Common Service:
@@ -263,6 +267,9 @@ Physic ERD
 > Please import them into your database using the scripts provided in the directory described below
 ```
 docs/
+    ├── postman
+    │   └── api-account-collection.postman.json
+    │   └── api-common-collection.postman.json
     ├── test-api-instructions
     │   └── data-sample.sql
 ```

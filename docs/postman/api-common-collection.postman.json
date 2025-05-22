@@ -1737,7 +1737,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiInfoByCondition?taskClCd=COM&apiNmUrladdrDesc=api name",
+              "raw": "http://localhost:9100/api/v1/com/common/apiMgt/apiInfoByCondition?taskClCd=ISC&apiNmUrladdrDesc=api descs",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1754,11 +1754,11 @@
               "query": [
                 {
                   "key": "taskClCd",
-                  "value": "COM"
+                  "value": "ISC"
                 },
                 {
                   "key": "apiNmUrladdrDesc",
-                  "value": "api name"
+                  "value": "api desc"
                 }
               ]
             }
