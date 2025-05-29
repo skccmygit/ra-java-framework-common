@@ -2405,6 +2405,324 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "[공지사항] 공지사항 관리(BoardResource)",
+      "item": [
+        {
+          "name": "공지사항 조회 - 공지사항 조건 검색-일반",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "annceTaskClCd",
+                  "value": "TASK01",
+                  "type": "text"
+                },
+                {
+                  "key": "annceCtgrClCd",
+                  "value": "CTGR01",
+                  "type": "text"
+                },
+                {
+                  "key": "annceTitleNmOrAnnceCntnt",
+                  "value": "공지",
+                  "type": "text"
+                },
+                {
+                  "key": "regDtmdFrom",
+                  "value": "2024-01-01",
+                  "type": "text"
+                },
+                {
+                  "key": "regDtmdTo",
+                  "value": "2024-12-31",
+                  "type": "text"
+                },
+                {
+                  "key": "expirationYn",
+                  "value": "N",
+                  "type": "text"
+                },
+                {
+                  "key": "delYn",
+                  "value": "N",
+                  "type": "text"
+                },
+                {
+                  "key": "page",
+                  "value": "0",
+                  "type": "text"
+                },
+                {
+                  "key": "size",
+                  "value": "10",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/board?annceTaskClCd=&annceCtgrClCd=&annceTitleNmOrAnnceCntnt=신규 서비스 오픈&regDtmdFrom=20240101&regDtmdTo=20251231&expirationYn=Y&delYn=N&page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "board"
+              ],
+              "query": [
+                {
+                  "key": "annceTaskClCd",
+                  "value": ""
+                },
+                {
+                  "key": "annceCtgrClCd",
+                  "value": ""
+                },
+                {
+                  "key": "annceTitleNmOrAnnceCntnt",
+                  "value": "신규 서비스 오픈"
+                },
+                {
+                  "key": "regDtmdFrom",
+                  "value": "20240101"
+                },
+                {
+                  "key": "regDtmdTo",
+                  "value": "20251231"
+                },
+                {
+                  "key": "expirationYn",
+                  "value": "Y"
+                },
+                {
+                  "key": "delYn",
+                  "value": "N"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "공지사항 조회 - 상세내용 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/board/annceNo?annceNo=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "board",
+                "annceNo"
+              ],
+              "query": [
+                {
+                  "key": "annceNo",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "공지사항 등록 - 신규 공지사항 등록",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "boardDto",
+                  "value": "{\"annceTitleNm\":\"제목\", \"annceCntnt\":\"내용\", \"annceTaskClCd\": \"01\", \"annceCtgrClCd\": \"01\", \"annceStartDtm\": \"20250501T00:01\", \"annceEndDtm\": \"20251231T23:59\", \"superAnnceStartDtm\": \"20251231T23:59\", \"superAnnceEndDtm\": \"20251231T23:59\"}",
+                  "contentType": "application/json",
+                  "type": "text"
+                },
+                {
+                  "key": "boardFileList",
+                  "type": "file",
+                  "src": "/C:/Users/anhnt389/Downloads/PDF/images/logo.svg"
+                },
+                {
+                  "key": "boardAuthDtoList",
+                  "value": "[{\"annceObjSeq\":1,\"annceObjDeptClCd\":\"01\",\"annceObjDeptTeamCd\":\"D001\"}]",
+                  "contentType": "application/json",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/board/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "board",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "공지사항 수정 - 기 등록된 공지사항 내용 수정",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "boardDto",
+                  "value": "{\"annceNo\": 2,\"annceTitleNm\": \"신규 서비스 오픈 update\",\"annceCntnt\": \"신규 서비스가 2025년 6월 5일 오픈됩니다. update\",\"annceTaskClCd\": \"02\",\"annceTaskClNm\": null,\"annceCtgrClCd\": \"02\",\"annceCtgrClNm\": null,\"annceStartDtm\": \"20250605090000\",\"annceEndDtm\": \"20250605180000\",\"superAnnceStartDtm\": null,\"superAnnceEndDtm\": null,\"regUserid\": \"SYSTEM\",\"regUserNm\": \"JohnS\",\"expirationYn\": \"N\",\"delYn\": \"Y\",\"cnt\": 2,\"seqNum\": 1}",
+                  "contentType": "application/json",
+                  "type": "text"
+                },
+                {
+                  "key": "boardFileList",
+                  "type": "file",
+                  "src": [],
+                  "disabled": true
+                },
+                {
+                  "key": "boardAuthDtoList",
+                  "value": "[{\"annceObjSeq\":1,\"annceObjDeptClCd\":\"01\",\"annceObjDeptTeamCd\":\"D001\"}]",
+                  "contentType": "application/json",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/board/modify",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "board",
+                "modify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "공지사항 삭제 - 기 등록된 공지사항 삭제(flag 처리)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[2]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/board/delete",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "board",
+                "delete"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "공지사항 권한체크 - 사용자별 게시글 대한 권한 체크",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9100/api/v1/com/common/board/userAuth?annceNo=1&deptcd=D001&cucenTeamCd=01",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9100",
+              "path": [
+                "api",
+                "v1",
+                "com",
+                "common",
+                "board",
+                "userAuth"
+              ],
+              "query": [
+                {
+                  "key": "annceNo",
+                  "value": "1"
+                },
+                {
+                  "key": "deptcd",
+                  "value": "D001"
+                },
+                {
+                  "key": "cucenTeamCd",
+                  "value": "01"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }
