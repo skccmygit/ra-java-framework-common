@@ -70,14 +70,16 @@ public class BoardServiceImpl implements BoardService {
         if (annceTaskClCd == null) annceTaskClCd = "";
         if (annceCtgrClCd == null) annceCtgrClCd = "";
         if (annceTitleNmOrAnnceCntnt == null) annceTitleNmOrAnnceCntnt = "";
-        if (regDtmdFrom == null || "".equals(regDtmdFrom)) regDtmdFrom = "00010101";
+        if (expirationYn == null) expirationYn = "N";
+        if (delYn == null) delYn = "N";
+        if (regDtmdFrom == null || regDtmdFrom.isEmpty()) regDtmdFrom = "00010101";
         LocalDateTime regDtmdFromL = LocalDate.parse(regDtmdFrom, DateTimeFormatter.ofPattern("yyyyMMdd")).atStartOfDay();
-        if (regDtmdTo == null || "".equals(regDtmdTo)) regDtmdTo = "99991230";
+        if (regDtmdTo == null || regDtmdTo.isEmpty()) regDtmdTo = "99991230";
         LocalDateTime regDtmdToL = LocalDate.parse(regDtmdTo, DateTimeFormatter.ofPattern("yyyyMMdd")).atStartOfDay().plusDays(1);
 
         boolean isAdmin = false;
         List<String> roleList = RequestUtil.getLoginUserRoleList();
-        if(roleList.contains(AuthType.IT_ADMIN) || roleList.contains(AuthType.AUTH_DEVELOPER)){
+        if(roleList.contains(AuthType.IT_ADMIN.getCode()) || roleList.contains(AuthType.AUTH_DEVELOPER.getCode())){
             isAdmin = true;
         }
         log.info("isAdmin : {}", isAdmin);
@@ -140,7 +142,7 @@ public class BoardServiceImpl implements BoardService {
 
         boolean isAdmin = false;
         List<String> roleList = RequestUtil.getLoginUserRoleList();
-        if(roleList.contains(AuthType.IT_ADMIN) || roleList.contains(AuthType.AUTH_DEVELOPER)){
+        if(roleList.contains(AuthType.IT_ADMIN.getCode()) || roleList.contains(AuthType.AUTH_DEVELOPER.getCode())){
             isAdmin = true;
         }
 
@@ -176,7 +178,7 @@ public class BoardServiceImpl implements BoardService {
 
         boolean isAdmin = false;
         List<String> roleList = RequestUtil.getLoginUserRoleList();
-        if(roleList.contains(AuthType.IT_ADMIN) || roleList.contains(AuthType.AUTH_DEVELOPER)){
+        if(roleList.contains(AuthType.IT_ADMIN.getCode()) || roleList.contains(AuthType.AUTH_DEVELOPER.getCode())){
             isAdmin = true;
         }
 
