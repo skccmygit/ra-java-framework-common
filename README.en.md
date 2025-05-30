@@ -6,7 +6,7 @@ This project is designed to streamline enterprise application development by off
 
 Key features identified:
 - **Common Service**  
-  Provides menu management, code management, user activity logging, database routing, and utility APIs. Built with Spring Boot for easy integration.
+  Provides menu management, code management, user activity logging, database routing, bulletin board,  and utility APIs. Built with Spring Boot for easy integration.
 
 - **Account Service**  
   Handles authentication, authorization, and management of user accounts across their entire lifecycle.
